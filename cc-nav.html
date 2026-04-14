@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/web/assets/images/favicon_cc.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC Nav Component — Cardone Capital Design System v6 NOVA</title>
+
+  <!-- ─── Tailwind CSS v3 CDN ─── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ─── Alpine.js v3 CDN ─── -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- ─── @fontsource — Exo 2 + Barlow + Barlow Condensed (no Google Fonts) ─── -->
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/900.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/600.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/500.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/400.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css">
+
+  <!-- ─── Tailwind config: extend with NOVA tokens ─── -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display:    ['"Exo 2"', 'Arial', 'sans-serif'],
+            body:       ['Barlow', 'system-ui', 'sans-serif'],
+            condensed:  ['"Barlow Condensed"', 'Barlow', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            void:     '#072d51',
+            carbon:   '#00152a',
+            card:     '#002139',
+            raised:   '#153043',
+            'border-d': '#1c3a43',
+            amber: {
+              50:  '#FFF4DD',
+              100: '#FFD06B',
+              400: '#FF9F0A',
+              600: '#CC7C00',
+              800: '#7A4A00',
+            },
+            ice: {
+              50:  '#D8F8FF',
+              200: '#6AE8FF',
+              400: '#00D4FF',
+              600: '#008FAA',
+            },
+          },
+          transitionTimingFunction: {
+            spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── NOVA Design System CSS tokens ── */
+    :root {
+      --fe: 'Exo 2', Arial, sans-serif;
+      --fb: 'Barlow', system-ui, sans-serif;
+      --fc: 'Barlow Condensed', Barlow, Arial, sans-serif;
+
+      /* Depth layers */
+      --void:     #072d51;
+      --carbon:   #00152a;
+      --card:     #002139;
+      --raised:   #153043;
+      --border-d: #1c3a43;
+
+      /* Brand */
+      --amber-100: #FFD06B;
+      --amber-400: #FF9F0A;
+      --amber-600: #CC7C00;
+      --ice-400:   #00D4FF;
+
+      /* Text */
+      --text-heading: #FFFFFF;
+      --text-body:    #BEC5D4;
+      --text-muted:   #5C7A8A;
+
+      /* Nav */
+      --nav-h: 72px;
+
+      /* Gradient stops */
+      --btn-primary: linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+
+      /* Transitions */
+      --t-fast: 150ms ease;
+      --t-base: 250ms ease;
+      --t-slow: 400ms ease;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--fb);
+      background: #000d1c;
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      min-height: 200vh; /* demo scroll space */
+    }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 9999;
+      padding: 8px 20px;
+      background: var(--amber-400);
+      color: #000;
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: top 150ms ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* ── Nav wrapper — TRANSPARENT STATE ── */
+    .cc-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      /* Transparent on load */
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        backdrop-filter 0.35s ease;
+      will-change: background, backdrop-filter;
+    }
+
+    /* ── Nav wrapper — SCROLLED / GLASS STATE ── */
+    .cc-nav.is-scrolled {
+      background: linear-gradient(
+        135deg,
+        rgba(7, 45, 81, 0.88)  0%,
+        rgba(0, 21, 42, 0.82)  50%,
+        rgba(28, 58, 67, 0.78) 100%
+      );
+      border-bottom-color: rgba(255, 159, 10, 0.15);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255,159,10,0.08);
+      backdrop-filter: blur(16px) saturate(1.3);
+      -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    }
+
+    /* ── Logo mark — amber gradient square with CC initials ── */
+    .cc-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(255, 159, 10, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle inner highlight */
+    .cc-logo-mark::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 50%;
+      height: 50%;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px 0 0 0;
+    }
+
+    .cc-logo-mark__text {
+      font-family: var(--fe);
+      font-weight: 900;
+      font-size: 13px;
+      color: #000e1c;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cc-logo-wordmark {
+      font-family: var(--fc);
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.88);
+      margin-left: 10px;
+      white-space: nowrap;
+      transition: color var(--t-fast);
+    }
+
+    .cc-logo-wordmark span {
+      color: var(--amber-400);
+    }
+
+    /* ── Nav link base ── */
+    .cc-nav-link {
+      font-family: var(--fc);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.65);
+      padding: 6px 11px;
+      border-radius: 5px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color var(--t-fast), background var(--t-fast);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: relative;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      background: none;
+      user-select: none;
+    }
+
+    .cc-nav-link:hover,
+    .cc-nav-link.active {
+      color: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .cc-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 11px;
+      right: 11px;
+      height: 2px;
+      background: var(--amber-400);
+      border-radius: 2px;
+    }
+
+    /* ── Dropdown caret ── */
+    .nav-caret {
+      width: 10px;
+      height: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 1px;
+    }
+
+    .nav-caret svg {
+      width: 8px;
+      height: 5px;
+    }
+
+    /* ── Dropdown panel ── */
+    .cc-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 220px;
+      background: linear-gradient(
+        160deg,
+        rgba(0, 26, 48, 0.98) 0%,
+        rgba(0, 14, 30, 0.97) 100%
+      );
+      border: 1px solid rgba(255, 159, 10, 0.18);
+      border-radius: 12px;
+      padding: 6px 0;
+      box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.55),
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transform-origin: top center;
+    }
+
+    /* Dropdown connector arrow */
+    .cc-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 26, 48, 0.98);
+      border-left: 1px solid rgba(255, 159, 10, 0.18);
+      border-top:  1px solid rgba(255, 159, 10, 0.18);
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    /* ── Dropdown item ── */
+    .cc-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      font-family: var(--fb);
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color var(--t-fast), background var(--t-fast), padding-left var(--t-fast);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .cc-dropdown-item:hover {
+      color: rgba(255,255,255,0.95);
+      background: rgba(255,159,10,0.07);
+      padding-left: 20px;
+    }
+
+    /* Fund badge dot on dropdown items */
+    .cc-dropdown-item__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-amber { background: var(--amber-400); box-shadow: 0 0 6px rgba(255,159,10,0.5); }
+    .dot-ice   { background: var(--ice-400);   box-shadow: 0 0 6px rgba(0,212,255,0.4); }
+    .dot-muted { background: var(--text-muted); }
+
+    .cc-dropdown-separator {
+      height: 1px;
+      background: rgba(28,58,67,0.7);
+      margin: 5px 16px;
+    }
+
+    .cc-dropdown-label {
+      padding: 8px 16px 4px;
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* ── Investor Login (subdued — NOT a CTA) ── */
+    .nav-investor-login {
+      font-family: var(--fb);
+      font-weight: 600;
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      padding: 0 8px;
+      transition: color var(--t-fast);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-investor-login:hover {
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── CTA: Book a Call (outlined amber) ── */
+    .btn-book-call {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--amber-400);
+      background: rgba(255,159,10,0.06);
+      border: 1px solid rgba(255,159,10,0.38);
+      border-radius: 7px;
+      padding: 8px 16px;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition:
+        background var(--t-fast),
+        border-color var(--t-fast),
+        transform var(--t-fast),
+        box-shadow var(--t-fast);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-book-call:hover {
+      background: rgba(255,159,10,0.12);
+      border-color: rgba(255,159,10,0.65);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(255,159,10,0.18);
+    }
+
+    .btn-book-call:active { transform: scale(0.97); }
+
+    /* ── CTA: Invest Now (gradient amber fill) ── */
+    .btn-invest-now {
+      font-family: var(--fb);
+      font-weight: 800;
+      font-size: 13px;
+      color: #000e1c;
+      background: linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+      border: none;
+      border-radius: 7px;
+      padding: 9px 18px;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      box-shadow: 0 2px 14px rgba(255,159,10,0.28);
+      transition:
+        opacity var(--t-fast),
+        transform var(--t-fast),
+        box-shadow var(--t-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shimmer sweep */
+    .btn-invest-now::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+      transition: left 0.5s ease;
+    }
+
+    .btn-invest-now:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255,159,10,0.42);
+      opacity: 0.95;
+    }
+
+    .btn-invest-now:hover::after { left: 140%; }
+    .btn-invest-now:active { transform: scale(0.97); }
+
+    /* ── Hamburger button ── */
+    .cc-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .cc-hamburger__bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 2px;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.2s ease, width 0.2s ease;
+      transform-origin: center;
+    }
+
+    /* Open = X */
+    [data-hamburger-open="true"] .cc-hamburger__bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    [data-hamburger-open="true"] .cc-hamburger__bar:nth-child(2) {
+      opacity: 0;
+      width: 0;
+    }
+    [data-hamburger-open="true"] .cc-hamburger__bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ── Mobile full-screen overlay ── */
+    .cc-mobile-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* Backdrop */
+      background:
+        radial-gradient(ellipse 80% 60% at 90% 10%, rgba(255,159,10,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 5% 90%, rgba(0,212,255,0.05) 0%, transparent 50%),
+        rgba(0, 8, 18, 0.98);
+      backdrop-filter: blur(24px) saturate(1.2);
+      -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    }
+
+    /* Fine scanline texture */
+    .cc-mobile-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 47px,
+          rgba(0,212,255,0.018) 47px,
+          rgba(0,212,255,0.018) 48px
+        );
+      z-index: 0;
+    }
+
+    /* ── Mobile nav items ── */
+    .cc-mobile-link {
+      font-family: var(--fe);
+      font-weight: 800;
+      font-size: clamp(22px, 5.5vw, 30px);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color var(--t-fast);
+      display: block;
+      padding: 4px 0;
+    }
+
+    .cc-mobile-link:hover,
+    .cc-mobile-link:focus { color: rgba(255,255,255,0.98); }
+
+    /* ── Mobile accordion trigger ── */
+    .cc-mobile-accordion-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-family: var(--fe);
+      font-weight: 800;
+      font-size: clamp(22px, 5.5vw, 30px);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: -0.01em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 4px 0;
+      transition: color var(--t-fast);
+    }
+
+    .cc-mobile-accordion-trigger:hover { color: rgba(255,255,255,0.98); }
+
+    .cc-mobile-accordion-trigger.is-open { color: var(--amber-400); }
+    .cc-mobile-accordion-trigger.is-open-ice { color: var(--ice-400); }
+
+    /* Accordion icon (+ / −) */
+    .cc-accordion-icon {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color var(--t-fast), transform 0.25s ease, background var(--t-fast);
+    }
+
+    .cc-mobile-accordion-trigger.is-open .cc-accordion-icon,
+    .cc-mobile-accordion-trigger.is-open-ice .cc-accordion-icon {
+      transform: rotate(45deg);
+      border-color: rgba(255,159,10,0.4);
+      background: rgba(255,159,10,0.08);
+    }
+
+    /* ── Mobile sub-items (inside accordion) ── */
+    .cc-mobile-sub-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 0;
+      font-family: var(--fb);
+      font-weight: 600;
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color var(--t-fast), padding-left var(--t-fast);
+      border-bottom: 1px solid rgba(28,58,67,0.35);
+    }
+
+    .cc-mobile-sub-item:last-child { border-bottom: none; }
+    .cc-mobile-sub-item:hover { color: rgba(255,255,255,0.9); padding-left: 6px; }
+
+    /* ── Mobile divider ── */
+    .cc-mobile-divider {
+      height: 1px;
+      background: rgba(28,58,67,0.6);
+      margin: 6px 0;
+    }
+
+    /* ── Mobile Spanish note ── */
+    .cc-mobile-spanish {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.14);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background var(--t-fast);
+    }
+
+    .cc-mobile-spanish:hover { background: rgba(0,212,255,0.09); }
+
+    .cc-mobile-spanish__text {
+      font-family: var(--fb);
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .cc-mobile-spanish__cta {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--ice-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-left: auto;
+    }
+
+    /* ── Mobile pinned CTA bar ── */
+    .cc-mobile-cta-bar {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 24px 28px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0,8,18,0.96) 30%,
+        rgba(0,8,18,0.99) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid rgba(255,159,10,0.12);
+      z-index: 1;
+    }
+
+    /* Full-width variants for mobile pinned bar */
+    .btn-invest-now--full,
+    .btn-book-call--full {
+      width: 100%;
+      justify-content: center;
+      border-radius: 9px;
+      font-size: 14px;
+      padding: 13px 20px;
+    }
+
+    .btn-invest-now--full {
+      font-weight: 800;
+    }
+
+    .btn-book-call--full {
+      background: rgba(255,159,10,0.06);
+    }
+
+    /* ── Alpine.js enter/leave transitions in CSS ── */
+    /* Dropdown open/close */
+    [x-cloak] { display: none !important; }
+
+    /* ── Demo page backdrop (to show the nav in context) ── */
+    .demo-bg {
+      min-height: 200vh;
+      background:
+        radial-gradient(ellipse 60% 80% at 92% 5%, rgba(255,159,10,0.18) 0%, rgba(255,159,10,0.04) 35%, transparent 60%),
+        radial-gradient(ellipse 55% 70% at 5% 95%, rgba(0,212,255,0.12) 0%, rgba(0,212,255,0.03) 35%, transparent 58%),
+        linear-gradient(160deg, #001020 0%, #000d1c 40%, #001525 100%);
+      padding-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .demo-label {
+      font-family: var(--fb);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .demo-scroll-hint {
+      margin-top: 12px;
+      font-family: var(--fb);
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      animation: bounce 2s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ── Focus ring ── */
+    :focus-visible {
+      outline: 2px solid var(--amber-400);
+      outline-offset: 3px;
+      border-radius: 5px;
+    }
+
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* ── Responsive: desktop = lg (1024px+) ── */
+    @media (max-width: 1023px) {
+      .cc-nav__desktop-links,
+      .cc-nav__desktop-utils { display: none; }
+      .cc-hamburger { display: flex; }
+    }
+
+    @media (min-width: 1024px) {
+      .cc-hamburger { display: none; }
+    }
+
+    /* ── Smooth overlay transitions ── */
+    .overlay-enter {
+      animation: overlayIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .overlay-leave {
+      animation: overlayOut 0.25s ease forwards;
+    }
+
+    @keyframes overlayIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes overlayOut {
+      from { opacity: 1; transform: translateY(0); }
+      to   { opacity: 0; transform: translateY(-8px); }
+    }
+
+    /* Stagger mobile nav items */
+    .cc-mobile-overlay > .mobile-nav-inner > .mobile-item {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item {
+      animation: mobileItemIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(1) { animation-delay: 0.06s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(2) { animation-delay: 0.10s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(3) { animation-delay: 0.13s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(4) { animation-delay: 0.16s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(5) { animation-delay: 0.19s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(6) { animation-delay: 0.22s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(7) { animation-delay: 0.25s; }
+    .cc-mobile-overlay.overlay-enter > .mobile-nav-inner > .mobile-item:nth-child(8) { animation-delay: 0.28s; }
+
+    @keyframes mobileItemIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Reduce motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SKIP LINK (accessibility)
+═══════════════════════════════════════════════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     CC NAV — Alpine.js x-data root
+     ─────────────────────────────────────────────────────────────────────────
+     State:
+       scrolled        — true when window.scrollY > 20 → activates glass morphism
+       investOpen      — Invest dropdown visible
+       academyOpen     — 10X Academy dropdown visible
+       mobileOpen      — Mobile overlay visible
+       mobileInvestOpen — Mobile Invest accordion expanded
+       mobileAcademyOpen — Mobile Academy accordion expanded
+═══════════════════════════════════════════════════════════════════════════ -->
+<header
+  x-data="{
+    scrolled: false,
+    investOpen: false,
+    academyOpen: false,
+    mobileOpen: false,
+    mobileInvestOpen: false,
+    mobileAcademyOpen: false,
+
+    /* ── Scroll listener ── */
+    initScroll() {
+      this.scrolled = window.scrollY > 20;
+      window.addEventListener('scroll', () => {
+        this.scrolled = window.scrollY > 20;
+      }, { passive: true });
+    },
+
+    /* ── Close all dropdowns ── */
+    closeAll() {
+      this.investOpen  = false;
+      this.academyOpen = false;
+    },
+
+    /* ── Toggle dropdowns (close other on open) ── */
+    toggleInvest() {
+      const wasOpen = this.investOpen;
+      this.closeAll();
+      this.investOpen = !wasOpen;
+    },
+
+    toggleAcademy() {
+      const wasOpen = this.academyOpen;
+      this.closeAll();
+      this.academyOpen = !wasOpen;
+    },
+
+    /* ── Toggle mobile overlay + lock body scroll ── */
+    toggleMobile() {
+      this.mobileOpen = !this.mobileOpen;
+      document.body.style.overflow = this.mobileOpen ? 'hidden' : '';
+      if (!this.mobileOpen) {
+        this.mobileInvestOpen  = false;
+        this.mobileAcademyOpen = false;
+      }
+    },
+
+    closeMobile() {
+      this.mobileOpen = false;
+      document.body.style.overflow = '';
+      this.mobileInvestOpen  = false;
+      this.mobileAcademyOpen = false;
+    },
+
+    /* ── Keyboard: close dropdowns on Escape ── */
+    handleKeydown(e) {
+      if (e.key === 'Escape') {
+        this.closeAll();
+        this.closeMobile();
+      }
+    }
+  }"
+  x-init="initScroll()"
+  @keydown.escape.window="handleKeydown($event)"
+  role="banner"
+>
+
+  <!-- ─── NAV BAR ──────────────────────────────────────────────────────────── -->
+  <nav
+    class="cc-nav"
+    :class="{ 'is-scrolled': scrolled }"
+    aria-label="Main navigation"
+  >
+    <div class="w-full max-w-screen-2xl mx-auto px-6 lg:px-16 flex items-center" style="height: var(--nav-h);">
+
+      <!-- ── LOGO ── -->
+      <a
+        href="/web/"
+        class="flex items-center flex-shrink-0 mr-6"
+        aria-label="Cardone Capital — Home"
+      >
+        <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+      </a>
+
+      <!-- ──────────────────────────────────────────────────────────────────
+           DESKTOP NAV LINKS
+      ─────────────────────────────────────────────────────────────────── -->
+      <nav
+        class="cc-nav__desktop-links hidden lg:flex items-center gap-0.5 flex-1"
+        aria-label="Primary navigation"
+      >
+
+        <!-- ── Invest ▾ (dropdown) ── -->
+        <div class="relative" @click.outside="investOpen = false">
+          <button
+            class="cc-nav-link"
+            :class="{ 'active': investOpen }"
+            @click="toggleInvest()"
+            :aria-expanded="investOpen.toString()"
+            aria-haspopup="true"
+            aria-controls="invest-dropdown"
+            id="invest-trigger"
+          >
+            Invest
+            <span class="nav-caret" :style="investOpen ? 'transform:rotate(180deg)' : ''">
+              <svg viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <!-- Invest Dropdown -->
+          <div
+            id="invest-dropdown"
+            class="cc-dropdown"
+            x-show="investOpen"
+            x-cloak
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+            x-transition:leave-end="opacity-0"
+            role="menu"
+            aria-labelledby="invest-trigger"
+          >
+            <span class="cc-dropdown-label">Active Funds</span>
+
+            <a href="/web/fund29/" class="cc-dropdown-item" role="menuitem">
+              <span class="cc-dropdown-item__dot dot-amber" aria-hidden="true"></span>
+              <span>
+                Fund 29
+                <span style="display:block; font-size:10px; color:var(--text-muted); font-weight:400; margin-top:1px;">Real Estate + Bitcoin</span>
+              </span>
+            </a>
+
+            <a href="/web/fund30/" class="cc-dropdown-item" role="menuitem">
+              <span class="cc-dropdown-item__dot dot-ice" aria-hidden="true"></span>
+              <span>
+                Fund 30
+                <span style="display:block; font-size:10px; color:var(--text-muted); font-weight:400; margin-top:1px;">Cash Only Distributions</span>
+              </span>
+            </a>
+
+            <div class="cc-dropdown-separator" role="separator"></div>
+            <span class="cc-dropdown-label">Investing Options</span>
+
+            <a href="/web/ira-401k/" class="cc-dropdown-item" role="menuitem">
+              <span class="cc-dropdown-item__dot dot-muted" aria-hidden="true"></span>
+              IRA / 401k
+            </a>
+
+            <a href="/web/portfolio/" class="cc-dropdown-item" role="menuitem">
+              <span class="cc-dropdown-item__dot dot-muted" aria-hidden="true"></span>
+              All Properties
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Portfolio ── -->
+        <a href="/web/portfolio/" class="cc-nav-link">Portfolio</a>
+
+        <!-- ── Company ── -->
+        <a href="/web/company/" class="cc-nav-link">Company</a>
+
+        <!-- ── Team ── -->
+        <a href="/web/team/" class="cc-nav-link">Team</a>
+
+        <!-- ── 10X Academy ▾ (dropdown) ── -->
+        <div class="relative" @click.outside="academyOpen = false">
+          <button
+            class="cc-nav-link"
+            :class="{ 'active': academyOpen }"
+            @click="toggleAcademy()"
+            :aria-expanded="academyOpen.toString()"
+            aria-haspopup="true"
+            aria-controls="academy-dropdown"
+            id="academy-trigger"
+          >
+            10X Academy
+            <span class="nav-caret" :style="academyOpen ? 'transform:rotate(180deg)' : ''">
+              <svg viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <!-- Academy Dropdown -->
+          <div
+            id="academy-dropdown"
+            class="cc-dropdown"
+            x-show="academyOpen"
+            x-cloak
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+            x-transition:leave-end="opacity-0"
+            role="menu"
+            aria-labelledby="academy-trigger"
+          >
+            <span class="cc-dropdown-label">Free Resources</span>
+
+            <a href="/web/academy/bitcoin-real-estate/" class="cc-dropdown-item" role="menuitem">
+              <!-- Bitcoin icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0; color:var(--amber-400)">
+                <circle cx="7" cy="7" r="6.25" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5 4.5h3.2c.8 0 1.3.5 1.3 1.2 0 .5-.3.9-.8 1.1.6.2 1 .6 1 1.3 0 .9-.7 1.4-1.6 1.4H5V4.5ZM6.2 6.4h1.8c.3 0 .5-.2.5-.5s-.2-.5-.5-.5H6.2v1Zm0 2.3h2c.35 0 .6-.22.6-.57 0-.34-.25-.57-.6-.57H6.2V8.7Z" fill="currentColor"/>
+              </svg>
+              <span>
+                Bitcoin + RE Strategy
+                <span style="display:block; font-size:10px; color:var(--text-muted); font-weight:400; margin-top:1px;">Pillar article + free guide</span>
+              </span>
+            </a>
+
+            <a href="/web/academy/real-estate-101/" class="cc-dropdown-item" role="menuitem">
+              <!-- Building icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0; color:var(--text-muted)">
+                <rect x="2" y="3" width="10" height="9" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5 12V8h4v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M5 6h1M8 6h1M5 4h1M8 4h1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span>
+                RE Investing 101
+                <span style="display:block; font-size:10px; color:var(--text-muted); font-weight:400; margin-top:1px;">Beginner to advanced</span>
+              </span>
+            </a>
+
+            <a href="/web/academy/ira-401k-guide/" class="cc-dropdown-item" role="menuitem">
+              <!-- Shield icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0; color:var(--text-muted)">
+                <path d="M7 1.5L2 3.5v4c0 2.5 2 4.5 5 5 3-0.5 5-2.5 5-5v-4L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M4.5 7l1.8 1.8 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>
+                IRA &amp; 401k Guide
+                <span style="display:block; font-size:10px; color:var(--text-muted); font-weight:400; margin-top:1px;">Self-directed IRA strategy</span>
+              </span>
+            </a>
+
+            <div class="cc-dropdown-separator" role="separator"></div>
+
+            <a href="/web/academy/faq/" class="cc-dropdown-item" role="menuitem">
+              <!-- Question icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0; color:var(--text-muted)">
+                <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5.5 5.5c0-0.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5c0 1-1.5 1.25-1.5 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="7" cy="10" r="0.6" fill="currentColor"/>
+              </svg>
+              FAQ
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Contact ── -->
+        <a href="/web/contact/" class="cc-nav-link">Contact</a>
+
+      </nav>
+
+      <!-- ──────────────────────────────────────────────────────────────────
+           DESKTOP UTILITY LINKS (right side)
+      ─────────────────────────────────────────────────────────────────── -->
+      <div class="cc-nav__desktop-utils hidden lg:flex items-center gap-3 ml-auto flex-shrink-0">
+
+        <!-- Investor Login (subdued — NOT a CTA) -->
+        <a
+          href="https://investors.appfolioim.com/cardonecapital/investor/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-investor-login"
+          aria-label="Investor Login — opens in new tab"
+        >
+          Investor Login ↗
+        </a>
+
+        <!-- Thin separator -->
+        <span aria-hidden="true" style="width:1px; height:16px; background:rgba(28,58,67,0.8); flex-shrink:0;"></span>
+
+        <!-- Book a Call (secondary outlined amber) -->
+        <a href="/web/schedule/" class="btn-book-call" aria-label="Book a call with our investor relations team">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 2h8v8H2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M4 1v2M8 1v2M2 5h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          Book a Call
+        </a>
+
+        <!-- Invest Now (primary gradient amber) -->
+        <a href="/web/invest/" class="btn-invest-now">
+          Invest Now
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M2 9L9 2M9 2H3.5M9 2V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- ──────────────────────────────────────────────────────────────────
+           MOBILE: Right-side area (logo spacer + hamburger)
+      ─────────────────────────────────────────────────────────────────── -->
+      <div class="flex items-center gap-3 ml-auto lg:hidden">
+        <!-- Minimal Invest Now on mobile header (small) -->
+        <a
+          href="/web/invest/"
+          class="btn-invest-now hidden sm:flex"
+          style="font-size:11px; padding:7px 13px;"
+          aria-label="Invest Now"
+        >
+          Invest Now →
+        </a>
+
+        <!-- Hamburger -->
+        <button
+          class="cc-hamburger"
+          :data-hamburger-open="mobileOpen"
+          @click="toggleMobile()"
+          :aria-expanded="mobileOpen.toString()"
+          aria-controls="cc-mobile-overlay"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="cc-hamburger__bar"></span>
+          <span class="cc-hamburger__bar"></span>
+          <span class="cc-hamburger__bar"></span>
+        </button>
+      </div>
+
+    </div><!-- /inner -->
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE FULL-SCREEN OVERLAY
+       ───────────────────────────────────────────────────────────────────
+       Stacked items:
+         – Invest (accordion ▾)
+         – Portfolio
+         – Company
+         – Team
+         – 10X Academy (accordion ▾)
+         – Contact
+         – [divider]
+         – Investor Login ↗
+         – [divider]
+         – Spanish note → /lp/es/
+         [Pinned bottom bar]
+           – Book a Call (outlined)
+           – Invest Now → (gradient)
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <div
+    id="cc-mobile-overlay"
+    class="cc-mobile-overlay"
+    :class="mobileOpen ? 'overlay-enter' : ''"
+    x-show="mobileOpen"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation"
+  >
+
+    <!-- Top bar: logo + close -->
+    <div
+      class="flex items-center justify-between flex-shrink-0"
+      style="height: var(--nav-h); padding: 0 24px; border-bottom: 1px solid rgba(28,58,67,0.5); position:relative; z-index:1;"
+    >
+      <a
+        href="/web/"
+        class="flex items-center gap-2.5"
+        @click="closeMobile()"
+        aria-label="Cardone Capital — Home"
+      >
+        <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+      </a>
+
+      <button
+        @click="closeMobile()"
+        class="flex items-center justify-center w-10 h-10 rounded-lg"
+        style="background:rgba(28,58,67,0.5); border:1px solid rgba(28,58,67,0.9);"
+        aria-label="Close navigation"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 2L14 14M14 2L2 14" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── Scrollable nav items ── -->
+    <div
+      class="mobile-nav-inner flex-1 overflow-y-auto relative z-10"
+      style="padding: 32px 24px 24px;"
+    >
+
+      <!-- ── INVEST accordion ── mobile-item for stagger animation -->
+      <div class="mobile-item">
+        <button
+          class="cc-mobile-accordion-trigger w-full"
+          :class="mobileInvestOpen ? 'is-open' : ''"
+          @click="mobileInvestOpen = !mobileInvestOpen"
+          :aria-expanded="mobileInvestOpen.toString()"
+        >
+          Invest
+          <span class="cc-accordion-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Invest sub-items -->
+        <div
+          x-show="mobileInvestOpen"
+          x-cloak
+          x-transition:enter="transition ease-out duration-150"
+          x-transition:enter-start="opacity-0 -translate-y-2"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-100"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-2"
+          style="padding: 8px 0 4px; margin-left: 16px; border-left: 1px solid rgba(255,159,10,0.18);"
+        >
+          <!-- Fund 29 -->
+          <a href="/web/fund29/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span class="cc-dropdown-item__dot dot-amber" style="width:7px;height:7px;" aria-hidden="true"></span>
+            <span>
+              Fund 29
+              <span style="display:block; font-size:11px; color:var(--text-muted); font-weight:400;">Real Estate + Bitcoin</span>
+            </span>
+          </a>
+          <!-- Fund 30 -->
+          <a href="/web/fund30/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span class="cc-dropdown-item__dot dot-ice" style="width:7px;height:7px;" aria-hidden="true"></span>
+            <span>
+              Fund 30
+              <span style="display:block; font-size:11px; color:var(--text-muted); font-weight:400;">Cash Only Distributions</span>
+            </span>
+          </a>
+          <!-- IRA -->
+          <a href="/web/ira-401k/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span class="cc-dropdown-item__dot dot-muted" style="width:7px;height:7px;" aria-hidden="true"></span>
+            IRA / 401k
+          </a>
+          <!-- All Properties -->
+          <a href="/web/portfolio/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span class="cc-dropdown-item__dot dot-muted" style="width:7px;height:7px;" aria-hidden="true"></span>
+            All Properties
+          </a>
+        </div>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── PORTFOLIO ── -->
+      <div class="mobile-item" style="padding: 4px 0;">
+        <a href="/web/portfolio/" class="cc-mobile-link" @click="closeMobile()">Portfolio</a>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── COMPANY ── -->
+      <div class="mobile-item" style="padding: 4px 0;">
+        <a href="/web/company/" class="cc-mobile-link" @click="closeMobile()">Company</a>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── TEAM ── -->
+      <div class="mobile-item" style="padding: 4px 0;">
+        <a href="/web/team/" class="cc-mobile-link" @click="closeMobile()">Team</a>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── 10X ACADEMY accordion ── -->
+      <div class="mobile-item">
+        <button
+          class="cc-mobile-accordion-trigger w-full"
+          :class="mobileAcademyOpen ? 'is-open-ice' : ''"
+          @click="mobileAcademyOpen = !mobileAcademyOpen"
+          :aria-expanded="mobileAcademyOpen.toString()"
+        >
+          10X Academy
+          <span class="cc-accordion-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Academy sub-items -->
+        <div
+          x-show="mobileAcademyOpen"
+          x-cloak
+          x-transition:enter="transition ease-out duration-150"
+          x-transition:enter-start="opacity-0 -translate-y-2"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-100"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-2"
+          style="padding: 8px 0 4px; margin-left: 16px; border-left: 1px solid rgba(0,212,255,0.18);"
+        >
+          <a href="/web/academy/bitcoin-real-estate/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span style="font-size:14px;" aria-hidden="true">₿</span>
+            Bitcoin + RE Strategy
+          </a>
+          <a href="/web/academy/real-estate-101/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span style="font-size:14px; color:var(--text-muted);" aria-hidden="true">🏢</span>
+            RE Investing 101
+          </a>
+          <a href="/web/academy/ira-401k-guide/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span style="font-size:14px; color:var(--text-muted);" aria-hidden="true">🛡</span>
+            IRA &amp; 401k Guide
+          </a>
+          <a href="/web/academy/faq/" class="cc-mobile-sub-item" @click="closeMobile()" style="padding-left:16px;">
+            <span style="font-size:14px; color:var(--text-muted);" aria-hidden="true">?</span>
+            FAQ
+          </a>
+        </div>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── CONTACT ── -->
+      <div class="mobile-item" style="padding: 4px 0;">
+        <a href="/web/contact/" class="cc-mobile-link" @click="closeMobile()">Contact</a>
+        <div class="cc-mobile-divider" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- ── Investor Login (subdued) ── -->
+      <div class="mobile-item" style="padding: 12px 0 4px;">
+        <a
+          href="https://investors.appfolioim.com/cardonecapital/investor/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            font-family: var(--fb);
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.28);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            letter-spacing: 0.02em;
+          "
+          aria-label="Investor Login — opens in new tab"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5 2H2v8h8V7M7 2h3m0 0v3M10 2 5.5 6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Investor Login (AppFolio) ↗
+        </a>
+        <div class="cc-mobile-divider" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- ── Spanish note ── -->
+      <div class="mobile-item" style="padding: 8px 0 0;">
+        <a
+          href="/web/lp/es/?utm_source=mobile-nav&utm_medium=site-wide"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cc-mobile-spanish"
+          aria-label="¿Hablas Español? — Enlace a la página en español, abre en nueva pestaña"
+        >
+          <span style="font-size:18px; line-height:1;" aria-hidden="true">🇲🇽</span>
+          <div>
+            <div class="cc-mobile-spanish__text">¿Prefiere hablar en español?</div>
+            <div style="font-family:var(--fb); font-size:11px; color:rgba(255,255,255,0.3); margin-top:1px;">Nuestro equipo está listo para atenderle.</div>
+          </div>
+          <span class="cc-mobile-spanish__cta">Ver →</span>
+        </a>
+      </div>
+
+    </div><!-- /mobile-nav-inner -->
+
+    <!-- ── PINNED BOTTOM CTA BAR ── -->
+    <div class="cc-mobile-cta-bar" aria-label="Primary calls to action">
+      <!-- Book a Call (outlined) — above Invest Now -->
+      <a
+        href="/web/schedule/"
+        class="btn-book-call btn-book-call--full"
+        @click="closeMobile()"
+        aria-label="Book a free investor call"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1.5" y="2.5" width="11" height="10" rx="1.2" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M5 1.5v2M9 1.5v2M1.5 6h11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Book a Free Call
+      </a>
+
+      <!-- Invest Now (gradient amber) — bottom-most = most prominent -->
+      <a
+        href="/web/invest/"
+        class="btn-invest-now btn-invest-now--full"
+        @click="closeMobile()"
+        aria-label="Invest Now — go to investment options"
+      >
+        Invest Now
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <path d="M2.5 10.5L10 3M10 3H4.5M10 3v5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+  <!-- /mobile overlay -->
+
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DEMO CONTENT — Shows nav in context. Remove in production.
+═══════════════════════════════════════════════════════════════════════════ -->
+<main id="main-content" class="demo-bg" aria-label="Demo content">
+
+  <!-- Demo status panel -->
+  <div
+    style="
+      background: rgba(0,21,42,0.7);
+      border: 1px solid rgba(28,58,67,0.8);
+      border-radius: 14px;
+      padding: 32px 40px;
+      max-width: 560px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+    "
+  >
+    <!-- Live nav state badge -->
+    <div
+      style="
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0,200,150,0.1);
+        border: 1px solid rgba(0,200,150,0.25);
+        border-radius: 999px;
+        padding: 4px 12px;
+        margin-bottom: 20px;
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #00C896;
+      "
+    >
+      <span
+        style="
+          width:6px; height:6px; border-radius:50%;
+          background:#00C896;
+          animation: livePulse 2s ease infinite;
+        "
+        aria-hidden="true"
+      ></span>
+      Nav State: <span x-data="{}" x-text="$store?.nav?.scrolled ? 'Glass Morphism' : 'Transparent'" style="color:#fff; margin-left:2px;">Live</span>
+    </div>
+
+    <h1
+      style="
+        font-family: var(--fe);
+        font-weight: 900;
+        font-size: clamp(26px, 5vw, 38px);
+        color: #fff;
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      "
+    >
+      CC Nav<br>
+      <span style="background: linear-gradient(135deg, #FFD06B, #FF9F0A, #FF8000); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+        NOVA v6
+      </span>
+    </h1>
+
+    <p style="font-family:var(--fb); font-size:13px; color:var(--text-body); line-height:1.65; margin-bottom:20px;">
+      Scroll down to see the transparent nav transition to glass morphism.
+      Tap the hamburger on mobile to see the full-screen overlay.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+      <span style="font-family:var(--fb); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; background:rgba(255,159,10,0.1); border:1px solid rgba(255,159,10,0.25); border-radius:999px; color:var(--amber-400);">Tailwind CSS</span>
+      <span style="font-family:var(--fb); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:999px; color:var(--ice-400);">Alpine.js v3</span>
+      <span style="font-family:var(--fb); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; background:rgba(28,58,67,0.7); border:1px solid rgba(28,58,67,0.9); border-radius:999px; color:var(--text-muted);">NOVA Design System</span>
+      <span style="font-family:var(--fb); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; background:rgba(0,200,150,0.1); border:1px solid rgba(0,200,150,0.25); border-radius:999px; color:#00C896;">WCAG 2.2 AA</span>
+    </div>
+  </div>
+
+  <div class="demo-scroll-hint" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 4v12M5 11l5 5 5-5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div style="font-size:11px; margin-top:4px;">Scroll to activate glass nav</div>
+  </div>
+
+</main>
+
+<!-- ── Pulse animation for demo badge ── -->
+<style>
+  @keyframes livePulse {
+    0%, 100% { opacity:1; transform:scale(1); }
+    50%       { opacity:0.5; transform:scale(0.7); }
+  }
+</style>
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  INTEGRATION NOTES
+  ─────────────────────────────────────────────────────────────────────────────
+  1. IMPORT BEFORE PAGE CSS:
+     <link rel="stylesheet" href="/web/css/cc-design-system.css">
+     <!-- Then this component's styles are already in cc-design-system.css §10 -->
+
+  2. REPLACE LOGO:
+     Swap .cc-logo-mark + .cc-logo-wordmark with:
+     <img src="/web/img/cc-logo-white.svg" alt="Cardone Capital" width="140" height="32">
+
+  3. ACTIVE STATE:
+     Add class="active" to the .cc-nav-link matching the current URL.
+     Server-side: compare request.path to each href.
+     Next.js: use usePathname() hook.
+
+  4. ANALYTICS EVENTS (GTM / GA4):
+     Add data-event="nav_cta_click" data-label="invest_now" to .btn-invest-now
+     Add data-event="nav_cta_click" data-label="book_a_call" to .btn-book-call
+     Add data-event="nav_dropdown_open" data-label="invest" to Invest button
+     Add data-event="nav_dropdown_open" data-label="academy" to Academy button
+
+  5. HUBSPOT PORTAL ID:
+     Replace [HUBSPOT_PORTAL_ID] in hs-scripts.com tracker if adding to <head>.
+
+  6. NEXT.JS MIGRATION:
+     - Move <header> block → components/Nav.tsx
+     - Replace x-data with useState / useEffect
+     - Replace @click.outside with useRef + useEffect document click handler
+     - Replace x-show with conditional rendering + Framer Motion transitions
+     - Replace x-transition with AnimatePresence + motion.div
+═══════════════════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>

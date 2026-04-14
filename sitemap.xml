@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  sitemap.xml — cardonecapital.com
+  Generated: 2026-04-01
+  Maintained by: Webmaster / Cardone Capital
+
+  Scope: 20 indexed HTML pages (IA v1.9 — FINAL LOCKED)
+  Excluded: ALL /lp/ pages (NOINDEX paid-ads funnels)
+  Excluded: /robots.txt and /sitemap.xml (not HTML pages)
+
+  Priority scale:
+    1.0  → Homepage
+    0.9  → Primary conversion pages (fund pages, invest hub)
+    0.85 → Academy hub (topical authority anchor)
+    0.8  → Portfolio
+    0.75 → High-value supporting pages
+    0.7  → Academy sub-pages (articles, FAQ)
+    0.6  → Utility / campaign-only pages
+    0.3  → Legal / compliance pages
+    0.2  → Utility pages with minimal SEO value
+
+  Changefreq guidance:
+    daily   → Homepage (stats, fund availability can change)
+    weekly  → Fund pages, Invest hub, IRA page (offer details
+              may update, accreditation info may change)
+    monthly → All content pages (stable long-form content)
+
+  Validation: https://www.xml-sitemaps.com/validate-xml-sitemap.html
+  Submit in Google Search Console and Bing Webmaster Tools
+  ============================================================
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 1 — HOMEPAGE (priority 1.0)
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Homepage — highest priority, highest crawl frequency
+         Fund CTAs, stats bar, portfolio preview, Grant video,
+         testimonials, media logos, FAQ strip, dual fund CTAs -->
+    <loc>https://cardonecapital.com/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 2 — PRIMARY CONVERSION PAGES (priority 0.9)
+       Fund pages and Invest hub — highest commercial intent
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Invest Hub — Fund 29 vs Fund 30 comparison,
+         accredited investor definition, IRA strip,
+         primary decision gateway for all fund investment -->
+    <loc>https://cardonecapital.com/invest/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <!-- Fund 29 — Real Estate + Bitcoin
+         PRESERVED existing workflow. Target 20%+ IRR.
+         Amber identity. Existing URL kept intact per IA spec. -->
+    <loc>https://cardonecapital.com/fund29/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <!-- Fund 30 — Cash Only Distributions
+         New fund page. Quarterly distributions. Ice identity.
+         Maximum cash flow positioning, no Bitcoin exposure. -->
+    <loc>https://cardonecapital.com/fund30/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 3 — 10X ACADEMY HUB (priority 0.85)
+       Primary topical authority and lead generation engine
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- 10X Academy Hub — all 5 inline book forms,
+         4 article cards, Grant quote, free resources entry.
+         Highest-volume organic landing page outside fund pages. -->
+    <loc>https://cardonecapital.com/academy/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 4 — PORTFOLIO (priority 0.8)
+       46 property cards — visual trust signal and proof
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Portfolio — 46 Class-A multifamily assets
+         Filterable by state (FL/TX/AZ/GA/AL/MD), fund (29/30),
+         and status (active/coming-soon). 43 active / 3 coming. -->
+    <loc>https://cardonecapital.com/portfolio/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 5 — HIGH-VALUE SUPPORTING PAGES (priority 0.75)
+       IRA/401k, Company, Team, Contact — key conversion
+       support pages with distinct search intent clusters
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- IRA / 401k — Self-Directed IRA process,
+         custodian guide, 4-step rollover, SMS CTA band.
+         Targets high-intent "IRA real estate investing" queries.
+         Weekly changefreq — custodian and process info may update. -->
+    <loc>https://cardonecapital.com/ira-401k/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <!-- Company — Overview + Performance + Careers
+         Single page with 3 anchor sections.
+         Mission, AUM, zero principal loss timeline, open positions. -->
+    <loc>https://cardonecapital.com/company/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <!-- Team — Grant Cardone bio + Executive team + Careers
+         Person JSON-LD for Grant + 3 executives.
+         ~20M social followers, 35yr track record, NYT Best-Seller. -->
+    <loc>https://cardonecapital.com/team/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <!-- Contact — HubSpot calendar (primary CTA) +
+         Google Map + contact form + legal cards.
+         No IR team names/photos exposed. Internal lead assignment. -->
+    <loc>https://cardonecapital.com/contact/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 6 — ACADEMY SUB-PAGES (priority 0.7)
+       Long-form pillar articles and FAQ — topical authority
+       and organic lead generation for specific intent clusters
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Bitcoin + Real Estate Strategy — pillar article ~2,500 words
+         Targets: "bitcoin real estate investing", "Fund 29",
+         "real estate cash flow bitcoin" — exit intent: Book 3 -->
+    <loc>https://cardonecapital.com/academy/bitcoin-real-estate/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <!-- RE Investing 101 — pillar article ~2,500 words
+         Targets: "real estate syndication", "passive real estate",
+         "how to evaluate a real estate sponsor" — exit intent: Book 1 -->
+    <loc>https://cardonecapital.com/academy/real-estate-101/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <!-- IRA & 401k Guide — long-form article ~2,500 words
+         Targets: "self-directed IRA real estate", "401k rollover
+         real estate", "SDIRA custodian" — exit intent: Book 2 -->
+    <loc>https://cardonecapital.com/academy/ira-401k-guide/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <!-- FAQ — 30+ Q&A with FAQPage JSON-LD schema
+         Every answer ends with Book a Call CTA.
+         Targets: informational "how does Cardone Capital work" queries. -->
+    <loc>https://cardonecapital.com/academy/faq/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 7 — UTILITY / CAMPAIGN PAGES (priority 0.6)
+       /schedule/ is indexed but not in nav — a standalone
+       calendar page used as a direct campaign destination.
+       Low SEO value but should be crawlable.
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Schedule — standalone HubSpot calendar embed
+         NOT in main navigation. Used as direct campaign link
+         and as the target of all "Book a Call" CTAs site-wide. -->
+    <loc>https://cardonecapital.com/schedule/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 8 — LEGAL / COMPLIANCE PAGES (priority 0.3)
+       Required pages — surface in footer and /contact/ only.
+       Not in nav. Minimal SEO value. Indexed for legal
+       discoverability and direct URL access.
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Disclosures — investment disclosures required by
+         Regulation D, Rule 506(c) and general securities law.
+         Footer link and /contact/ card only. -->
+    <loc>https://cardonecapital.com/disclosures/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <!-- Privacy Policy — data collection, CCPA, GDPR baseline
+         Footer link and /contact/ card only. -->
+    <loc>https://cardonecapital.com/privacy-policy/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <!-- Terms & Conditions — site terms of use
+         Footer link and /contact/ card only. -->
+    <loc>https://cardonecapital.com/terms-and-conditions/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       TIER 9 — UTILITY PAGES (priority 0.2)
+       Indexed but carry no meaningful organic traffic value.
+       Included so crawlers can discover and correctly classify
+       them rather than encountering them as orphaned URLs.
+  ══════════════════════════════════════════════════════════ -->
+
+  <url>
+    <!-- Thank You (/thank-you/) — post-form organic lead
+         confirmation page. Indexed per IA v1.9. GA4 conversion
+         event fires on load. No meaningful search intent.
+         NOTE: Consider excluding from sitemap post-launch
+         if Google treats it as low-quality — monitor in GSC. -->
+    <loc>https://cardonecapital.com/thank-you/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <!-- 404 Error Page (/404/) — branded error page.
+         Indexed per IA v1.9 to prevent soft-404 signals.
+         Server MUST return HTTP 404 status for this URL —
+         see deployment note in 404.html. Negligible SEO value. -->
+    <loc>https://cardonecapital.com/404/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!--
+    ══════════════════════════════════════════════════════════
+    EXCLUDED FROM SITEMAP — ALL /lp/ PAID ADS FUNNEL PAGES
+    These pages carry <meta name="robots" content="noindex, nofollow">
+    AND are disallowed in robots.txt. Including them in the
+    sitemap would send conflicting signals to search engines.
+
+    Excluded URLs (DO NOT ADD):
+      https://cardonecapital.com/lp/investor-call/
+      https://cardonecapital.com/lp/fund29-bitcoin/
+      https://cardonecapital.com/lp/fund30-cashonly/
+      https://cardonecapital.com/lp/ira-401k/
+      https://cardonecapital.com/lp/es/
+      https://cardonecapital.com/lp/thank-you-call/
+
+    Also excluded (not HTML pages):
+      https://cardonecapital.com/robots.txt
+      https://cardonecapital.com/sitemap.xml
+    ══════════════════════════════════════════════════════════
+  -->
+
+</urlset>

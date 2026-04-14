@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/web/assets/images/favicon_cc.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10X Academy | Grant Cardone's Free Real Estate Library — Cardone Capital</title>
+<meta name="description" content="Get Grant Cardone's free real estate books: RE Investor Guide, 401k/IRA Book, Bitcoin+RE Guide, NYT Best-Seller 'How To Create Wealth in RE', and the 1031 Exchange Book. All free. All instant.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://cardonecapital.com/academy/">
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://cardonecapital.com/academy/">
+<meta property="og:title"       content="10X Academy | Grant Cardone's Free Real Estate Library">
+<meta property="og:description" content="5 free books on real estate investing, self-directed IRA, Bitcoin+RE, 1031 exchanges, and wealth building — from NYT Best-Seller Grant Cardone.">
+<meta property="og:image"       content="https://cardonecapital.com/og/academy.jpg">
+<meta property="og:site_name"   content="Cardone Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GrantCardone">
+<meta name="theme-color" content="#FF9F0A">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://cardonecapital.com/academy/#webpage","url":"https://cardonecapital.com/academy/","name":"10X Academy | Free Real Estate Books by Grant Cardone","isPartOf":{"@id":"https://cardonecapital.com/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cardonecapital.com/"},{"@type":"ListItem","position":2,"name":"10X Academy","item":"https://cardonecapital.com/academy/"}]}},
+{"@type":"ItemList","name":"Grant Cardone Free Real Estate Books","description":"5 free books on real estate investing for accredited investors","itemListElement":[
+  {"@type":"ListItem","position":1,"item":{"@type":"Book","name":"Real Estate Investor Guide","author":{"@type":"Person","name":"Grant Cardone"},"description":"The accredited investor's step-by-step blueprint for institutional real estate investing"}},
+  {"@type":"ListItem","position":2,"item":{"@type":"Book","name":"401k / IRA Investing Book","author":{"@type":"Person","name":"Grant Cardone"},"description":"How to invest your retirement account in institutional real estate through a Self-Directed IRA"}},
+  {"@type":"ListItem","position":3,"item":{"@type":"Book","name":"Bitcoin + Real Estate Guide","author":{"@type":"Person","name":"Grant Cardone"},"description":"Why real estate cash flow funds Bitcoin accumulation — the case for Fund 29"}},
+  {"@type":"ListItem","position":4,"item":{"@type":"Book","name":"How To Create Wealth in Real Estate","author":{"@type":"Person","name":"Grant Cardone"},"bookFormat":"Paperback","genre":"Real Estate","award":"New York Times Best-Seller"}},
+  {"@type":"ListItem","position":5,"item":{"@type":"Book","name":"1031 Exchange Book","author":{"@type":"Person","name":"Grant Cardone"},"description":"How to defer taxes and compound wealth indefinitely using 1031 exchange strategies"}}
+]}
+]}</script>
+
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/900.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/800.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/700.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/400-italic.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/700.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/600.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/400.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['"Exo 2"','Arial','sans-serif'],body:['Barlow','system-ui','sans-serif'],condensed:['"Barlow Condensed"','Barlow','Arial','sans-serif']}}}}</script>
+<!-- <script type="text/javascript" id="hs-script-loader" async defer src="/web//js-na1.hs-scripts.com/[HUBSPOT_PORTAL_ID].js"></script> -->
+<!-- GTM: <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXX');</script> -->
+
+<style>
+:root{
+  --fe:'Exo 2',Arial,sans-serif;--fb:Barlow,system-ui,sans-serif;--fc:'Barlow Condensed',Barlow,Arial,sans-serif;
+  --void:#072d51;--carbon:#00152a;--card:#002139;--raised:#153043;--bd:#1c3a43;
+  --a400:#FF9F0A;--a100:#FFD06B;--a600:#CC7C00;
+  --i400:#00D4FF;
+  --th:#fff;--tb:#BEC5D4;--tm:#5C7A8A;
+  --ok:#00C896;--err:#FF3B30;
+  --nav-h:72px;
+  --tf:150ms ease;--ts:420ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{font-family:var(--fb);background:#000d1c;color:var(--tb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+[x-cloak]{display:none!important}
+:focus-visible{outline:2px solid var(--a400);outline-offset:3px;border-radius:4px}
+:focus:not(:focus-visible){outline:none}
+::selection{background:rgba(255,159,10,.28);color:#fff}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--carbon)}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:999px}
+
+.gt-amber{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 50%,#FFB830 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.gt-ice{background:linear-gradient(135deg,#A8EEFF 0%,#00D4FF 50%,#6AE8FF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.gt-fire{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 30%,#FF6B00 70%,#FF9F0A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.gt-gold{background:linear-gradient(135deg,#fff 0%,#FFD06B 35%,#FF9F0A 65%,#FFD06B 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+
+.bg-void{background:radial-gradient(ellipse 60% 80% at 92% 5%,rgba(255,159,10,.2) 0%,transparent 60%),radial-gradient(ellipse 55% 70% at 5% 95%,rgba(0,212,255,.1) 0%,transparent 55%),linear-gradient(160deg,#001020 0%,#000d1c 40%,#001525 100%)}
+.bg-aurora{background:conic-gradient(from 220deg at 70% 40%,rgba(0,212,255,.06) 0deg,transparent 60deg),conic-gradient(from 40deg at 20% 60%,rgba(255,159,10,.07) 0deg,transparent 50deg),radial-gradient(ellipse 80% 100% at 0% 50%,rgba(7,45,81,.8) 0%,transparent 60%),linear-gradient(180deg,#001525 0%,#000e1c 50%,#001525 100%)}
+.bg-swirl{background:radial-gradient(ellipse 90% 60% at 5% 50%,rgba(7,45,81,.6) 0%,transparent 60%),radial-gradient(ellipse 60% 75% at 95% 50%,rgba(28,58,67,.5) 0%,transparent 55%),#001020}
+.scanlines::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;background-image:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(255,159,10,.018) 47px,rgba(255,159,10,.018) 48px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fb);font-weight:800;font-size:13px;border-radius:7px;cursor:pointer;white-space:nowrap;text-decoration:none;border:none;transition:transform var(--tf),box-shadow var(--tf);position:relative;overflow:hidden;letter-spacing:.01em}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);color:#000e1c;padding:12px 28px;box-shadow:0 2px 16px rgba(255,159,10,.28)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:left .5s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(255,159,10,.42)}
+.btn-primary:hover::after{left:140%}
+.btn-secondary{background:rgba(255,159,10,.06);color:var(--a400);border:1px solid rgba(255,159,10,.4);padding:11px 24px}
+.btn-secondary:hover{background:rgba(255,159,10,.13);border-color:rgba(255,159,10,.68);transform:translateY(-1px)}
+.btn-ghost{background:rgba(0,21,42,.5);color:var(--tm);border:1px solid rgba(28,58,67,.9);padding:11px 20px}
+.btn-ghost:hover{background:rgba(0,21,42,.8);color:var(--tb)}
+.btn-sm{font-size:11px;padding:8px 16px;border-radius:5px}
+.btn-lg{font-size:15px;padding:14px 36px;border-radius:9px}
+.btn-full{width:100%;justify-content:center}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:999px}
+.b-amber{background:rgba(255,159,10,.14);color:var(--a400);border:1px solid rgba(255,159,10,.28)}
+.b-ok{background:rgba(0,200,150,.12);color:var(--ok);border:1px solid rgba(0,200,150,.26)}
+.b-muted{background:rgba(28,58,67,.8);color:var(--tm);border:1px solid var(--bd)}
+.b-nyt{background:linear-gradient(135deg,rgba(255,208,107,.18),rgba(255,159,10,.1));color:#FFD06B;border:1px solid rgba(255,208,107,.35)}
+.b-free{background:rgba(0,200,150,.1);color:var(--ok);border:1px solid rgba(0,200,150,.22)}
+
+.overline{font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--a400);display:flex;align-items:center;gap:8px}
+.overline::before{content:'';display:block;width:22px;height:1.5px;background:var(--a400);border-radius:2px;flex-shrink:0}
+
+.rev{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1)}
+.rev.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── Book cards ── */
+.book-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;overflow:hidden;transition:border-color var(--ts),box-shadow var(--ts)}
+.book-card:hover{border-color:rgba(255,159,10,.3);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.book-card.open{border-color:rgba(255,159,10,.4)}
+
+/* Book cover mockups */
+.cover{aspect-ratio:3/4;border-radius:10px;overflow:hidden;position:relative;flex-shrink:0;box-shadow:4px 6px 20px rgba(0,0,0,.6)}
+.cover-1{background:radial-gradient(ellipse 80% 80% at 30% 25%,rgba(255,159,10,.55) 0%,rgba(255,159,10,.15) 50%,transparent 70%),linear-gradient(155deg,#1a0800 0%,#0a0400 100%)}
+.cover-2{background:radial-gradient(ellipse 80% 80% at 70% 25%,rgba(0,212,255,.45) 0%,rgba(0,212,255,.12) 50%,transparent 70%),linear-gradient(155deg,#001428 0%,#000610 100%)}
+.cover-3{background:radial-gradient(ellipse 80% 80% at 50% 20%,rgba(255,159,10,.4) 0%,rgba(0,212,255,.2) 60%,transparent 80%),linear-gradient(155deg,#100800 0%,#001020 100%)}
+.cover-4{background:radial-gradient(ellipse 90% 90% at 50% 30%,rgba(255,208,107,.5) 0%,rgba(255,159,10,.25) 45%,rgba(255,90,0,.15) 70%,transparent 85%),linear-gradient(155deg,#1a0a00 0%,#0a0500 100%)}
+.cover-5{background:radial-gradient(ellipse 80% 80% at 30% 30%,rgba(0,200,150,.3) 0%,rgba(0,212,255,.15) 55%,transparent 75%),linear-gradient(155deg,#001428 0%,#000810 100%)}
+
+/* Cover typography */
+.cover-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:18px 14px}
+.cover-number{font-family:var(--fc);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.cover-title{font-family:var(--fe);font-weight:900;font-size:13px;line-height:1.2;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.cover-author{font-family:var(--fb);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+/* Cover decorative mark */
+.cover-mark{position:absolute;bottom:18px;right:14px;opacity:.18}
+
+/* Form inputs */
+.fi{background:rgba(0,21,42,.8);border:1px solid rgba(28,58,67,.8);color:var(--tb);font-family:var(--fb);font-size:12px;border-radius:6px;padding:10px 14px;width:100%;transition:border-color var(--tf);outline:none}
+.fi:focus{border-color:rgba(255,159,10,.5)}
+.fi::placeholder{color:var(--tm)}
+.fl{font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tb);display:block;margin-bottom:5px}
+.fl-opt{color:var(--tm);font-weight:400}
+select.fi{cursor:pointer}
+select.fi option{background:#001020}
+/* radio */
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.radio-opt{display:flex;align-items:center;gap:7px;cursor:pointer;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)}
+.radio-opt input[type=radio]{accent-color:var(--a400);width:14px;height:14px;flex-shrink:0}
+
+/* Article cards */
+.art-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--ts),transform var(--ts),box-shadow var(--ts)}
+.art-card:hover{border-color:rgba(255,159,10,.28);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.45)}
+.art-header{height:100px;position:relative;overflow:hidden}
+.ah-1{background:radial-gradient(ellipse 80% 80% at 60% 50%,rgba(255,159,10,.28) 0%,transparent 65%),linear-gradient(145deg,#1a0c00 0%,#001020 100%)}
+.ah-2{background:radial-gradient(ellipse 80% 80% at 40% 50%,rgba(0,212,255,.22) 0%,transparent 65%),linear-gradient(145deg,#001428 0%,#001020 100%)}
+.ah-3{background:radial-gradient(ellipse 80% 80% at 60% 50%,rgba(0,200,150,.2) 0%,transparent 65%),linear-gradient(145deg,#001428 0%,#000d18 100%)}
+.ah-4{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(255,208,107,.25) 0%,transparent 65%),linear-gradient(145deg,#1a0c00 0%,#001020 100%)}
+
+/* Nav */
+.cc-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;display:flex;align-items:center;background:transparent;border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease,backdrop-filter .35s ease}
+.cc-nav.sc{background:linear-gradient(135deg,rgba(7,45,81,.9) 0%,rgba(0,21,42,.84) 50%,rgba(28,58,67,.8) 100%);border-bottom-color:rgba(255,159,10,.15);box-shadow:0 4px 32px rgba(0,0,0,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nl{font-family:var(--fc);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.65);padding:6px 11px;border-radius:5px;display:flex;align-items:center;gap:4px;transition:color var(--tf),background var(--tf);cursor:pointer;border:none;background:none;white-space:nowrap}
+.nl:hover,.nl.al{color:rgba(255,255,255,.95);background:rgba(255,255,255,.06)}
+.nl.al{position:relative}
+.nl.al::after{content:'';position:absolute;bottom:-3px;left:11px;right:11px;height:2px;background:var(--a400);border-radius:2px}
+.cc-lm{width:36px;height:36px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(255,159,10,.32);position:relative;overflow:hidden}
+.cc-lm::after{content:'';position:absolute;top:0;left:0;right:50%;height:46%;background:rgba(255,255,255,.14);border-radius:8px 0 0 0}
+.cc-lm span{font-family:var(--fc);font-weight:900;font-size:13px;color:#000e1c;letter-spacing:-.04em;position:relative;z-index:1}
+.nlog{font-family:var(--fb);font-size:10px;font-weight:600;color:rgba(255,255,255,.32);text-decoration:none;padding:0 8px;transition:color var(--tf)}
+.nlog:hover{color:rgba(255,255,255,.58)}
+.ndd{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:210px;background:linear-gradient(160deg,rgba(0,26,48,.98) 0%,rgba(0,14,30,.97) 100%);border:1px solid rgba(255,159,10,.18);border-radius:12px;padding:6px 0;box-shadow:0 20px 48px rgba(0,0,0,.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.ndd::before{content:'';position:absolute;top:-5px;left:50%;width:10px;height:10px;background:rgba(0,26,48,.98);border-left:1px solid rgba(255,159,10,.18);border-top:1px solid rgba(255,159,10,.18);transform:translateX(-50%) rotate(45deg)}.ndd::after{content:'';position:absolute;bottom:100%;left:0;right:0;height:12px}
+.ndi{display:flex;align-items:center;gap:9px;padding:9px 16px;font-family:var(--fb);font-weight:600;font-size:13px;color:rgba(255,255,255,.65);transition:color var(--tf),background var(--tf),padding-left var(--tf)}
+.ndi:hover{color:#fff;background:rgba(255,159,10,.07);padding-left:20px}
+.fd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.fda{background:var(--a400);box-shadow:0 0 5px rgba(255,159,10,.5)}
+.fdi{background:var(--i400);box-shadow:0 0 5px rgba(0,212,255,.4)}
+.fdm{background:var(--tm)}
+.ham{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{display:block;width:22px;height:2px;background:rgba(255,255,255,.75);border-radius:2px;transition:transform .3s ease,opacity .2s ease,width .2s ease}
+[data-mo=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+[data-mo=true] span:nth-child(2){opacity:0;width:0}
+[data-mo=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-ov{position:fixed;inset:0;z-index:99;background:rgba(0,8,18,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;overflow-y:auto}
+.mob-lk{font-family:var(--fc);font-weight:800;font-size:clamp(22px,6vw,30px);text-transform:uppercase;color:rgba(255,255,255,.72);display:block;padding:6px 0;transition:color var(--tf)}
+.mob-lk:hover{color:var(--a400)}
+.mob-at{width:100%;display:flex;align-items:center;justify-content:space-between;font-family:var(--fc);font-weight:800;font-size:clamp(22px,6vw,30px);text-transform:uppercase;color:rgba(255,255,255,.72);background:none;border:none;cursor:pointer;padding:6px 0;transition:color var(--tf)}
+.mob-at.open{color:var(--a400)}
+.mob-sb{font-family:var(--fb);font-weight:600;font-size:14px;color:rgba(255,255,255,.48);display:flex;align-items:center;gap:9px;padding:9px 0 9px 16px;border-bottom:1px solid rgba(28,58,67,.3);transition:color var(--tf),padding-left var(--tf)}
+.mob-sb:hover{color:rgba(255,255,255,.88);padding-left:22px}
+.divl{height:1px;background:rgba(28,58,67,.55);margin:8px 0}
+.ft-bg{background:radial-gradient(ellipse 65% 90% at 0% 100%,rgba(7,45,81,.6) 0%,transparent 55%),linear-gradient(180deg,#000810 0%,#000610 60%,#000912 100%);border-top:1px solid rgba(28,58,67,.7)}
+.ft-lk{font-family:var(--fb);font-size:13px;font-weight:500;color:rgba(255,255,255,.42);transition:color var(--tf)}
+.ft-lk:hover{color:rgba(255,255,255,.85)}
+.ft-ch{font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--tm);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.ft-ch::before{content:'';display:inline-block;width:18px;height:1.5px;background:linear-gradient(90deg,var(--a400) 0%,transparent 100%);border-radius:2px;flex-shrink:0}
+.ft-so{width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:rgba(28,58,67,.55);border:1px solid rgba(28,58,67,.85);border-radius:6px;color:rgba(255,255,255,.35);transition:background var(--tf),border-color var(--tf),color var(--tf)}
+.ft-so:hover{background:rgba(255,159,10,.1);border-color:rgba(255,159,10,.3);color:var(--a400)}
+.es-band{background:rgba(0,15,28,.95);border-top:1px solid rgba(0,212,255,.12);border-bottom:1px solid rgba(0,212,255,.08)}
+.skip{position:absolute;top:-100px;left:16px;z-index:9999;padding:8px 20px;background:var(--a400);color:#000;font-family:var(--fb);font-weight:700;font-size:13px;border-radius:6px;transition:top var(--tf)}
+.skip:focus{top:16px}
+
+@media(max-width:1023px){.nl-d,.nu-d{display:none}.ham{display:flex}}
+@media(min-width:1024px){.ham{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rev{opacity:1;transform:none}}
+    /* ─── Canonical footer styles ─── */
+    .cc-footer-bg{background:
+      radial-gradient(ellipse 65% 90% at 0% 100%,rgba(7,45,81,.6) 0%,transparent 55%),
+      radial-gradient(ellipse 50% 60% at 100% 0%,rgba(28,58,67,.38) 0%,transparent 50%),
+      linear-gradient(180deg,#000810 0%,#000610 60%,#000912 100%);
+      border-top:none}
+    .cc-social-ico{width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+      background:rgba(28,58,67,.55);border:1px solid rgba(28,58,67,.85);border-radius:6px;
+      color:rgba(255,255,255,.35);transition:background .18s,border-color .18s,color .18s}
+    .cc-social-ico:hover{background:rgba(255,159,10,.1);border-color:rgba(255,159,10,.3);color:#FF9F0A}
+    .footer-link{font-family:var(--fb);font-size:13px;font-weight:500;
+      color:rgba(255,255,255,.42);transition:color .18s;text-decoration:none}
+    .footer-link:hover{color:rgba(255,255,255,.85)}
+    .footer-col-label{font-family:var(--fb);font-weight:700;font-size:9px;
+      text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.28);margin-bottom:14px;
+      display:flex;align-items:center;gap:8px}
+    .footer-col-label::before{content:'';display:inline-block;width:18px;height:1.5px;
+      background:rgba(255,255,255,.15)}
+    .fund-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dot-a{background:#FF9F0A;box-shadow:0 0 5px rgba(255,159,10,.5)}
+    .dot-i{background:#00D4FF;box-shadow:0 0 5px rgba(0,212,255,.4)}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip">Skip to main content</a>
+
+<!-- ═══ NAV ═══ -->
+<header x-data="{sc:false,inv:false,acad:false,mob:false,mI:false,mA:false,init(){this.sc=window.scrollY>20;window.addEventListener('scroll',()=>{this.sc=window.scrollY>20},{passive:true})},ca(){this.inv=false;this.acad=false},tI(){const w=this.inv;this.ca();this.inv=!w},tA(){const w=this.acad;this.ca();this.acad=!w},tM(){this.mob=!this.mob;document.body.style.overflow=this.mob?'hidden':'';if(!this.mob){this.mI=false;this.mA=false}},cM(){this.mob=false;document.body.style.overflow='';this.mI=false;this.mA=false}}" x-init="init()" @keydown.escape.window="ca();cM()">
+<nav class="cc-nav" :class="{sc}" aria-label="Main navigation">
+  <div class="w-full max-w-screen-2xl mx-auto px-6 lg:px-16 flex items-center" style="height:var(--nav-h)">
+    <a href="/web/" class="flex items-center gap-2.5 flex-shrink-0 mr-6" aria-label="Cardone Capital home">
+      <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+    </a>
+    <div class="nl-d hidden lg:flex items-center gap-0.5 flex-1">
+      <div class="relative" @mouseenter="inv=true" @mouseleave="inv=false" @click.outside="inv=false">
+        <a href="/web/invest/" class="nl" :aria-expanded="inv.toString()" aria-haspopup="true">Invest<svg :style="inv?'transform:rotate(180deg)':''" width="8" height="5" viewBox="0 0 8 5" fill="none" style="transition:transform .2s ease;flex-shrink:0;margin-left:2px"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="ndd" x-show="inv" x-cloak x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          <span style="padding:8px 16px 4px;display:block;font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tm)">Active Funds</span>
+          <a href="/web/fund29/" class="ndi"><span class="fd fda"></span><span>Fund 29<span style="display:block;font-size:10px;color:var(--tm);font-weight:400;margin-top:1px">Real Estate + Bitcoin</span></span></a>
+          <a href="/web/fund30/" class="ndi"><span class="fd fdi"></span><span>Fund 30<span style="display:block;font-size:10px;color:var(--tm);font-weight:400;margin-top:1px">Cash Only Distributions</span></span></a>
+          <div style="height:1px;background:rgba(28,58,67,.65);margin:5px 16px"></div>
+          <a href="/web/ira-401k/"  class="ndi"><span class="fd fdm"></span>IRA / 401k</a>
+          <a href="/web/portfolio/" class="ndi"><span class="fd fdm"></span>All Properties</a>
+        </div>
+      </div>
+      <a href="/web/portfolio/" class="nl">Portfolio</a>
+      <a href="/web/company/"   class="nl">Company</a>
+      <a href="/web/team/"      class="nl">Team</a>
+      <div class="relative" @mouseenter="acad=true" @mouseleave="acad=false" @click.outside="acad=false">
+        <button class="nl al" @click="tA()" :aria-expanded="acad.toString()" aria-haspopup="true">10X Academy<svg :style="acad?'transform:rotate(180deg)':''" width="8" height="5" viewBox="0 0 8 5" fill="none" style="transition:transform .2s ease;flex-shrink:0;margin-left:2px"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="ndd" x-show="acad" x-cloak x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          <a href="/web/academy/"                     class="ndi" style="color:#fff;background:rgba(255,159,10,.06)" aria-current="page">📚 Free Books ← Here</a>
+          <a href="/web/academy/bitcoin-real-estate/" class="ndi">₿ Bitcoin + RE Strategy</a>
+          <a href="/web/academy/real-estate-101/"     class="ndi">🏢 RE Investing 101</a>
+          <a href="/web/academy/ira-401k-guide/"      class="ndi">🛡 IRA &amp; 401k Guide</a>
+          <div style="height:1px;background:rgba(28,58,67,.65);margin:5px 16px"></div>
+          <a href="/web/academy/faq/" class="ndi">? FAQ</a>
+        </div>
+      </div>
+      <a href="/web/contact/" class="nl">Contact</a>
+    </div>
+    <div class="nu-d hidden lg:flex items-center gap-3 ml-auto flex-shrink-0">
+      <a href="https://investors.appfolioim.com/cardonecapital/investor/login" target="_blank" rel="noopener noreferrer" class="nlog">Investor Login ↗</a>
+      <span style="width:1px;height:14px;background:rgba(28,58,67,.8)"></span>
+      <a href="/web/schedule/" class="btn btn-secondary btn-sm">Book a Call</a>
+      <a href="/web/invest/"   class="btn btn-primary btn-sm">Invest Now →</a>
+    </div>
+    <div class="flex items-center gap-3 ml-auto lg:hidden">
+      <a href="/web/invest/" class="btn btn-primary hidden sm:flex" style="font-size:11px;padding:7px 14px">Invest Now →</a>
+      <button @click="tM()" :data-mo="mob" class="ham" :aria-expanded="mob.toString()" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<!-- Mobile overlay -->
+<div class="mob-ov" x-show="mob" x-cloak x-transition:enter="transition ease-out duration-280" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="flex items-center justify-between flex-shrink-0 px-6" style="height:var(--nav-h);border-bottom:1px solid rgba(28,58,67,.5)">
+    <a href="/web/" @click="cM()" class="flex items-center gap-2.5"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;"></a>
+    <button @click="cM()" class="flex items-center justify-center w-10 h-10 rounded-lg" style="background:rgba(28,58,67,.5);border:1px solid rgba(28,58,67,.9)" aria-label="Close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="rgba(255,255,255,.6)" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+  </div>
+  <div class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-0">
+    <div><button class="mob-at" :class="mI?'open':''" @click="mI=!mI">Invest<span style="width:26px;height:26px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s ease" :style="mI?'transform:rotate(45deg);border-color:rgba(255,159,10,.4)':''"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 2v7M2 5.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button>
+    <div x-show="mI" x-cloak style="margin-left:16px;border-left:1px solid rgba(255,159,10,.18);padding:6px 0">
+      <a href="/web/fund29/"   class="mob-sb" @click="cM()" style="padding-left:16px"><span class="fd fda"></span>Fund 29</a>
+      <a href="/web/fund30/"   class="mob-sb" @click="cM()" style="padding-left:16px"><span class="fd fdi"></span>Fund 30</a>
+      <a href="/web/ira-401k/" class="mob-sb" @click="cM()" style="padding-left:16px"><span class="fd fdm"></span>IRA / 401k</a>
+      <a href="/web/portfolio/"class="mob-sb" @click="cM()" style="padding-left:16px;border-bottom:none"><span class="fd fdm"></span>All Properties</a>
+    </div><div class="divl"></div></div>
+    <div class="py-1"><a href="/web/portfolio/" class="mob-lk" @click="cM()">Portfolio</a><div class="divl mt-2"></div></div>
+    <div class="py-1"><a href="/web/company/"  class="mob-lk" @click="cM()">Company</a><div class="divl mt-2"></div></div>
+    <div class="py-1"><a href="/web/team/"     class="mob-lk" @click="cM()">Team</a><div class="divl mt-2"></div></div>
+    <div><button class="mob-at" :class="mA?'open':''" @click="mA=!mA">10X Academy<span style="width:26px;height:26px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s ease" :style="mA?'transform:rotate(45deg)':''"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 2v7M2 5.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button>
+    <div x-show="mA" x-cloak style="margin-left:16px;border-left:1px solid rgba(255,159,10,.18);padding:6px 0">
+      <a href="/web/academy/"                     class="mob-sb" @click="cM()" style="padding-left:16px;color:var(--a400)" aria-current="page">📚 Free Books ← Here</a>
+      <a href="/web/academy/bitcoin-real-estate/" class="mob-sb" @click="cM()" style="padding-left:16px">₿ Bitcoin + RE</a>
+      <a href="/web/academy/real-estate-101/"     class="mob-sb" @click="cM()" style="padding-left:16px">🏢 RE 101</a>
+      <a href="/web/academy/ira-401k-guide/"      class="mob-sb" @click="cM()" style="padding-left:16px">🛡 IRA Guide</a>
+      <a href="/web/academy/faq/"                 class="mob-sb" @click="cM()" style="padding-left:16px;border-bottom:none">? FAQ</a>
+    </div><div class="divl"></div></div>
+    <div class="py-1"><a href="/web/contact/" class="mob-lk" @click="cM()">Contact</a><div class="divl mt-2"></div></div>
+  </div>
+  <div class="flex-shrink-0 px-6 pb-8 pt-4 flex flex-col gap-3" style="border-top:1px solid rgba(255,159,10,.12)">
+    <a href="/web/schedule/" class="btn btn-secondary" style="justify-content:center;font-size:14px;padding:13px;border-radius:9px" @click="cM()">Book a Free Call</a>
+    <a href="/web/invest/"   class="btn btn-primary"   style="justify-content:center;font-size:15px;padding:14px;border-radius:9px" @click="cM()">Invest Now →</a>
+  </div>
+</div>
+</header>
+
+<!-- ═══ ACADEMY APP ═══ -->
+<div id="main-content" x-data="academy()">
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="bg-void relative scanlines" style="padding-top:var(--nav-h)" aria-label="10X Academy — Grant's free real estate library">
+  <div aria-hidden="true" style="position:absolute;top:-80px;right:-60px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(255,159,10,.12) 0%,transparent 62%);pointer-events:none;z-index:1"></div>
+  <div class="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-16 pt-14 pb-14">
+    <nav aria-label="Breadcrumb" class="mb-7">
+      <ol class="flex items-center gap-2" style="font-family:var(--fb);font-size:11px;color:var(--tm)">
+        <li><a href="/web/" onmouseover="this.style.color='rgba(255,255,255,.65)'" onmouseout="this.style.color='var(--tm)'" style="transition:color var(--tf)">Home</a></li>
+        <li aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3.5 2.5l3 2.5-3 2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></li>
+        <li aria-current="page" style="color:rgba(255,255,255,.5);font-weight:600">10X Academy</li>
+      </ol>
+    </nav>
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+      <div>
+        <p style="font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--a400);margin-bottom:14px;display:flex;align-items:center;gap:8px">
+          <span style="display:inline-block;width:22px;height:1.5px;background:var(--a400);border-radius:2px"></span>
+          Grant's Essential Library — All Free
+        </p>
+        <h1 class="font-display font-black uppercase mb-4" style="font-size:clamp(36px,6vw,68px);letter-spacing:-.022em;line-height:.88;color:#fff">
+          Stop Renting a Life.<br><span class="gt-amber">Start Owning One.</span>
+        </h1>
+        <p style="font-family:var(--fb);font-size:clamp(15px,1.7vw,18px);line-height:1.65;color:rgba(255,255,255,.58);max-width:500px;margin-bottom:24px">
+          Five books. Every wealth-building strategy Grant Cardone has used to build a $5.3 billion real estate portfolio. Free. Forever.
+        </p>
+        <!-- Grant quote -->
+        <div style="border-left:3px solid var(--a400);padding-left:20px;margin-bottom:28px">
+          <p style="font-family:var(--fe);font-style:italic;font-weight:700;font-size:clamp(14px,1.5vw,17px);line-height:1.5;color:rgba(255,255,255,.78)">"The difference between where you are and where you want to be is the knowledge you don't have yet. I wrote these books so you'd never have to stay on the wrong side of that gap."</p>
+          <p style="font-family:var(--fb);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--a400);margin-top:8px">— Grant Cardone</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <span class="badge b-free">✓ No credit card</span>
+          <span class="badge b-amber">5 Books · All Free</span>
+          <span class="badge b-muted">Delivered by Email</span>
+          <span class="badge b-nyt">
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="currentColor" aria-hidden="true"><path d="M4.5.5 5.7 3h2.6L6.1 4.8l.9 2.7L4.5 6l-2.5 1.5.9-2.7L.7 3h2.6z"/></svg>
+            NYT Best-Seller Included
+          </span>
+        </div>
+      </div>
+      <!-- Book count widget -->
+      <div class="hidden xl:block">
+        <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,159,10,.18);border-radius:18px;padding:28px">
+          <p style="font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--tm);margin-bottom:16px">What You'll Get Today</p>
+          <div class="flex flex-col gap-3">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,159,10,.06);border:1px solid rgba(255,159,10,.14);border-radius:10px">
+              <div class="cover cover-1" style="width:36px;aspect-ratio:3/4;border-radius:5px;flex-shrink:0"></div>
+              <div><p style="font-family:var(--fb);font-size:12px;font-weight:600;color:#fff">RE Investor Guide</p><p style="font-family:var(--fb);font-size:10px;color:var(--tm)">HubSpot Sequence #4</p></div>
+              <span class="badge b-free" style="margin-left:auto;flex-shrink:0">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.12);border-radius:10px">
+              <div class="cover cover-2" style="width:36px;aspect-ratio:3/4;border-radius:5px;flex-shrink:0"></div>
+              <div><p style="font-family:var(--fb);font-size:12px;font-weight:600;color:#fff">401k / IRA Book</p><p style="font-family:var(--fb);font-size:10px;color:var(--tm)">HubSpot Sequence #2</p></div>
+              <span class="badge b-free" style="margin-left:auto;flex-shrink:0">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,159,10,.05);border:1px solid rgba(255,159,10,.12);border-radius:10px">
+              <div class="cover cover-3" style="width:36px;aspect-ratio:3/4;border-radius:5px;flex-shrink:0"></div>
+              <div><p style="font-family:var(--fb);font-size:12px;font-weight:600;color:#fff">Bitcoin + RE Guide</p><p style="font-family:var(--fb);font-size:10px;color:var(--tm)">HubSpot Sequence #5</p></div>
+              <span class="badge b-free" style="margin-left:auto;flex-shrink:0">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:linear-gradient(135deg,rgba(255,208,107,.08),rgba(255,159,10,.05));border:1px solid rgba(255,208,107,.2);border-radius:10px">
+              <div class="cover cover-4" style="width:36px;aspect-ratio:3/4;border-radius:5px;flex-shrink:0"></div>
+              <div><p style="font-family:var(--fb);font-size:12px;font-weight:600;color:#fff">How To Create Wealth in RE</p><p style="font-family:var(--fb);font-size:10px;color:#FFD06B">★ NYT Best-Seller</p></div>
+              <span class="badge b-nyt" style="margin-left:auto;flex-shrink:0">★ Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(0,200,150,.04);border:1px solid rgba(0,200,150,.12);border-radius:10px">
+              <div class="cover cover-5" style="width:36px;aspect-ratio:3/4;border-radius:5px;flex-shrink:0"></div>
+              <div><p style="font-family:var(--fb);font-size:12px;font-weight:600;color:#fff">1031 Exchange Book</p><p style="font-family:var(--fb);font-size:10px;color:var(--tm)">HubSpot Sequence #3</p></div>
+              <span class="badge b-free" style="margin-left:auto;flex-shrink:0">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     GRANT'S LIBRARY — 5 Books
+     Books 1–3: 3-col grid
+     Book 4: Full-width featured (NYT Bestseller)
+     Book 5: Standalone centered
+════════════════════════════════════════════ -->
+<section class="bg-swirl py-16 lg:py-24" aria-labelledby="library-heading">
+<div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+  <div class="text-center mb-12 rev">
+    <p class="overline justify-center mb-3" style="justify-content:center">Grant's Essential Library</p>
+    <h2 id="library-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(24px,4vw,44px);letter-spacing:-.015em;line-height:1">
+      5 Books. Every Strategy. <span class="gt-amber">All Free.</span>
+    </h2>
+    <p style="font-family:var(--fb);font-size:14px;color:var(--tm);margin-top:10px">Click "Get Free Access" on any book — your copy is delivered instantly by email.</p>
+  </div>
+
+  <!-- Books 1–3: 3-column grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+    <!-- ── BOOK 1: RE Investor Guide ── -->
+    <div class="book-card" :class="open===1&&'open'" id="book-1">
+      <div class="p-6">
+        <div class="flex gap-5 mb-5">
+          <!-- Cover -->
+          <div class="cover cover-1" style="width:90px">
+            <div class="cover-inner">
+              <div><div class="cover-number" style="color:var(--a400)">Book 01</div></div>
+              <div>
+                <div class="cover-title">RE Investor Guide</div>
+                <div class="cover-author" style="margin-top:4px">Grant Cardone</div>
+              </div>
+              <div class="cover-mark" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V10l10-6 10 6v16H6z" stroke="#FF9F0A" stroke-width="1.2"/><rect x="12" y="18" width="8" height="8" stroke="#FF9F0A" stroke-width="1.2"/></svg></div>
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="flex-1 min-w-0">
+            <span class="badge b-amber" style="margin-bottom:8px;display:inline-flex">Book 1 of 5</span>
+            <h3 class="font-display font-black uppercase text-white" style="font-size:15px;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px">Real Estate Investor Guide</h3>
+            <p style="font-family:var(--fc);font-weight:700;font-size:12px;color:var(--a400);text-transform:uppercase;letter-spacing:.06em">Everything Before Your First Check</p>
+          </div>
+        </div>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:12px">The complete blueprint for accredited investors entering institutional real estate for the first time. This guide demystifies private fund structures, explains exactly how Cardone Capital's model works, and tells you what to expect before, during, and after your first investment. It's the starting point every new investor needs.</p>
+        <ul class="flex flex-col gap-2 mb-5">
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>How to evaluate and compare private real estate funds as an accredited investor</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>The clear difference between Fund 29 (RE + Bitcoin) and Fund 30 (Cash Only)</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>Step-by-step breakdown of the investment process from first call to first distribution</li>
+        </ul>
+        <button @click="toggle(1)" class="btn btn-primary btn-full" x-show="!done[1]" :aria-expanded="(open===1).toString()" aria-controls="form-1">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1 10v1.5c0 .3.2.5.5.5h10c.3 0 .5-.2.5-.5V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span x-text="open===1?'Close Form':'Get Free Access →'"></span>
+        </button>
+        <a x-show="done[1]" href="/web/schedule/" class="btn btn-primary btn-full">✓ Sent — Book a Call Now →</a>
+      </div>
+      <!-- Inline form — Book 1: Name + Email only (lowest friction) -->
+      <div id="form-1" x-show="open===1 && !done[1]" x-cloak x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="border-top:1px solid rgba(255,159,10,.18);background:rgba(0,12,24,.6);padding:20px 24px" role="region" aria-label="Get Book 1 — RE Investor Guide">
+        <p style="font-family:var(--fb);font-weight:700;font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px">Enter your email — we'll send the guide immediately.</p>
+        <form @submit.prevent="submit(1,'re-investor-guide')" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="fl" for="b1-name">First Name</label>
+              <input type="text" id="b1-name" class="fi" placeholder="Grant" required autocomplete="given-name">
+            </div>
+            <div>
+              <label class="fl" for="b1-email">Email Address</label>
+              <input type="email" id="b1-email" class="fi" placeholder="grant@example.com" required autocomplete="email">
+            </div>
+          </div>
+          <!-- HubSpot Sequence #4 fires on submit — replace with embedded HS form -->
+          <button type="submit" class="btn btn-primary btn-full btn-lg" style="font-size:14px">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Send Me the Free Guide →
+          </button>
+        </form>
+        <p style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.22);margin-top:10px">No spam. No credit card. Accredited investors only. <a href="/web/privacy-policy/" style="color:rgba(255,255,255,.35)">Privacy Policy</a>.</p>
+      </div>
+      <!-- Thank you — Book 1 -->
+      <div x-show="done[1]" x-cloak style="border-top:1px solid rgba(0,200,150,.2);background:rgba(0,200,150,.05);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px" role="status">
+        <div><p style="font-family:var(--fb);font-weight:700;font-size:13px;color:var(--ok);margin-bottom:3px">✓ Your book is on its way!</p><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.5)">Check your inbox in the next few minutes.</p></div>
+        <a href="/web/schedule/" class="btn btn-primary btn-sm">Book a Call →</a>
+      </div>
+    </div>
+
+    <!-- ── BOOK 2: 401k/IRA Book ── -->
+    <div class="book-card" :class="open===2&&'open'" id="book-2">
+      <div class="p-6">
+        <div class="flex gap-5 mb-5">
+          <div class="cover cover-2" style="width:90px">
+            <div class="cover-inner">
+              <div><div class="cover-number" style="color:var(--i400)">Book 02</div></div>
+              <div>
+                <div class="cover-title">401k / IRA Book</div>
+                <div class="cover-author" style="margin-top:4px">Grant Cardone</div>
+              </div>
+              <div class="cover-mark" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L4 8v8C4 22.6 9.4 27.4 16 28 22.6 27.4 28 22.6 28 16V8L16 4z" stroke="#00D4FF" stroke-width="1.2"/><path d="M10 16l4 4 8-8" stroke="#00D4FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="badge b-muted" style="margin-bottom:8px;display:inline-flex">Book 2 of 5</span>
+            <h3 class="font-display font-black uppercase text-white" style="font-size:15px;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px">401k / IRA Book</h3>
+            <p style="font-family:var(--fc);font-weight:700;font-size:12px;color:var(--i400);text-transform:uppercase;letter-spacing:.06em">Your Retirement, Redesigned</p>
+          </div>
+        </div>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:12px">Most Americans don't know their retirement account is allowed to own real estate. This book explains exactly how to open a Self-Directed IRA, roll over your 401k without triggering taxes, and direct that capital into Cardone Capital's institutional portfolio. It's the guide that turns passive retirement savers into active real estate investors.</p>
+        <ul class="flex flex-col gap-2 mb-5">
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>How a Self-Directed IRA works — and which custodians to use</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>Exactly how to roll over a 401k without tax penalties</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>How to direct your custodian to invest in Cardone Capital</li>
+        </ul>
+        <button @click="toggle(2)" class="btn btn-primary btn-full" x-show="!done[2]" :aria-expanded="(open===2).toString()" aria-controls="form-2">
+          <span x-text="open===2?'Close Form':'Get Free Access →'"></span>
+        </button>
+        <a x-show="done[2]" href="/web/schedule/" class="btn btn-primary btn-full">✓ Sent — Book a Call Now →</a>
+      </div>
+      <div id="form-2" x-show="open===2 && !done[2]" x-cloak x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="border-top:1px solid rgba(255,159,10,.18);background:rgba(0,12,24,.6);padding:20px 24px" role="region" aria-label="Get Book 2 — 401k IRA Book">
+        <form @submit.prevent="submit(2,'401k-ira-book')" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b2-name">First Name</label><input type="text" id="b2-name" class="fi" placeholder="Grant" required autocomplete="given-name"></div>
+            <div><label class="fl" for="b2-email">Email Address</label><input type="email" id="b2-email" class="fi" placeholder="grant@example.com" required autocomplete="email"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b2-phone">Phone <span class="fl-opt">(optional)</span></label><input type="tel" id="b2-phone" class="fi" placeholder="+1 305 000 0000" autocomplete="tel"></div>
+            <div>
+              <label class="fl" style="margin-bottom:10px">Accredited Investor?</label>
+              <div class="radio-row">
+                <label class="radio-opt"><input type="radio" name="b2-acc" value="yes" required>Yes, I qualify</label>
+                <label class="radio-opt"><input type="radio" name="b2-acc" value="exploring">Exploring</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg" style="font-size:14px">Send Me the Free Guide →</button>
+        </form>
+        <p style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.22);margin-top:10px">Accredited investors only · HubSpot Seq #2 · <a href="/web/privacy-policy/" style="color:rgba(255,255,255,.35)">Privacy Policy</a></p>
+      </div>
+      <div x-show="done[2]" x-cloak style="border-top:1px solid rgba(0,200,150,.2);background:rgba(0,200,150,.05);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px" role="status">
+        <div><p style="font-family:var(--fb);font-weight:700;font-size:13px;color:var(--ok);margin-bottom:3px">✓ Your book is on its way!</p><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.5)">Check your inbox. Also — let us help you set up your SD-IRA.</p></div>
+        <a href="/web/schedule/" class="btn btn-primary btn-sm">Book a Call →</a>
+      </div>
+    </div>
+
+    <!-- ── BOOK 3: Bitcoin + RE Guide ── -->
+    <div class="book-card" :class="open===3&&'open'" id="book-3">
+      <div class="p-6">
+        <div class="flex gap-5 mb-5">
+          <div class="cover cover-3" style="width:90px">
+            <div class="cover-inner">
+              <div><div class="cover-number" style="color:var(--a400)">Book 03</div></div>
+              <div>
+                <div class="cover-title">Bitcoin + RE Guide</div>
+                <div class="cover-author" style="margin-top:4px">Grant Cardone</div>
+              </div>
+              <div class="cover-mark" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><text x="6" y="26" font-family="Arial" font-size="24" font-weight="900" fill="#FF9F0A" opacity=".9">₿</text></svg></div>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="badge b-muted" style="margin-bottom:8px;display:inline-flex">Book 3 of 5</span>
+            <h3 class="font-display font-black uppercase text-white" style="font-size:15px;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px">Bitcoin + RE Guide</h3>
+            <p style="font-family:var(--fc);font-weight:700;font-size:12px;color:var(--a400);text-transform:uppercase;letter-spacing:.06em">Real Estate Funds Bitcoin</p>
+          </div>
+        </div>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:12px">Grant Cardone built Fund 29 because he believes two hard assets — real estate and Bitcoin — belong in the same institutional portfolio. This guide explains why real estate cash flow is the most responsible way to accumulate Bitcoin, what the investment thesis behind Fund 29 actually is, and why this is the first fund of its kind at institutional scale.</p>
+        <ul class="flex flex-col gap-2 mb-5">
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>Why Grant believes Bitcoin is the most important monetary asset of the next decade</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>How real estate cash flow funds BTC accumulation without investor principal risk</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>The full investment thesis behind Fund 29 — the first institutional RE+Bitcoin fund</li>
+        </ul>
+        <button @click="toggle(3)" class="btn btn-primary btn-full" x-show="!done[3]" :aria-expanded="(open===3).toString()" aria-controls="form-3">
+          <span x-text="open===3?'Close Form':'Get Free Access →'"></span>
+        </button>
+        <a x-show="done[3]" href="/web/schedule/" class="btn btn-primary btn-full">✓ Sent — Book a Call Now →</a>
+      </div>
+      <div id="form-3" x-show="open===3 && !done[3]" x-cloak x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="border-top:1px solid rgba(255,159,10,.18);background:rgba(0,12,24,.6);padding:20px 24px" role="region" aria-label="Get Book 3 — Bitcoin RE Guide">
+        <form @submit.prevent="submit(3,'bitcoin-re-guide')" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b3-name">First Name</label><input type="text" id="b3-name" class="fi" placeholder="Grant" required autocomplete="given-name"></div>
+            <div><label class="fl" for="b3-email">Email Address</label><input type="email" id="b3-email" class="fi" placeholder="grant@example.com" required autocomplete="email"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b3-phone">Phone <span class="fl-opt">(optional)</span></label><input type="tel" id="b3-phone" class="fi" placeholder="+1 305 000 0000" autocomplete="tel"></div>
+            <div>
+              <label class="fl" style="margin-bottom:10px">Accredited Investor?</label>
+              <div class="radio-row">
+                <label class="radio-opt"><input type="radio" name="b3-acc" value="yes" required>Yes, I qualify</label>
+                <label class="radio-opt"><input type="radio" name="b3-acc" value="exploring">Exploring</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg" style="font-size:14px">Send Me the Free Guide →</button>
+        </form>
+        <p style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.22);margin-top:10px">Accredited investors only · HubSpot Seq #5 · <a href="/web/privacy-policy/" style="color:rgba(255,255,255,.35)">Privacy Policy</a></p>
+      </div>
+      <div x-show="done[3]" x-cloak style="border-top:1px solid rgba(0,200,150,.2);background:rgba(0,200,150,.05);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px" role="status">
+        <div><p style="font-family:var(--fb);font-weight:700;font-size:13px;color:var(--ok);margin-bottom:3px">✓ Your book is on its way!</p><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.5)">Ready to invest? Fund 29 is currently open.</p></div>
+        <a href="/web/schedule/" class="btn btn-primary btn-sm">Book a Call →</a>
+      </div>
+    </div>
+
+  </div><!-- /books 1–3 -->
+
+
+  <!-- ── BOOK 4: NYT BESTSELLER — FULL-WIDTH FEATURED ── -->
+  <div class="book-card mb-6" :class="open===4&&'open'" id="book-4" style="background:radial-gradient(ellipse 60% 90% at 95% 10%,rgba(255,208,107,.15) 0%,rgba(255,159,10,.05) 45%,transparent 65%),var(--card);border-color:rgba(255,208,107,.25)">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <!-- Cover + flagship visual -->
+      <div class="p-8 flex items-start gap-6 border-b lg:border-b-0 lg:border-r" style="border-color:rgba(255,208,107,.15)">
+        <!-- Large cover mockup -->
+        <div class="cover cover-4 flex-shrink-0" style="width:140px">
+          <div class="cover-inner">
+            <div>
+              <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px">
+                <svg width="10" height="10" viewBox="0 0 9 9" fill="#FFD06B" aria-hidden="true"><path d="M4.5.5 5.7 3h2.6L6.1 4.8l.9 2.7L4.5 6l-2.5 1.5.9-2.7L.7 3h2.6z"/></svg>
+                <span style="font-family:var(--fb);font-size:8px;font-weight:700;color:#FFD06B;text-transform:uppercase;letter-spacing:.12em">NYT Best-Seller</span>
+              </div>
+              <div class="cover-number" style="color:var(--a100)">Book 04 — Flagship</div>
+            </div>
+            <div>
+              <div class="cover-title" style="font-size:15px;line-height:1.1">How To Create Wealth in Real Estate</div>
+              <div class="cover-author" style="margin-top:6px">Grant Cardone</div>
+            </div>
+            <div style="width:40px;height:3px;background:linear-gradient(90deg,#FFD06B,#FF9F0A);border-radius:2px;margin-bottom:4px"></div>
+          </div>
+        </div>
+        <!-- Copy left column -->
+        <div>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge b-nyt">
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="currentColor" aria-hidden="true"><path d="M4.5.5 5.7 3h2.6L6.1 4.8l.9 2.7L4.5 6l-2.5 1.5.9-2.7L.7 3h2.6z"/></svg>
+              New York Times Best-Seller
+            </span>
+            <span class="badge b-amber">Book 4 of 5</span>
+            <span class="badge b-free">Free Access</span>
+          </div>
+          <h3 class="font-display font-black uppercase text-white mb-2" style="font-size:clamp(18px,2.5vw,26px);letter-spacing:-.01em;line-height:1.1">
+            How To Create Wealth in Real Estate
+          </h3>
+          <p class="gt-gold" style="font-family:var(--fc);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">The Book That Started a Revolution</p>
+          <p style="font-family:var(--fb);font-size:13px;line-height:1.72;color:rgba(255,255,255,.65)">Grant Cardone's New York Times bestselling flagship book. This is the foundational text of the 10X investment philosophy — a systematic framework for building generational wealth through institutional-grade real estate. Over a million copies sold. The starting point for every serious real estate investor.</p>
+        </div>
+      </div>
+      <!-- Right column: content + form -->
+      <div class="p-8">
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.72;color:rgba(255,255,255,.62);margin-bottom:14px">No book in Grant's library has changed more lives. This is the complete system — not a summary, not a teaser — the full proven methodology he used to build $5.3 billion in assets and pay $591 million in distributions. Read this first. Everything else follows from it.</p>
+        <ul class="flex flex-col gap-2 mb-6">
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.72)"><span style="color:#FFD06B;font-weight:700;flex-shrink:0">★</span>Grant's proprietary framework for building generational wealth through real estate — not theory, lived experience</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.72)"><span style="color:#FFD06B;font-weight:700;flex-shrink:0">★</span>Why institutional multifamily outperforms every other asset class over a 20+ year horizon</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.72)"><span style="color:#FFD06B;font-weight:700;flex-shrink:0">★</span>The 10X investor mindset shifts that separate wealth builders from everyone else</li>
+        </ul>
+        <button @click="toggle(4)" class="btn btn-full btn-lg mb-3" x-show="!done[4]" :aria-expanded="(open===4).toString()" aria-controls="form-4" style="background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF6B00 100%);color:#000e1c;font-family:var(--fb);font-weight:800;font-size:15px;border-radius:9px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;position:relative;overflow:hidden;transition:transform var(--tf),box-shadow var(--tf);box-shadow:0 4px 24px rgba(255,159,10,.35)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v10M4 7l4 4 4-4M1 13v1.5c0 .3.2.5.5.5h13c.3 0 .5-.2.5-.5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span x-text="open===4?'Close Form':'Get the NYT Best-Seller — Free →'"></span>
+        </button>
+        <a x-show="done[4]" href="/web/schedule/" class="btn btn-full btn-lg" style="background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 100%);color:#000e1c;font-size:15px;border-radius:9px">★ Sent — Book an Investor Call →</a>
+      </div>
+    </div>
+    <!-- Inline form — Book 4 -->
+    <div id="form-4" x-show="open===4 && !done[4]" x-cloak x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="border-top:1px solid rgba(255,208,107,.2);background:rgba(0,10,20,.7);padding:24px 32px" role="region" aria-label="Get Book 4 — NYT Bestseller">
+      <p style="font-family:var(--fb);font-weight:700;font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px">Your copy of the NYT Best-Seller arrives by email in minutes.</p>
+      <form @submit.prevent="submit(4,'how-to-create-wealth-re')" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
+          <div><label class="fl" for="b4-name">First Name</label><input type="text" id="b4-name" class="fi" placeholder="Grant" required autocomplete="given-name"></div>
+          <div><label class="fl" for="b4-email">Email Address</label><input type="email" id="b4-email" class="fi" placeholder="grant@example.com" required autocomplete="email"></div>
+          <div><label class="fl" for="b4-phone">Phone <span class="fl-opt">(optional)</span></label><input type="tel" id="b4-phone" class="fi" placeholder="+1 305 000 0000" autocomplete="tel"></div>
+          <div>
+            <label class="fl" style="margin-bottom:10px">Accredited Investor?</label>
+            <div class="radio-row">
+              <label class="radio-opt"><input type="radio" name="b4-acc" value="yes" required>Yes</label>
+              <label class="radio-opt"><input type="radio" name="b4-acc" value="exploring">Exploring</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-full btn-lg" style="background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF6B00 100%);color:#000e1c;font-family:var(--fb);font-weight:800;font-size:15px;border-radius:9px;border:none;cursor:pointer;padding:14px;transition:transform var(--tf),box-shadow var(--tf)">
+          ★ Send Me the NYT Best-Seller — Free →
+        </button>
+      </form>
+      <p style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.22);margin-top:10px">Accredited investors only · HubSpot Seq #1 · <a href="/web/privacy-policy/" style="color:rgba(255,255,255,.35)">Privacy Policy</a></p>
+    </div>
+    <div x-show="done[4]" x-cloak style="border-top:1px solid rgba(255,208,107,.2);background:rgba(255,208,107,.04);padding:20px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px" role="status">
+      <div><p style="font-family:var(--fb);font-weight:700;font-size:14px;color:#FFD06B;margin-bottom:3px">★ Your NYT Best-Seller is on its way!</p><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.5)">Check your inbox. Ready to invest? Grant's team is standing by.</p></div>
+      <a href="/web/schedule/" class="btn btn-primary">Book a Free Investor Call →</a>
+    </div>
+  </div><!-- /book 4 -->
+
+
+  <!-- ── BOOK 5: 1031 Exchange Book — Centered ── -->
+  <div class="max-w-2xl mx-auto">
+    <div class="book-card" :class="open===5&&'open'" id="book-5">
+      <div class="p-6">
+        <div class="flex gap-5 mb-5">
+          <div class="cover cover-5" style="width:90px">
+            <div class="cover-inner">
+              <div><div class="cover-number" style="color:var(--ok)">Book 05</div></div>
+              <div>
+                <div class="cover-title">1031 Exchange Book</div>
+                <div class="cover-author" style="margin-top:4px">Grant Cardone</div>
+              </div>
+              <div class="cover-mark" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 10h20M8 6l-4 4 4 4M24 18h-20M22 14l4 4-4 4" stroke="#00C896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="badge b-muted" style="margin-bottom:8px;display:inline-flex">Book 5 of 5</span>
+            <h3 class="font-display font-black uppercase text-white" style="font-size:15px;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px">1031 Exchange Book</h3>
+            <p style="font-family:var(--fc);font-weight:700;font-size:12px;color:var(--ok);text-transform:uppercase;letter-spacing:.06em">Defer Taxes. Compound Forever.</p>
+          </div>
+        </div>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:12px">The IRS lets real estate investors exchange one property for another — tax-deferred — indefinitely. This guide explains exactly how 1031 exchanges work, who qualifies, when they make sense, and how experienced investors use them to compound wealth without ever triggering a capital gains event. If you own property now, this book could be the most valuable free thing you read all year.</p>
+        <ul class="flex flex-col gap-2 mb-5">
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>The IRS rules that let you defer capital gains taxes on real estate — indefinitely</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>How experienced investors use 1031 exchanges to compound wealth without tax events</li>
+          <li style="display:flex;align-items:flex-start;gap:7px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.65)"><span style="color:var(--ok);font-weight:700;flex-shrink:0">✓</span>Whether exchanging into a DST or private fund structure makes sense for your situation</li>
+        </ul>
+        <button @click="toggle(5)" class="btn btn-primary btn-full" x-show="!done[5]" :aria-expanded="(open===5).toString()" aria-controls="form-5">
+          <span x-text="open===5?'Close Form':'Get Free Access →'"></span>
+        </button>
+        <a x-show="done[5]" href="/web/schedule/" class="btn btn-primary btn-full">✓ Sent — Book a Call Now →</a>
+      </div>
+      <!-- Form — Book 5: Uses "Exploring a 1031 exchange?" instead of Accredited? -->
+      <div id="form-5" x-show="open===5 && !done[5]" x-cloak x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="border-top:1px solid rgba(255,159,10,.18);background:rgba(0,12,24,.6);padding:20px 24px" role="region" aria-label="Get Book 5 — 1031 Exchange Book">
+        <form @submit.prevent="submit(5,'1031-exchange-book')" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b5-name">First Name</label><input type="text" id="b5-name" class="fi" placeholder="Grant" required autocomplete="given-name"></div>
+            <div><label class="fl" for="b5-email">Email Address</label><input type="email" id="b5-email" class="fi" placeholder="grant@example.com" required autocomplete="email"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="fl" for="b5-phone">Phone <span class="fl-opt">(optional)</span></label><input type="tel" id="b5-phone" class="fi" placeholder="+1 305 000 0000" autocomplete="tel"></div>
+            <div>
+              <label class="fl" style="margin-bottom:10px">Exploring a 1031 exchange?</label>
+              <div class="radio-row">
+                <label class="radio-opt"><input type="radio" name="b5-1031" value="yes">Yes, actively</label>
+                <label class="radio-opt"><input type="radio" name="b5-1031" value="maybe">Considering it</label>
+                <label class="radio-opt"><input type="radio" name="b5-1031" value="no">Just learning</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg" style="font-size:14px">Send Me the Free Guide →</button>
+        </form>
+        <p style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.22);margin-top:10px">HubSpot Seq #3 · <a href="/web/privacy-policy/" style="color:rgba(255,255,255,.35)">Privacy Policy</a> · Not tax advice — consult a qualified professional</p>
+      </div>
+      <div x-show="done[5]" x-cloak style="border-top:1px solid rgba(0,200,150,.2);background:rgba(0,200,150,.05);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px" role="status">
+        <div><p style="font-family:var(--fb);font-weight:700;font-size:13px;color:var(--ok);margin-bottom:3px">✓ Your book is on its way!</p><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.5)">Have a 1031 conversation with our team.</p></div>
+        <a href="/web/schedule/" class="btn btn-primary btn-sm">Book a Call →</a>
+      </div>
+    </div>
+  </div><!-- /book 5 -->
+
+</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     ARTICLES + FAQ SECTION
+     4 article cards + FAQ link
+════════════════════════════════════════════ -->
+<section class="bg-aurora py-16 lg:py-24" aria-labelledby="articles-heading">
+<div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+  <div class="text-center mb-10 rev">
+    <p class="overline justify-center mb-3" style="justify-content:center">Go Deeper</p>
+    <h2 id="articles-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(22px,3.5vw,38px);letter-spacing:-.015em;line-height:1">
+      Continue Your Education in the <span class="gt-amber">Academy</span>
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+
+    <!-- Article 1: Bitcoin + RE Strategy -->
+    <a href="/web/academy/bitcoin-real-estate/" class="art-card" aria-label="Read: Bitcoin + Real Estate Strategy pillar article">
+      <div class="art-header ah-1">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px" aria-hidden="true">₿</div>
+        <span class="badge b-amber" style="position:absolute;top:12px;left:12px">Pillar Article</span>
+      </div>
+      <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:8px">
+        <h3 class="font-display font-black uppercase text-white" style="font-size:14px;letter-spacing:-.01em;line-height:1.25">Bitcoin + Real Estate Strategy</h3>
+        <p style="font-family:var(--fb);font-size:12px;line-height:1.65;color:rgba(255,255,255,.55);flex:1">Why the smartest institutional move in 2026 is owning both hard assets — and how Fund 29 does it.</p>
+        <p style="font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Read Article <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M6 2l3.5 3.5L6 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></p>
+      </div>
+    </a>
+
+    <!-- Article 2: RE Investing 101 -->
+    <a href="/web/academy/real-estate-101/" class="art-card" aria-label="Read: Real Estate Investing 101 pillar article">
+      <div class="art-header ah-2">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px" aria-hidden="true">🏢</div>
+        <span class="badge b-muted" style="position:absolute;top:12px;left:12px">Pillar Article</span>
+      </div>
+      <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:8px">
+        <h3 class="font-display font-black uppercase text-white" style="font-size:14px;letter-spacing:-.01em;line-height:1.25">RE Investing 101</h3>
+        <p style="font-family:var(--fb);font-size:12px;line-height:1.65;color:rgba(255,255,255,.55);flex:1">The accredited investor's complete guide to institutional multifamily real estate — what it is, why it works, and how to access it.</p>
+        <p style="font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Read Article <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M6 2l3.5 3.5L6 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></p>
+      </div>
+    </a>
+
+    <!-- Article 3: IRA & 401k Guide -->
+    <a href="/web/academy/ira-401k-guide/" class="art-card" aria-label="Read: IRA and 401k Guide article">
+      <div class="art-header ah-3">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px" aria-hidden="true">🛡</div>
+        <span class="badge b-ok" style="position:absolute;top:12px;left:12px">Long-Form Guide</span>
+      </div>
+      <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:8px">
+        <h3 class="font-display font-black uppercase text-white" style="font-size:14px;letter-spacing:-.01em;line-height:1.25">IRA &amp; 401k Guide</h3>
+        <p style="font-family:var(--fb);font-size:12px;line-height:1.65;color:rgba(255,255,255,.55);flex:1">Complete guide to investing your retirement account in real estate — Self-Directed IRAs, rollover mechanics, custodian selection.</p>
+        <p style="font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Read Guide <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M6 2l3.5 3.5L6 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></p>
+      </div>
+    </a>
+
+    <!-- Article 4: FAQ -->
+    <a href="/web/academy/faq/" class="art-card" aria-label="Browse the Cardone Capital FAQ — 30+ questions answered">
+      <div class="art-header ah-4">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px;font-family:var(--fe);font-weight:900;color:rgba(255,208,107,.6)" aria-hidden="true">?</div>
+        <span class="badge b-amber" style="position:absolute;top:12px;left:12px">30+ Q&amp;A</span>
+      </div>
+      <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:8px">
+        <h3 class="font-display font-black uppercase text-white" style="font-size:14px;letter-spacing:-.01em;line-height:1.25">Investor FAQ</h3>
+        <p style="font-family:var(--fb);font-size:12px;line-height:1.65;color:rgba(255,255,255,.55);flex:1">30+ questions answered about Fund 29, Fund 30, investment process, distributions, accreditation, IRA eligibility, and more.</p>
+        <p style="font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Browse FAQ <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M6 2l3.5 3.5L6 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></p>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="text-center rev">
+    <p style="font-family:var(--fb);font-size:14px;color:var(--tm);margin-bottom:16px">Read everything. Still have questions? Talk to our team — no commitment required.</p>
+    <a href="/web/schedule/" class="btn btn-primary btn-lg">Book a Free Investor Call →</a>
+  </div>
+
+</div>
+</section>
+
+</div><!-- /academy app -->
+
+<!-- Spanish Band -->
+<section class="es-band" aria-label="Hablamos Español">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-4">
+      <span style="font-size:22px;line-height:1" aria-hidden="true">🇲🇽</span>
+      <div><p style="font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--i400);margin-bottom:2px">Hablamos Español</p><p style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.52)">¿Prefiere hablar en español? <strong style="color:rgba(255,255,255,.72);font-weight:600">Nuestro equipo está listo para atenderle.</strong></p></div>
+    </div>
+    <div class="flex items-center gap-4 flex-shrink-0 flex-wrap">
+      <a href="tel:+13054070276" style="font-family:var(--fc);font-weight:700;font-size:14px;color:rgba(255,255,255,.35);letter-spacing:.03em;white-space:nowrap;transition:color var(--tf)" onmouseover="this.style.color='rgba(255,255,255,.6)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">305-407-0276</a>
+      <a href="/web/lp/es/?utm_source=spanish-band&utm_medium=site-wide&utm_campaign=hablamos" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:rgba(0,212,255,.08);color:var(--i400);border:1px solid rgba(0,212,255,.3);font-size:11px;padding:8px 14px;border-radius:6px">Reservar una Llamada →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
+
+    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
+      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
+
+      <!-- Col 1: Brand -->
+      <div class="lg:col-span-1" style="grid-column:1">
+        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+        </a>
+        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
+        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
+        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
+        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
+        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
+        <!-- Socials -->
+        <nav class="flex gap-2" aria-label="Social media">
+          <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@cardone_capital" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="YouTube">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#000e1c"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Col 2: Invest -->
+      <nav aria-labelledby="ft-invest">
+        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
+          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
+          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
+          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
+        </ul>
+      </nav>
+
+      <!-- Col 3: Company -->
+      <nav aria-labelledby="ft-company">
+        <h3 class="footer-col-label" id="ft-company">Company</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/portfolio/"          class="footer-link py-1 block">Portfolio</a></li>
+          <li><a href="/web/company/#overview"   class="footer-link py-1 block">Overview</a></li>
+          <li><a href="/web/team/"               class="footer-link py-1 block">Team</a></li>
+          <li><a href="/web/company/#careers"    class="footer-link py-1 block">Careers</a></li>
+          <li><a href="/web/academy/faq/"        class="footer-link py-1 block">FAQ</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Legal disclaimer -->
+    <div class="py-7" style="border-bottom:1px solid rgba(28,58,67,.38)">
+      <p style="font-family:var(--fb);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.15);text-align:center;margin-bottom:14px">Important Disclosures</p>
+      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);text-align:justify">
+        Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a>
+      </p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
+      <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2)">© 2026 Cardone Capital, LLC. All rights reserved.</p>
+      <nav class="flex flex-wrap items-center gap-0" aria-label="Legal pages">
+        <a href="/web/privacy-policy/"       style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/disclosures/"          style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- ═══ ALPINE.JS ACADEMY COMPONENT ═══ -->
+<script>
+function academy() {
+  return {
+    open: null,   // which book accordion is open (1-5 or null)
+    done: {},     // which books have been submitted
+
+    toggle(n) {
+      // Mutual exclusion: only one form open at a time
+      this.open = this.open === n ? null : n;
+      // Scroll to book card if opening
+      if (this.open === n) {
+        this.$nextTick(() => {
+          const el = document.getElementById('book-' + n);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      }
+    },
+
+    submit(n, bookId) {
+      // ── GA4 event (replace with live gtag call) ──────────────────
+      // gtag('event', 'book_download', {
+      //   event_category: 'lead',
+      //   book_id: bookId,
+      //   source: 'academy',
+      //   value: 1
+      // });
+      // ── HubSpot form data (handled by embedded HS form in production) ──
+      // Form data should be posted to HubSpot via their Forms API or embedded form
+      // Sequences:  Book1=#4  Book2=#2  Book3=#5  Book4=#1  Book5=#3
+      console.log('[ACADEMY] Book download:', bookId, '| HubSpot seq:', {1:4,2:2,3:5,4:1,5:3}[n]);
+
+      // Mark as submitted → shows thank-you
+      this.done = { ...this.done, [n]: true };
+      // Collapse the form
+      this.open = null;
+    }
+  };
+}
+
+// Scroll reveal
+(function(){
+  const els = document.querySelectorAll('.rev');
+  if (!els.length) return;
+  const io = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('vis'); io.unobserve(x.target); } });
+  }, { threshold: .1, rootMargin: '0px 0px -44px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/web/assets/images/favicon_cc.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SEO META — HOMEPAGE (/)
+       Cardone Capital Design System v6 NOVA | IA v1.9 LOCKED
+  ═══════════════════════════════════════════════════════════════════ -->
+  <title>Cardone Capital — Real Estate + Bitcoin Investment | $5.3B AUM</title>
+  <meta name="description" content="Cardone Capital manages $5.3B in institutional real estate and offers accredited investors access to Fund 29 (RE + Bitcoin) and Fund 30 (Cash Only). Zero principal losses since 2016.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://cardonecapital.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://cardonecapital.com/">
+  <meta property="og:title"       content="Cardone Capital — Real Estate + Bitcoin Investment | $5.3B AUM">
+  <meta property="og:description" content="$5.3B AUM. $591M distributed. Zero principal losses since 2016. Accredited investor funds combining institutional real estate with Bitcoin strategy.">
+  <meta property="og:image"       content="https://cardonecapital.com/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name"   content="Cardone Capital">
+  <meta property="og:locale"      content="en_US">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@GrantCardone">
+  <meta name="twitter:creator"     content="@GrantCardone">
+  <meta name="twitter:title"       content="Cardone Capital — Real Estate + Bitcoin Investment">
+  <meta name="twitter:description" content="$5.3B AUM. Zero principal losses since 2016. Accredited investor real estate funds.">
+  <meta name="twitter:image"       content="https://cardonecapital.com/og/homepage.jpg">
+
+  <!-- Additional SEO signals -->
+  <meta name="author"    content="Cardone Capital, LLC">
+  <meta name="theme-color" content="#FF9F0A">
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       @fontsource — Exo 2 + Barlow + Barlow Condensed (zero Google Fonts)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/900.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/600.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/500.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/400.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css">
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js v3 CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Tailwind config: extend with NOVA tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display:   ['"Exo 2"',          'Arial',     'sans-serif'],
+            body:      ['Barlow',            'system-ui', 'sans-serif'],
+            condensed: ['"Barlow Condensed"','Barlow',    'Arial', 'sans-serif'],
+          },
+          colors: {
+            void:       '#072d51',
+            carbon:     '#00152a',
+            card:       '#002139',
+            raised:     '#153043',
+            'border-d': '#1c3a43',
+            amber: { 50:'#FFF4DD', 100:'#FFD06B', 400:'#FF9F0A', 600:'#CC7C00', 800:'#7A4A00' },
+            ice:   { 50:'#D8F8FF', 200:'#6AE8FF', 400:'#00D4FF', 600:'#008FAA' },
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       NOVA DESIGN SYSTEM CSS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ─── Tokens ─── */
+    :root {
+      --fe:'Exo 2',Arial,sans-serif;
+      --fb:Barlow,system-ui,sans-serif;
+      --fc:'Barlow Condensed',Barlow,Arial,sans-serif;
+      --void:#072d51; --carbon:#00152a; --card:#002139;
+      --raised:#153043; --border-d:#1c3a43;
+      --a100:#FFD06B; --a400:#FF9F0A; --a600:#CC7C00;
+      --i200:#6AE8FF; --i400:#00D4FF;
+      --th:#FFFFFF; --tb:#BEC5D4; --tm:#5C7A8A;
+      --success:#00C896;
+      --t-fast:150ms ease; --t-base:250ms ease; --t-slow:400ms ease;
+      --nav-h:72px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+    body{font-family:var(--fb);background:#000d1c;color:var(--tb);
+      -webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    img{display:block;max-width:100%;height:auto}
+    [x-cloak]{display:none!important}
+
+    /* ─── Focus ─── */
+    :focus-visible{outline:2px solid var(--a400);outline-offset:3px;border-radius:4px}
+    :focus:not(:focus-visible){outline:none}
+    ::selection{background:rgba(255,159,10,.28);color:#fff}
+
+    /* ─── Gradient text ─── */
+    .gt-amber{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 50%,#FFB830 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;display:inline-block}
+    .gt-ice{background:linear-gradient(135deg,#A8EEFF 0%,#00D4FF 50%,#6AE8FF 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;display:inline-block}
+    .gt-fire{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 30%,#FF6B00 70%,#FF9F0A 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;display:inline-block}
+
+    /* ─── Buttons ─── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      font-family:var(--fb);font-weight:800;font-size:13px;border-radius:7px;
+      cursor:pointer;white-space:nowrap;text-decoration:none;border:none;
+      transition:transform var(--t-fast),box-shadow var(--t-base),opacity var(--t-fast),background var(--t-fast);
+      position:relative;overflow:hidden}
+    .btn:active{transform:scale(.97)}
+    .btn-primary{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);
+      color:#000e1c;padding:12px 28px;box-shadow:0 2px 16px rgba(255,159,10,.28)}
+    .btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+      transition:left .5s ease}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(255,159,10,.42)}
+    .btn-primary:hover::after{left:140%}
+    .btn-secondary{background:rgba(255,159,10,.06);color:var(--a400);
+      border:1px solid rgba(255,159,10,.4);padding:11px 24px}
+    .btn-secondary:hover{background:rgba(255,159,10,.13);border-color:rgba(255,159,10,.68);
+      transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,159,10,.18)}
+    .btn-ice{background:rgba(0,212,255,.07);color:var(--i400);
+      border:1px solid rgba(0,212,255,.35);padding:11px 24px}
+    .btn-ice:hover{background:rgba(0,212,255,.14);border-color:rgba(0,212,255,.6);
+      transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,212,255,.15)}
+    .btn-lg{font-size:15px;padding:14px 36px;border-radius:9px}
+    .btn-sm{font-size:11px;padding:8px 16px;border-radius:5px}
+
+    /* ─── Scroll-reveal ─── */
+    .cc-reveal{opacity:0;transform:translateY(28px);
+      transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1)}
+    .cc-reveal.vis{opacity:1;transform:translateY(0)}
+    .cc-reveal-l{opacity:0;transform:translateX(-28px);
+      transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+    .cc-reveal-l.vis{opacity:1;transform:translateX(0)}
+    .cc-reveal-r{opacity:0;transform:translateX(28px);
+      transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+    .cc-reveal-r.vis{opacity:1;transform:translateX(0)}
+    .cc-reveal-s{opacity:0;transform:scale(.94);
+      transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
+    .cc-reveal-s.vis{opacity:1;transform:scale(1)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}
+    .d3{transition-delay:.3s}.d4{transition-delay:.4s}
+    .d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+    /* ─── Nav ─── */
+    .cc-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;
+      display:flex;align-items:center;background:transparent;
+      border-bottom:1px solid transparent;
+      transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,
+                 backdrop-filter .35s ease;will-change:background}
+    .cc-nav.scrolled{
+      background:linear-gradient(135deg,rgba(7,45,81,.9) 0%,rgba(0,21,42,.84) 50%,rgba(28,58,67,.8) 100%);
+      border-bottom-color:rgba(255,159,10,.15);
+      box-shadow:0 4px 32px rgba(0,0,0,.45);
+      backdrop-filter:blur(16px) saturate(1.3);
+      -webkit-backdrop-filter:blur(16px) saturate(1.3)}
+    .cc-nav-link{font-family:var(--fc);font-weight:800;font-size:13px;text-transform:uppercase;
+      letter-spacing:.05em;color:rgba(255,255,255,.65);padding:6px 11px;border-radius:5px;
+      display:flex;align-items:center;gap:4px;transition:color var(--t-fast),background var(--t-fast);
+      cursor:pointer;border:none;background:none;white-space:nowrap}
+    .cc-nav-link:hover{color:rgba(255,255,255,.95);background:rgba(255,255,255,.06)}
+    .cc-logo-mark{width:36px;height:36px;border-radius:8px;flex-shrink:0;
+      background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 2px 12px rgba(255,159,10,.32);position:relative;overflow:hidden}
+    .cc-logo-mark::after{content:'';position:absolute;top:0;left:0;right:50%;height:46%;
+      background:rgba(255,255,255,.14);border-radius:8px 0 0 0}
+    .cc-logo-mark span{font-family:var(--fe);font-weight:900;font-size:13px;
+      color:#000e1c;letter-spacing:-.04em;position:relative;z-index:1}
+    .nav-investor-login{font-family:var(--fb);font-size:10px;font-weight:600;
+      color:rgba(255,255,255,.32);text-decoration:none;padding:0 8px;
+      transition:color var(--t-fast);white-space:nowrap}
+    .nav-investor-login:hover{color:rgba(255,255,255,.58)}
+    .nav-dropdown{position:absolute;top:100%;left:50%;padding-top:10px;
+      transform:translateX(-50%);min-width:210px;background:transparent;border:none}
+    .nav-dropdown-inner{
+      background:linear-gradient(160deg,rgba(0,26,48,.98) 0%,rgba(0,14,30,.97) 100%);
+      border:1px solid rgba(255,159,10,.18);border-radius:12px;padding:6px 0;
+      box-shadow:0 20px 48px rgba(0,0,0,.55);
+      backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative}
+    .nav-dropdown-inner::before{content:'';position:absolute;top:-5px;left:50%;
+      width:10px;height:10px;
+      background:rgba(0,26,48,.98);
+      border-left:1px solid rgba(255,159,10,.18);
+      border-top:1px solid rgba(255,159,10,.18);
+      transform:translateX(-50%) rotate(45deg)}
+    .nav-dd-item{display:flex;align-items:center;gap:9px;padding:9px 16px;
+      font-family:var(--fb);font-weight:600;font-size:13px;color:rgba(255,255,255,.65);
+      transition:color var(--t-fast),background var(--t-fast),padding-left var(--t-fast)}
+    .nav-dd-item:hover{color:#fff;background:rgba(255,159,10,.07);padding-left:20px}
+    .fund-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dot-a{background:var(--a400);box-shadow:0 0 5px rgba(255,159,10,.5)}
+    .dot-i{background:var(--i400);box-shadow:0 0 5px rgba(0,212,255,.4)}
+    .ham-bar{display:block;width:22px;height:2px;background:rgba(255,255,255,.75);
+      border-radius:2px;transition:transform .3s ease,opacity .2s ease,width .2s ease;
+      transform-origin:center}
+
+    /* ─── Section backgrounds ─── */
+    .bg-void{background:
+      radial-gradient(ellipse 60% 80% at 92% 5%,  rgba(255,159,10,.22) 0%,rgba(255,159,10,.06) 35%,transparent 60%),
+      radial-gradient(ellipse 55% 70% at 5%  95%, rgba(0,212,255,.16)  0%,rgba(0,212,255,.04)  35%,transparent 58%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(7,45,81,.8)     0%,transparent 70%),
+      radial-gradient(ellipse 100% 60% at 0%  0%, #072d51               0%,transparent 55%),
+      radial-gradient(ellipse 80%  80% at 100% 100%,#1c3a43             0%,transparent 60%),
+      linear-gradient(160deg,#001020 0%,#000d1c 40%,#001525 100%)}
+    .bg-stats{background:linear-gradient(135deg,
+      rgba(255,159,10,.08) 0%,rgba(7,45,81,.6) 25%,
+      rgba(0,21,42,.8) 50%,rgba(28,58,67,.6) 75%,
+      rgba(0,212,255,.06) 100%)}
+    .bg-aurora{background:
+      conic-gradient(from 220deg at 70% 40%,rgba(0,212,255,.06) 0deg,transparent 60deg),
+      conic-gradient(from  40deg at 20% 60%,rgba(255,159,10,.07) 0deg,transparent 50deg),
+      radial-gradient(ellipse 80% 100% at 0% 50%,rgba(7,45,81,.8) 0%,transparent 60%),
+      linear-gradient(180deg,#001525 0%,#000e1c 50%,#001525 100%)}
+    .bg-swirl{background:
+      radial-gradient(ellipse 90% 60% at 5%  50%,rgba(7,45,81,.6)  0%,transparent 60%),
+      radial-gradient(ellipse 60% 75% at 95% 50%,rgba(28,58,67,.5) 0%,transparent 55%),
+      #001020}
+
+    /* ─── Scanlines ─── */
+    .scanlines{position:relative}
+    .scanlines::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+      background-image:
+        repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,212,255,.022) 47px,rgba(0,212,255,.022) 48px),
+        repeating-linear-gradient(90deg,transparent,transparent 95px,rgba(255,159,10,.013) 95px,rgba(255,159,10,.013) 96px)}
+
+    /* ─── Ticker ─── */
+    .ticker-track{display:flex;width:max-content;animation:tickerRoll 28s linear infinite}
+    .ticker-track:hover{animation-play-state:paused}
+    @keyframes tickerRoll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .ticker-item{display:flex;align-items:center;gap:14px;padding:0 28px;
+      font-family:var(--fc);font-weight:700;font-size:11px;
+      text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.42);white-space:nowrap}
+    .ticker-sep{width:4px;height:4px;border-radius:50%;background:var(--a400);opacity:.55}
+    .ticker-val{color:var(--a400)}
+
+    /* ─── Gradient border wrappers ─── */
+    .pf-w29{padding:1.5px;border-radius:16px;
+      background:linear-gradient(135deg,rgba(255,159,10,.6) 0%,rgba(255,180,50,.3) 30%,rgba(28,58,67,.3) 65%,transparent 100%);
+      transition:background var(--t-slow),box-shadow var(--t-slow)}
+    .pf-w29:hover{background:linear-gradient(135deg,rgba(255,159,10,.85) 0%,rgba(255,180,50,.5) 30%,rgba(28,58,67,.4) 65%,rgba(255,159,10,.1) 100%);
+      box-shadow:0 0 28px rgba(255,159,10,.22),0 0 56px rgba(255,159,10,.07)}
+    .pf-w30{padding:1.5px;border-radius:16px;
+      background:linear-gradient(135deg,rgba(0,212,255,.55) 0%,rgba(0,180,220,.25) 30%,rgba(7,45,81,.3) 65%,transparent 100%);
+      transition:background var(--t-slow),box-shadow var(--t-slow)}
+    .pf-w30:hover{background:linear-gradient(135deg,rgba(0,212,255,.8) 0%,rgba(0,180,220,.45) 30%,rgba(7,45,81,.4) 65%,rgba(0,212,255,.1) 100%);
+      box-shadow:0 0 28px rgba(0,212,255,.18),0 0 56px rgba(0,212,255,.06)}
+
+    /* ─── Card interiors ─── */
+    .card-f29{background:
+      radial-gradient(ellipse 90% 70% at 100% 0%,rgba(255,159,10,.13) 0%,rgba(255,159,10,.02) 45%,transparent 65%),
+      radial-gradient(ellipse 60% 60% at 0% 100%,rgba(7,45,81,.7) 0%,transparent 55%),
+      linear-gradient(145deg,#002245 0%,#001020 100%)}
+    .card-f30{background:
+      radial-gradient(ellipse 90% 70% at 100% 0%,rgba(0,212,255,.12) 0%,rgba(0,212,255,.02) 45%,transparent 65%),
+      radial-gradient(ellipse 60% 60% at 0% 100%,rgba(28,58,67,.7) 0%,transparent 55%),
+      linear-gradient(145deg,#001e38 0%,#001020 100%)}
+    .card-base{background:var(--card);border:1px solid var(--border-d);border-radius:14px;
+      transition:border-color var(--t-base),transform var(--t-slow),box-shadow var(--t-slow)}
+    .card-base:hover{border-color:rgba(255,159,10,.25);transform:translateY(-4px);
+      box-shadow:0 8px 40px rgba(0,0,0,.45)}
+    .card-inner{border-radius:calc(16px - 1.5px);overflow:hidden;height:100%}
+
+    /* ─── Property card image placeholder ─── */
+    .prop-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+    .prop-img-bg{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .card-base:hover .prop-img-bg{transform:scale(1.05)}
+
+    /* ─── Stat item ─── */
+    .stat-figure{font-family:var(--fc);font-weight:800;
+      font-size:clamp(28px,4vw,52px);line-height:.95;letter-spacing:-.02em}
+    .stat-label{font-family:var(--fb);font-weight:700;font-size:9px;
+      text-transform:uppercase;letter-spacing:.12em;color:var(--tm);margin-top:6px}
+
+    /* ─── FAQ accordion ─── */
+    .faq-item{border-bottom:1px solid rgba(28,58,67,.6)}
+    .faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:20px 0;background:none;border:none;cursor:pointer;text-align:left;
+      font-family:var(--fb);font-weight:600;font-size:15px;color:var(--th);
+      transition:color var(--t-fast)}
+    .faq-trigger:hover{color:var(--a400)}
+    .faq-icon{width:22px;height:22px;border:1px solid rgba(28,58,67,.8);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      color:var(--tm);transition:transform .25s ease,border-color var(--t-fast),background var(--t-fast)}
+    .faq-trigger[aria-expanded=true] .faq-icon{transform:rotate(45deg);
+      border-color:rgba(255,159,10,.4);background:rgba(255,159,10,.08);color:var(--a400)}
+    .faq-body{font-family:var(--fb);font-size:14px;line-height:1.7;color:var(--tb);
+      padding-bottom:20px}
+
+    /* ─── Testimonial card ─── */
+    .testi-card{background:var(--raised);border:1px solid var(--border-d);border-radius:14px;
+      padding:28px;position:relative;overflow:hidden;
+      transition:border-color var(--t-base),transform var(--t-slow)}
+    .testi-card::before{content:'\201C';position:absolute;top:12px;right:18px;
+      font-family:var(--fe);font-size:72px;font-weight:900;
+      color:rgba(255,159,10,.1);line-height:1;user-select:none;pointer-events:none}
+    .testi-card:hover{border-color:rgba(255,159,10,.22);transform:translateY(-3px)}
+
+    /* ─── Media logo ─── */
+    .media-logo{opacity:.22;filter:grayscale(100%) brightness(2.5);
+      transition:opacity var(--t-base),filter var(--t-base)}
+    .media-logo:hover{opacity:.55;filter:grayscale(70%) brightness(2)}
+
+    /* ─── Video facade ─── */
+    .vid-facade{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;
+      border:1px solid rgba(28,58,67,.7);background:var(--carbon)}
+    .vid-facade__thumb{width:100%;height:100%;object-fit:cover;
+      transition:transform .6s ease,filter .4s ease}
+    .vid-facade:hover .vid-facade__thumb{transform:scale(1.03)}
+    .vid-facade__overlay{position:absolute;inset:0;display:flex;align-items:center;
+      justify-content:center;background:rgba(0,0,0,.28);transition:background var(--t-base)}
+    .vid-facade:hover .vid-facade__overlay{background:rgba(0,0,0,.38)}
+    .vid-play{width:72px;height:72px;border-radius:50%;
+      background:rgba(255,159,10,.9);display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 28px rgba(255,159,10,.38);
+      transition:transform var(--t-base),background var(--t-fast)}
+    .vid-facade:hover .vid-play{transform:scale(1.12);background:var(--a400)}
+
+    /* ─── Eyebrow badge ─── */
+    .eyebrow-badge{display:inline-flex;align-items:center;gap:7px;
+      font-family:var(--fb);font-weight:700;font-size:11px;text-transform:uppercase;
+      letter-spacing:.1em;
+      background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.22);
+      border-radius:999px;padding:5px 14px;color:var(--a400)}
+    .eyebrow-badge--ice{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.2);
+      color:var(--i400)}
+
+    /* ─── Section overline ─── */
+    .overline{font-family:var(--fb);font-weight:700;font-size:10px;
+      text-transform:uppercase;letter-spacing:.14em;color:var(--a400);
+      display:flex;align-items:center;gap:8px}
+    .overline::before{content:'';display:block;width:24px;height:1.5px;
+      background:var(--a400);border-radius:2px;flex-shrink:0}
+    .overline--ice{color:var(--i400)}
+    .overline--ice::before{background:var(--i400)}
+
+    /* ─── CTA final band ambient glow ─── */
+    .cta-glow::before{content:'';position:absolute;width:600px;height:300px;
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      background:radial-gradient(ellipse,rgba(255,159,10,.12) 0%,transparent 70%);
+      pointer-events:none}
+
+    /* ─── Zero-loss badge ─── */
+    .zero-badge{display:inline-flex;align-items:center;gap:6px;
+      background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.25);
+      border-radius:999px;padding:5px 13px;
+      font-family:var(--fb);font-weight:700;font-size:11px;
+      text-transform:uppercase;letter-spacing:.08em;color:var(--success)}
+
+    /* ─── Property card badge ─── */
+    .badge-sm{display:inline-flex;align-items:center;font-family:var(--fb);font-weight:700;
+      font-size:9px;text-transform:uppercase;letter-spacing:.1em;
+      padding:3px 8px;border-radius:999px;white-space:nowrap}
+    .badge-amber{background:rgba(255,159,10,.15);color:var(--a400);border:1px solid rgba(255,159,10,.28)}
+    .badge-ice{background:rgba(0,212,255,.12);color:var(--i400);border:1px solid rgba(0,212,255,.25)}
+    .badge-muted{background:rgba(28,58,67,.8);color:var(--tm);border:1px solid var(--border-d)}
+
+    /* ─── Stars ─── */
+    .stars{color:#FFD06B;letter-spacing:1px}
+
+    /* ─── Footer compact ─── */
+    .footer-link{font-family:var(--fb);font-size:13px;font-weight:500;
+      color:rgba(255,255,255,.42);transition:color var(--t-fast)}
+    .footer-link:hover{color:rgba(255,255,255,.85)}
+    .footer-col-label{font-family:var(--fb);font-weight:700;font-size:9px;
+      text-transform:uppercase;letter-spacing:.14em;color:var(--tm);
+      margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .footer-col-label::before{content:'';display:inline-block;width:18px;height:1.5px;
+      background:linear-gradient(90deg,var(--a400) 0%,transparent 100%);
+      border-radius:2px;flex-shrink:0}
+
+    /* ─── Reduce motion ─── */
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .cc-reveal,.cc-reveal-l,.cc-reveal-r,.cc-reveal-s{opacity:1;transform:none}
+    }
+
+    /* ─── Mobile hamburger open state ─── */
+    [data-mob-open=true] .ham-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    [data-mob-open=true] .ham-bar:nth-child(2){opacity:0;width:0}
+    [data-mob-open=true] .ham-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    .mob-overlay{position:fixed;inset:0;z-index:99;
+      background:rgba(0,8,18,.97);backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;overflow-y:auto}
+    .mob-link{font-family:var(--fe);font-weight:800;font-size:clamp(22px,6vw,30px);
+      text-transform:uppercase;color:rgba(255,255,255,.72);
+      display:block;padding:6px 0;transition:color var(--t-fast)}
+    .mob-link:hover{color:#fff}
+    .mob-acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;
+      font-family:var(--fe);font-weight:800;font-size:clamp(22px,6vw,30px);
+      text-transform:uppercase;color:rgba(255,255,255,.72);
+      background:none;border:none;cursor:pointer;padding:6px 0;transition:color var(--t-fast)}
+    .mob-acc-trigger.open{color:var(--a400)}
+    .mob-sub{font-family:var(--fb);font-weight:600;font-size:14px;
+      color:rgba(255,255,255,.48);display:flex;align-items:center;gap:9px;
+      padding:9px 0 9px 16px;border-bottom:1px solid rgba(28,58,67,.3);
+      transition:color var(--t-fast),padding-left var(--t-fast)}
+    .mob-sub:hover{color:rgba(255,255,255,.88);padding-left:22px}
+    .mob-divider{height:1px;background:rgba(28,58,67,.55);margin:8px 0}
+
+    /* ─── ES band ─── */
+    .es-band{background:rgba(0,15,28,.95);border-top:1px solid rgba(0,212,255,.12);
+      border-bottom:1px solid rgba(0,212,255,.08)}
+
+    /* ─── Footer bg ─── */
+    .cc-footer-bg{background:
+      radial-gradient(ellipse 65% 90% at 0% 100%,rgba(7,45,81,.6) 0%,transparent 55%),
+      radial-gradient(ellipse 50% 60% at 100% 0%,rgba(28,58,67,.38) 0%,transparent 50%),
+      linear-gradient(180deg,#000810 0%,#000610 60%,#000912 100%);
+      border-top:none}
+    .cc-social-ico{width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+      background:rgba(28,58,67,.55);border:1px solid rgba(28,58,67,.85);border-radius:6px;
+      color:rgba(255,255,255,.35);transition:background var(--t-fast),border-color var(--t-fast),color var(--t-fast)}
+    .cc-social-ico:hover{background:rgba(255,159,10,.1);border-color:rgba(255,159,10,.3);color:var(--a400)}
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--carbon)}
+    ::-webkit-scrollbar-thumb{background:var(--border-d);border-radius:999px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--a600)}
+
+    /* ─── Skip link ─── */
+    .skip{position:absolute;top:-100px;left:16px;z-index:9999;padding:8px 20px;
+      background:var(--a400);color:#000;font-family:var(--fb);font-weight:700;
+      font-size:13px;border-radius:6px;transition:top var(--t-fast)}
+    .skip:focus{top:16px}
+  </style>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       JSON-LD STRUCTURED DATA — Organization + WebSite (homepage)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cardonecapital.com/#organization",
+        "name": "Cardone Capital",
+        "legalName": "Cardone Capital, LLC",
+        "url": "https://cardonecapital.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cardonecapital.com/img/cc-logo-white.svg",
+          "width": 200, "height": 60
+        },
+        "description": "Cardone Capital manages $5.3 billion in institutional real estate assets across 46 properties and ~14,600 units in FL, TX, AZ, GA, AL, and MD. Offering accredited investors access to Fund 29 (Real Estate + Bitcoin) and Fund 30 (Cash Only Distributions).",
+        "foundingDate": "2016",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://cardonecapital.com/team/#grant-cardone",
+          "name": "Grant Cardone",
+          "jobTitle": "Founder & CEO",
+          "sameAs": [
+            "https://twitter.com/GrantCardone",
+            "https://www.linkedin.com/in/grantcardone/",
+            "https://www.instagram.com/grantcardone/"
+          ]
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "18851 NE 29th Ave Suite 1000",
+          "addressLocality": "Aventura",
+          "addressRegion": "FL",
+          "postalCode": "33180",
+          "addressCountry": "US"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-305-407-0276",
+            "contactType": "investor relations",
+            "email": "invest@cardonecapital.com",
+            "availableLanguage": ["English", "Spanish"]
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/cardonecapital/",
+          "https://www.instagram.com/cardonecapital/",
+          "https://www.linkedin.com/company/cardonecapital/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cardonecapital.com/#website",
+        "url": "https://cardonecapital.com/",
+        "name": "Cardone Capital",
+        "publisher": { "@id": "https://cardonecapital.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://cardonecapital.com/academy/faq/?q={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://cardonecapital.com/#webpage",
+        "url": "https://cardonecapital.com/",
+        "name": "Cardone Capital — Real Estate + Bitcoin Investment | $5.3B AUM",
+        "isPartOf": { "@id": "https://cardonecapital.com/#website" },
+        "about": { "@id": "https://cardonecapital.com/#organization" },
+        "description": "Cardone Capital manages $5.3B in institutional real estate. Accredited investors access Fund 29 (RE + Bitcoin) and Fund 30 (Cash Only). Zero principal losses since 2016.",
+        "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cardonecapital.com/" }] }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Grant Cardone — Why Cardone Capital?",
+        "description": "Grant Cardone explains the Cardone Capital investment philosophy: institutional real estate combined with Bitcoin strategy for accredited investors.",
+        "thumbnailUrl": "https://img.youtube.com/vi/_jhN8ZxnwzQ/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "embedUrl": "https://www.youtube.com/embed/_jhN8ZxnwzQ",
+        "url": "https://www.youtube.com/watch?v=_jhN8ZxnwzQ",
+        "publisher": { "@id": "https://cardonecapital.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an accredited investor?",
+            "acceptedAnswer": { "@type": "Answer", "text": "An accredited investor is an individual with a net worth exceeding $1 million (excluding primary residence) or annual income above $200,000 ($300,000 joint) in each of the past two years with expectation of same income this year. Cardone Capital funds are available to accredited investors only, per SEC Regulation D Rule 506(c)." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the minimum investment in Cardone Capital funds?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Minimum investment amounts vary by fund. Please schedule a call with our investor relations team to discuss current minimums for Fund 29 and Fund 30." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Fund 29 combine real estate and Bitcoin?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Fund 29 invests in institutional multifamily real estate and uses a portion of the real estate cash flow to acquire Bitcoin. The strategy is designed so that real estate income effectively pays for Bitcoin accumulation, providing a hedge against dollar devaluation while generating real asset cash flow." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I invest using my IRA or 401k?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cardone Capital accepts investments through Self-Directed IRAs (SD-IRAs) and Solo 401k plans. Our team can guide you through the process of rolling over existing retirement accounts into qualifying custodian structures." }
+          },
+          {
+            "@type": "Question",
+            "name": "What does 'zero principal losses' mean?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Since Cardone Capital's founding in 2016, no investor has experienced a loss of their originally invested principal capital across any fund. This is an unaudited historical statement and does not guarantee future performance." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TRACKING — Replace placeholders before production launch
+  ═══════════════════════════════════════════════════════════════════ -->
+
+  <!-- Google Tag Manager — replace GTM-XXXXXXX -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+
+  <!-- GA4 — replace G-XXXXXXXXXX -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+
+  <!-- Microsoft Clarity — replace XXXXXXXXXX -->
+  <!-- <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","XXXXXXXXXX");</script> -->
+
+  <!-- HubSpot tracking pixel — replace [HUBSPOT_PORTAL_ID] -->
+  <!-- <script type="text/javascript" id="hs-script-loader" async defer src="/web//js-na1.hs-scripts.com/[HUBSPOT_PORTAL_ID].js"></script> -->
+
+</head>
+<body>
+
+<!-- GTM noscript — replace GTM-XXXXXXX -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+<a href="#main-content" class="skip">Skip to main content</a>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     NAVIGATION (full implementation from cc-nav.html)
+     Alpine.js x-data manages all state
+═══════════════════════════════════════════════════════════════════════ -->
+<header
+  x-data="{
+    sc:false, inv:false, acad:false,
+    mob:false, mInv:false, mAcad:false,
+    init(){
+      this.sc=window.scrollY>20;
+      window.addEventListener('scroll',()=>{this.sc=window.scrollY>20},{passive:true});
+    },
+    closeAll(){this.inv=false;this.acad=false},
+    tInv(){const w=this.inv;this.closeAll();this.inv=!w},
+    tAcad(){const w=this.acad;this.closeAll();this.acad=!w},
+    tMob(){this.mob=!this.mob;document.body.style.overflow=this.mob?'hidden':'';
+      if(!this.mob){this.mInv=false;this.mAcad=false}},
+    closeMob(){this.mob=false;document.body.style.overflow='';this.mInv=false;this.mAcad=false}
+  }"
+  x-init="init()"
+  @keydown.escape.window="closeAll();closeMob()"
+>
+  <nav class="cc-nav" :class="{scrolled:sc}" aria-label="Main navigation">
+    <div class="w-full max-w-screen-2xl mx-auto px-6 lg:px-16 flex items-center" style="height:var(--nav-h)">
+      <!-- Logo -->
+      <a href="/web/" class="flex items-center gap-2.5 flex-shrink-0 mr-6" aria-label="Cardone Capital home">
+        <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+      </a>
+      <!-- Desktop links -->
+      <div class="hidden lg:flex items-center gap-0.5 flex-1" aria-label="Primary navigation">
+        <!-- Invest dropdown -->
+        <div class="relative" @mouseenter="inv=true" @mouseleave="inv=false" @click.outside="inv=false">
+          <a href="/web/invest/" class="cc-nav-link" :aria-expanded="inv.toString()" aria-haspopup="true">
+            
+Invest
+            <svg :style="inv?'transform:rotate(180deg)':''" width="8" height="5" viewBox="0 0 8 5" fill="none" style="transition:transform .2s ease"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown" x-show="inv" x-cloak
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+            <div class="nav-dropdown-inner">
+            <span style="padding:8px 16px 4px;display:block;font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tm)">Active Funds</span>
+            <a href="/web/fund29/" class="nav-dd-item"><span class="fund-dot dot-a"></span><span>Fund 29<span style="display:block;font-size:10px;color:var(--tm);font-weight:400;margin-top:1px">Real Estate + Bitcoin</span></span></a>
+            <a href="/web/fund30/" class="nav-dd-item"><span class="fund-dot dot-i"></span><span>Fund 30<span style="display:block;font-size:10px;color:var(--tm);font-weight:400;margin-top:1px">Cash Only Distributions</span></span></a>
+            <div style="height:1px;background:rgba(28,58,67,.65);margin:5px 16px"></div>
+            <a href="/web/ira-401k/" class="nav-dd-item"><span class="fund-dot" style="background:var(--tm)"></span>IRA / 401k</a>
+            </div>
+          </div>
+        </div>
+        <a href="/web/portfolio/" class="cc-nav-link">Portfolio</a>
+        <a href="/web/company/" class="cc-nav-link">Company</a>
+        <a href="/web/team/" class="cc-nav-link">Team</a>
+        <a href="/web/contact/" class="cc-nav-link">Contact</a>
+      </div>
+      <!-- Desktop utils -->
+      <div class="hidden lg:flex items-center gap-3 ml-auto flex-shrink-0">
+        <a href="https://investors.appfolioim.com/cardonecapital/investor/login" target="_blank" rel="noopener noreferrer" class="nav-investor-login" aria-label="Investor Login — opens in new tab">Investor Login ↗</a>
+        <span style="width:1px;height:14px;background:rgba(28,58,67,.8)"></span>
+        <a href="/web/schedule/" class="btn btn-secondary btn-sm">Book a Call</a>
+        <a href="/web/invest/"   class="btn btn-primary btn-sm">Invest Now →</a>
+      </div>
+      <!-- Mobile right -->
+      <div class="flex items-center gap-3 ml-auto lg:hidden">
+        <a href="/web/invest/" class="btn btn-primary hidden sm:flex" style="font-size:11px;padding:7px 14px">Invest Now →</a>
+        <button @click="tMob()" :data-mob-open="mob" class="flex flex-col justify-center items-center gap-1.5 w-11 h-11 bg-transparent border-none cursor-pointer" :aria-expanded="mob.toString()" aria-label="Toggle navigation">
+          <span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="mob-overlay" x-show="mob" x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <!-- Top bar -->
+    <div class="flex items-center justify-between flex-shrink-0 px-6" style="height:var(--nav-h);border-bottom:1px solid rgba(28,58,67,.5)">
+      <a href="/web/" @click="closeMob()" class="flex items-center gap-2.5"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+      </a>
+      <button @click="closeMob()" class="flex items-center justify-center w-10 h-10 rounded-lg" style="background:rgba(28,58,67,.5);border:1px solid rgba(28,58,67,.9)" aria-label="Close navigation">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="rgba(255,255,255,.6)" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <!-- Nav items -->
+    <div class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-0">
+      <!-- Invest accordion -->
+      <div>
+        <button class="mob-acc-trigger" :class="mInv?'open':''" @click="mInv=!mInv" :aria-expanded="mInv.toString()">
+          Invest
+          <span style="width:26px;height:26px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s ease,border-color .15s ease" :style="mInv?'transform:rotate(45deg);border-color:rgba(255,159,10,.4)':''">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 2v7M2 5.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div x-show="mInv" x-cloak x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="margin-left:16px;border-left:1px solid rgba(255,159,10,.18);padding:6px 0">
+          <a href="/web/fund29/"    class="mob-sub" @click="closeMob()" style="padding-left:16px"><span class="fund-dot dot-a"></span>Fund 29 — RE + Bitcoin</a>
+          <a href="/web/fund30/"    class="mob-sub" @click="closeMob()" style="padding-left:16px"><span class="fund-dot dot-i"></span>Fund 30 — Cash Only</a>
+          <a href="/web/ira-401k/"  class="mob-sub" @click="closeMob()" style="padding-left:16px"><span class="fund-dot" style="background:var(--tm)"></span>IRA / 401k</a>
+        </div>
+        <div class="mob-divider"></div>
+      </div>
+      <div class="py-1"><a href="/web/portfolio/" class="mob-link" @click="closeMob()">Portfolio</a><div class="mob-divider mt-2"></div></div>
+      <div class="py-1"><a href="/web/company/"  class="mob-link" @click="closeMob()">Company</a><div class="mob-divider mt-2"></div></div>
+      <div class="py-1"><a href="/web/team/"     class="mob-link" @click="closeMob()">Team</a><div class="mob-divider mt-2"></div></div>
+      <div class="py-1"><a href="/web/contact/" class="mob-link" @click="closeMob()">Contact</a><div class="mob-divider mt-2"></div></div>
+      <!-- Investor login subdued -->
+      <div class="py-4">
+        <a href="https://investors.appfolioim.com/cardonecapital/investor/login" target="_blank" rel="noopener noreferrer" style="font-family:var(--fb);font-size:12px;font-weight:600;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:5px" aria-label="Investor Login opens in new tab">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5 2H2v7h7V6M6.5 2H9m0 0v2.5M9 2 5.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Investor Login (AppFolio) ↗
+        </a>
+      </div>
+      <!-- Spanish link -->
+      <a href="/web/lp/es/?utm_source=mobile-nav&utm_medium=site-wide&utm_campaign=hablamos" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl mt-2" style="background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.14)">
+        <span style="font-size:18px">🇲🇽</span>
+        <div><p style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.45)">¿Prefiere hablar en español?</p></div>
+        <span class="ml-auto" style="font-family:var(--fb);font-size:11px;font-weight:700;color:var(--i400);text-transform:uppercase;letter-spacing:.08em">Ver →</span>
+      </a>
+    </div>
+    <!-- Pinned CTAs -->
+    <div class="flex-shrink-0 px-6 pb-8 pt-4 flex flex-col gap-3" style="border-top:1px solid rgba(255,159,10,.12)">
+      <a href="/web/schedule/" class="btn btn-secondary" style="justify-content:center;font-size:14px;padding:13px 20px;border-radius:9px" @click="closeMob()">Book a Free Call</a>
+      <a href="/web/invest/"   class="btn btn-primary"   style="justify-content:center;font-size:15px;padding:14px 20px;border-radius:9px" @click="closeMob()">Invest Now →</a>
+    </div>
+  </div>
+</header>
+<!-- /nav -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §1  HERO — "THE FUTURE OF WEALTH IS DIGITAL."
+       Void gradient bg · scanline overlay · eyebrow badge
+       Gradient text on "DIGITAL." · Fund 29 + Fund 30 CTAs
+       Proof-point row · Ticker strip
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    class="bg-void scanlines relative flex flex-col"
+    style="min-height:100svh;padding-top:var(--nav-h)"
+    aria-label="Hero — Cardone Capital investment funds"
+  >
+    <!-- Cityscape background image -->
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url('/assets/images/cityscapehero.jpg') center center/cover no-repeat;opacity:.3;pointer-events:none;z-index:0"></div>
+    <!-- Ambient orb: top-right amber -->
+    <div aria-hidden="true" style="position:absolute;top:-100px;right:-120px;width:600px;height:600px;
+      background:radial-gradient(ellipse,rgba(255,159,10,.12) 0%,transparent 65%);
+      pointer-events:none;z-index:1"></div>
+    <!-- Ambient orb: bottom-left ice -->
+    <div aria-hidden="true" style="position:absolute;bottom:-80px;left:-80px;width:480px;height:480px;
+      background:radial-gradient(ellipse,rgba(0,212,255,.09) 0%,transparent 65%);
+      pointer-events:none;z-index:1"></div>
+
+    <div class="relative z-10 flex-1 flex flex-col justify-center max-w-screen-xl mx-auto w-full px-6 lg:px-16 py-16 lg:py-24">
+
+      <div class="max-w-3xl">
+        <!-- Eyebrow badge -->
+        <div class="cc-reveal vis mb-6">
+          <span class="eyebrow-badge" role="text">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M6 1l1.27 2.58 2.84.41-2.06 2 .49 2.83L6 7.58l-2.54 1.34.49-2.83-2.06-2 2.84-.41z" fill="currentColor"/>
+            </svg>
+            WEALTH CREATION STARTS HERE
+          </span>
+        </div>
+
+        <!-- H1 — headline -->
+        <h1 class="cc-reveal vis d1 font-display font-black uppercase leading-none mb-6" style="font-size:clamp(38px,7vw,72px);letter-spacing:-.02em;line-height:.9;color:#fff">
+          <span style="font-size:clamp(20px,2.4vw,28px);display:block;margin-bottom:.19em;letter-spacing:.04em;font-weight:800">INSTITUTIONAL QUALITY</span>
+          REAL ESTATE<br>
+          <span class="gt-amber">PAIRED WITH BITCOIN</span>
+        </h1>
+
+        <!-- CTA row -->
+        <div class="cc-reveal vis d3 flex flex-wrap gap-3 mb-10">
+          <a href="/web/fund29/" class="btn btn-primary btn-lg" style="flex-direction:column;gap:2px;padding:13px 22px;min-width:0">
+            <span style="font-style:italic;color:#e02020;font-size:10px;font-weight:800;letter-spacing:.1em;line-height:1;text-transform:uppercase;animation:nowOpenBlink 2.5s ease-in-out infinite">NEW FUND &nbsp;·&nbsp; NOW OPEN</span>
+            <span style="display:inline-flex;align-items:center;gap:6px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M5.2 5h2.6c.6 0 1 .35 1 .85 0 .42-.24.7-.62.83.5.14.87.46.87.97 0 .65-.5 1.05-1.2 1.05H5.2V5Z" fill="currentColor"/>
+              </svg>
+              Fund 29 · RE + Bitcoin
+            </span>
+          </a>
+          <a href="/web/fund30/" class="btn btn-ice btn-lg" style="flex-direction:column;gap:2px;padding:13px 22px;min-width:0;background:rgba(0,212,255,.17);border-color:rgba(0,212,255,.45)">
+            <span style="font-style:italic;color:#e02020;font-size:10px;font-weight:800;letter-spacing:.1em;line-height:1;text-transform:uppercase;animation:nowOpenBlink 2.5s ease-in-out infinite">NEW FUND &nbsp;·&nbsp; NOW OPEN</span>
+            <span style="display:inline-flex;align-items:center;gap:6px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M5.2 5h2.6c.6 0 1 .35 1 .85 0 .42-.24.7-.62.83.5.14.87.46.87.97 0 .65-.5 1.05-1.2 1.05H5.2V5Z" fill="currentColor"/>
+              </svg>
+              Fund 30 · Cash Flow
+            </span>
+          </a>
+          <a href="/web/schedule/" class="btn btn-secondary btn-lg">Book a Free Call</a>
+        </div>
+
+        <!-- Proof-point row -->
+        <div class="cc-reveal vis d4 flex flex-wrap items-center gap-4 lg:gap-6">
+          <div class="zero-badge" style="padding:6px 16px;font-size:14px;gap:8px;background:rgba(0,200,150,.20);border-color:rgba(0,200,150,.35)">
+            <svg width="15" height="15" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M6 1 2 2.5v3.2C2 8.3 3.8 10 6 10s4-1.7 4-4.3V2.5L6 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M4 6l1.5 1.5L8 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            WAYS TO INVEST: &nbsp;CASH &nbsp;&nbsp;·&nbsp;&nbsp; 401K OR IRA &nbsp;&nbsp;·&nbsp;&nbsp; BITCOIN
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side decorative grid (desktop only) -->
+      <div class="absolute right-16 top-1/2 -translate-y-1/2 hidden xl:block" aria-hidden="true" style="width:360px;display:none!important">
+        <!-- Abstract data card stack -->
+        <div style="position:relative">
+          <!-- Card 3 (back) -->
+          <div style="position:absolute;top:-24px;right:-16px;width:280px;background:rgba(0,33,57,.6);border:1px solid rgba(28,58,67,.6);border-radius:14px;padding:20px;transform:rotate(4deg);backdrop-filter:blur(8px)">
+            <div style="font-family:var(--fc);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-bottom:8px">Portfolio</div>
+            <div class="gt-amber" style="font-family:var(--fc);font-weight:800;font-size:28px">46</div>
+            <div style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.3)">Institutional Properties</div>
+          </div>
+          <!-- Card 2 (middle) -->
+          <div style="position:absolute;top:-10px;right:8px;width:290px;background:rgba(0,21,42,.7);border:1px solid rgba(28,58,67,.7);border-radius:14px;padding:20px;transform:rotate(2deg);backdrop-filter:blur(8px)">
+            <div style="font-family:var(--fc);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-bottom:8px">Total Distributed</div>
+            <div class="gt-amber" style="font-family:var(--fc);font-weight:800;font-size:28px">$591M</div>
+            <div style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.3)">To Investors Since 2016</div>
+          </div>
+          <!-- Card 1 (front) -->
+          <div style="position:relative;width:310px;background:radial-gradient(ellipse 90% 70% at 100% 0%,rgba(255,159,10,.14) 0%,transparent 55%),linear-gradient(145deg,#002245 0%,#001020 100%);border:1px solid rgba(255,159,10,.2);border-radius:14px;padding:24px;box-shadow:0 16px 48px rgba(0,0,0,.5)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <span class="eyebrow-badge" style="font-size:9px;padding:3px 10px">Fund 29 Active</span>
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 8px rgba(0,200,150,.5);animation:pulse29 2s ease infinite"></span>
+            </div>
+            <div style="font-family:var(--fc);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-bottom:6px">Target IRR</div>
+            <div class="gt-fire" style="font-family:var(--fc);font-weight:800;font-size:36px;letter-spacing:-.02em">20%+</div>
+            <div style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Real Estate + Bitcoin Strategy</div>
+            <div style="height:1px;background:rgba(28,58,67,.6);margin:16px 0"></div>
+            <div style="display:flex;gap:16px">
+              <div><div style="font-family:var(--fc);font-weight:800;font-size:18px;color:#fff">$1.9B</div><div style="font-family:var(--fb);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-top:2px">Raised</div></div>
+              <div><div style="font-family:var(--fc);font-weight:800;font-size:18px;color:#fff">20,020</div><div style="font-family:var(--fb);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-top:2px">Investors</div></div>
+              <div><div style="font-family:var(--fc);font-weight:800;font-size:18px;color:#fff">$5.3B</div><div style="font-family:var(--fb);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tm);margin-top:2px">AUM</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ticker strip — bottom of hero -->
+    <div class="relative z-10 overflow-hidden flex-shrink-0" style="background:rgba(0,21,42,.55);border-top:1px solid rgba(28,58,67,.7);padding:10px 0" aria-label="Company statistics ticker" role="marquee">
+      <div aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:80px;background:linear-gradient(90deg,rgba(0,21,42,.7) 0%,transparent 100%);z-index:2;pointer-events:none"></div>
+      <div aria-hidden="true" style="position:absolute;top:0;bottom:0;right:0;width:80px;background:linear-gradient(-90deg,rgba(0,21,42,.7) 0%,transparent 100%);z-index:2;pointer-events:none"></div>
+      <div class="ticker-track" aria-hidden="true">
+        <!-- Duplicated for seamless loop -->
+        <span class="ticker-item"><span class="ticker-val">$5.3B</span> AUM<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">$591M</span> Distributed<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">20,020</span> Investors<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">$1.9B</span> Capital Raised<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">46</span> Properties<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">14,600</span> Units<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Since <span class="ticker-val">2016</span><span class="ticker-sep"></span></span>
+        <!-- Duplicate set for seamless -->
+        <span class="ticker-item"><span class="ticker-val">$5.3B</span> AUM<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">$591M</span> Distributed<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">20,020</span> Investors<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">$1.9B</span> Capital Raised<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">46</span> Properties<span class="ticker-sep"></span></span>
+        <span class="ticker-item"><span class="ticker-val">14,600</span> Units<span class="ticker-sep"></span></span>
+        <span class="ticker-item">Since <span class="ticker-val">2016</span><span class="ticker-sep"></span></span>
+      </div>
+      <!-- Accessible static text -->
+      <p class="sr-only">Cardone Capital manages $5.3 billion AUM, has distributed $591 million to 20,020 investors, raised $1.9 billion, owns 46 properties and approximately 14,600 units, with zero principal losses since 2016.</p>
+    </div>
+  </section>
+  <!-- /hero -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §4a WHY CARDONE CAPITAL (duplicate) — above track record numbers
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-aurora py-20 lg:py-28" aria-labelledby="why-heading-top">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+      <!-- Section header -->
+      <div class="text-center mb-14 cc-reveal">
+        <p class="overline justify-center mb-4" style="justify-content:center">Why Cardone Capital</p>
+        <h2 id="why-heading-top" class="font-display font-black uppercase text-white" style="font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;line-height:1">
+          Real Estate. Bitcoin. <span class="gt-amber">Built to Win.</span>
+        </h2>
+      </div>
+
+      <!-- Two-column layout: graph image left · Bitcoin card right -->
+      <div class="cc-reveal two-col-grid" style="display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:center">
+
+        <!-- Left: performance chart — width-driven scaling, natural aspect ratio -->
+        <div style="display:flex;align-items:center;justify-content:flex-end;border:1px solid rgba(28,58,67,.8);border-radius:16px;overflow:hidden">
+          <img src="/web/assets/images/graphbtc.jpg"
+               alt="Bitcoin and real estate performance comparison chart showing forward-looking strategy"
+               style="width:100%;height:auto;display:block;border-radius:16px" class="map-img">
+        </div>
+
+        <!-- Right: Bitcoin Strategy card — fixed 280px column -->
+        <div class="btc-card" style="background:radial-gradient(ellipse 80% 60% at 100% 0%,rgba(255,159,10,.1) 0%,transparent 55%),var(--card);border:1px solid rgba(28,58,67,.8);border-radius:16px;padding:40px 28px;min-height:420px;transition:border-color var(--t-base),transform var(--t-slow);display:flex;flex-direction:column" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(255,159,10,.35)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(28,58,67,.8)'">
+          <!-- iconcash.png — 25% bigger (56→70px), pulled up 20px -->
+          <img src="/web/assets/images/iconcash.png" alt="" aria-hidden="true" style="width:70px;height:70px;object-fit:contain;margin-top:-20px;margin-bottom:20px">
+          <div class="gt-fire" style="font-family:var(--fc);font-weight:800;font-size:clamp(26px,3vw,36px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:16px">Bitcoin<br>Strategy</div>
+          <p style="font-family:var(--fb);font-size:13px;line-height:1.7;color:var(--tb)">
+            This chart shows a forward-looking comparison between traditional real estate performance and a strategy that combines real estate with Bitcoin. Real estate continues to be a proven asset class known for stable returns and cash flow.
+          </p>
+          <a href="/web/fund29/" style="display:inline-flex;align-items:center;gap:4px;margin-top:18px;font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);letter-spacing:.03em;transition:gap var(--t-fast)" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">
+            Learn More →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /why-top -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §2  STATS BAR — $591M / 20,020 / $1.9B / $5.3B
+       Amber gradient text · spectrum background
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stats pb-10 lg:pb-14" style="padding-top:26px" aria-labelledby="stats-heading">
+    <h2 id="stats-heading" class="sr-only">Cardone Capital by the numbers</h2>
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-2 lg:grid-cols-4" id="stats-grid">
+
+        <div class="stat-item cc-reveal flex flex-col items-center justify-center text-center px-6 py-8 relative" data-counter data-target="591" data-prefix="$" data-suffix="M">
+          <div class="stat-figure gt-amber" aria-label="$591 Million Total Distributed">
+            <span class="counter-display">$591M</span>
+          </div>
+          <p class="stat-label">LIFETIME DISTRIBUTIONS<br>TO INVESTORS</p>
+          <!-- Right divider (except last) -->
+          <span class="hidden lg:block absolute right-0 top-1/4 bottom-1/4 w-px" style="background:rgba(28,58,67,.65)" aria-hidden="true"></span>
+          <!-- Mobile bottom divider -->
+          <span class="block lg:hidden absolute bottom-0 left-1/4 right-1/4 h-px" style="background:rgba(28,58,67,.55)" aria-hidden="true"></span>
+        </div>
+
+        <div class="stat-item cc-reveal d2 flex flex-col items-center justify-center text-center px-6 py-8 relative" data-counter data-target="20020" data-prefix="" data-suffix="">
+          <div class="stat-figure gt-amber" aria-label="20,020 Active Investors">
+            <span class="counter-display">20,020</span>
+          </div>
+          <p class="stat-label">INVESTORS<br>JUST LIKE YOU</p>
+          <span class="hidden lg:block absolute right-0 top-1/4 bottom-1/4 w-px" style="background:rgba(28,58,67,.65)" aria-hidden="true"></span>
+          <span class="block lg:hidden absolute bottom-0 left-1/4 right-1/4 h-px" style="background:rgba(28,58,67,.55)" aria-hidden="true"></span>
+        </div>
+
+        <div class="stat-item cc-reveal d3 flex flex-col items-center justify-center text-center px-6 py-8 relative" data-counter data-target="1.9" data-prefix="$" data-suffix="B">
+          <div class="stat-figure gt-amber" aria-label="$1.9 Billion Capital Raised">
+            <span class="counter-display">$1.9B</span>
+          </div>
+          <p class="stat-label">CAPITAL RAISED<br>ACROSS ALL FUNDS</p>
+          <span class="hidden lg:block absolute right-0 top-1/4 bottom-1/4 w-px" style="background:rgba(28,58,67,.65)" aria-hidden="true"></span>
+        </div>
+
+        <div class="stat-item cc-reveal d4 flex flex-col items-center justify-center text-center px-6 py-8">
+          <div class="stat-figure gt-amber" aria-label="$5.3 Billion Assets Under Management">
+            <span class="counter-display">$5.3B</span>
+          </div>
+          <p class="stat-label">ASSETS UNDER<br>MANAGEMENT</p>
+        </div>
+
+      </div>
+
+      <!-- Horizontal divider — matches vertical number dividers -->
+      <div aria-hidden="true" style="height:1px;background:rgba(28,58,67,.65);margin:0 0 28px"></div>
+
+      <!-- Belt body text -->
+      <p class="cc-reveal" style="font-family:var(--fb);font-size:clamp(13px,1.2vw,15px);line-height:1.75;color:rgba(255,255,255,.6);text-align:center;max-width:900px;margin-left:auto;margin-right:auto">
+        Cardone Capital is changing Real Estate combining trophy property with Bitcoin. Text <a href="https://cardonecapital.com/smsbtc" style="font-weight:700;color:#FF9F0A;text-decoration:none" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">404-Bitcoin</a> for targeted 20% returns. Best in class Real Estate combine with the explosive returns of Bitcoin's potential. What some call "The perfect hedge!" Cardone's 35 years of experience $5.3 billion portfolio, massive retail investor reach &amp; flawless track record are leading the way in forever changing real estate investing. Many suggest Cardone will disrupt traditional syndicators &amp; public and private REITs.
+      </p>
+    </div>
+  </section>
+  <!-- /stats bar -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §3  FUND CARDS — Fund 29 (amber border) + Fund 30 (ice border)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-swirl py-20 lg:py-28" aria-labelledby="funds-heading">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+      <!-- Section header -->
+      <div class="text-center mb-14 cc-reveal">
+        <p class="overline justify-center mb-4" style="justify-content:center">Choose Your Strategy</p>
+        <h2 id="funds-heading" class="font-display font-black uppercase" style="font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;color:#fff;line-height:1">
+          TWO PATHS TO <span class="gt-amber">WEALTH CREATION</span>
+        </h2>
+        <p class="mt-4 max-w-xl mx-auto" style="font-family:var(--fb);font-size:14px;line-height:1.7;color:var(--tb)">
+          Both funds invest in institutional quality multifamily real estate.<br>Fund 29 adds a Bitcoin strategy layer. Fund 30 focuses purely on cashflow distributions.
+        </p>
+      </div>
+
+      <!-- Fund cards grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+
+        <!-- Fund 29 — amber gradient border -->
+        <div class="pf-w29 cc-reveal-l">
+          <div class="card-f29 card-inner p-8 lg:p-10">
+            <!-- Header -->
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <span class="badge-sm badge-amber mb-3" style="display:inline-flex">Fund 29 · Active</span>
+                <h3 class="font-display font-black uppercase text-white" style="font-size:clamp(22px,2.8vw,30px);letter-spacing:-.01em;line-height:1">Real Estate<br><span class="gt-amber">+ Bitcoin</span></h3>
+              </div>
+              <!-- Cash icon badge -->
+              <div style="width:100px;height:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                <img src="/web/assets/images/iconcash.png" alt="Cash Flow" style="width:100px;height:100px;object-fit:contain;display:block">
+              </div>
+            </div>
+
+            <!-- Property image -->
+            <div style="aspect-ratio:21/9;border-radius:10px;overflow:hidden;border:1px solid rgba(255,159,10,.35);margin-bottom:10px">
+              <img src="/web/assets/images/fund30orchidrun219.jpg" alt="Fund 29 — Orchid Run Property" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <h3 style="font-family:var(--fc);font-weight:800;font-size:clamp(18px,2vw,24px);color:#fff;letter-spacing:.02em;margin-bottom:20px">10<span style="color:#e00">X</span> Orchid Run &nbsp;|&nbsp; Naples, FL</h3>
+
+            <!-- Feature list -->
+            <ul style="margin-bottom:28px" aria-label="Fund 29 features">
+              <li class="flex items-start gap-3 py-2 border-b" style="border-color:rgba(28,58,67,.5)">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--a400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">282 Apartment Units | Vintage Style Luxury Community</span>
+              </li>
+              <li class="flex items-start gap-3 py-2 border-b" style="border-color:rgba(28,58,67,.5)">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--a400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">Naples MSA is one of the wealthiest in the United States</span>
+              </li>
+              <li class="flex items-start gap-3 py-2">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--a400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">Cashflow buys Bitcoin to Dollar-Cost-Average</span>
+              </li>
+            </ul>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/web/fund29/" class="btn btn-primary flex-1" style="justify-content:center">
+                Learn More →
+              </a>
+              <a href="/web/schedule/" class="btn btn-secondary flex-1" style="justify-content:center">
+                Book a Call
+              </a>
+            </div>
+          </div>
+        </div><!-- /fund 29 -->
+
+        <!-- Fund 30 — ice gradient border -->
+        <div class="pf-w30 cc-reveal-r">
+          <div class="card-f30 card-inner p-8 lg:p-10">
+            <!-- Header -->
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <span class="badge-sm badge-ice mb-3" style="display:inline-flex">Fund 30 · Active</span>
+                <h3 class="font-display font-black uppercase text-white" style="font-size:clamp(22px,2.8vw,30px);letter-spacing:-.01em;line-height:1">Cash Flow<br><span class="gt-ice">Distributions</span></h3>
+              </div>
+              <!-- Bitcoin icon badge -->
+              <div style="width:100px;height:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                <img src="/web/assets/images/iconbtc.png" alt="Bitcoin" style="width:100px;height:100px;object-fit:contain;display:block">
+              </div>
+            </div>
+
+            <!-- Property image -->
+            <div style="aspect-ratio:21/9;border-radius:10px;overflow:hidden;border:1px solid rgba(0,212,255,.35);margin-bottom:10px">
+              <img src="/web/assets/images/fund29sandspark219.jpg" alt="Fund 30 — Sandspark Property" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <h3 style="font-family:var(--fc);font-weight:800;font-size:clamp(18px,2vw,24px);color:#fff;letter-spacing:.02em;margin-bottom:20px">10<span style="color:#e00">X</span> Sands Parc &nbsp;|&nbsp; Daytona Beach, FL</h3>
+
+            <!-- Feature list -->
+            <ul style="margin-bottom:28px" aria-label="Fund 30 features">
+              <li class="flex items-start gap-3 py-2 border-b" style="border-color:rgba(28,58,67,.5)">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--i400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">264 Apartment Units | 4-Story Elevator Serviced</span>
+              </li>
+              <li class="flex items-start gap-3 py-2 border-b" style="border-color:rgba(28,58,67,.5)">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--i400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">Strong MSA Location with High Demand</span>
+              </li>
+              <li class="flex items-start gap-3 py-2">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px;color:var(--i400)" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.6)">Cash Flow Distributions Day-1</span>
+              </li>
+            </ul>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/web/fund30/" class="btn btn-ice flex-1" style="justify-content:center;background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.45)">
+                Learn More →
+              </a>
+              <a href="/web/schedule/" class="btn btn-secondary flex-1" style="justify-content:center">
+                Book a Call
+              </a>
+            </div>
+          </div>
+        </div><!-- /fund 30 -->
+
+      </div>
+
+    </div>
+  </section>
+  <!-- /fund cards -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §4b WHY CARDONE CAPITAL (duplicate) — below choose your strategy
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-aurora py-20 lg:py-28" aria-labelledby="why-heading-bottom">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+      <!-- Section header -->
+      <div class="text-center mb-14 cc-reveal">
+        <p class="overline justify-center mb-4" style="justify-content:center">Strategic Footprint Across USA</p>
+        <h2 id="why-heading-bottom" class="font-display font-black uppercase text-white" style="font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;line-height:1">
+          INVESTMENTS <span class="gt-amber">PORTFOLIO</span>
+        </h2>
+      </div>
+
+      <!-- Two-column layout: graph image left · Bitcoin card right -->
+      <div class="cc-reveal two-col-grid" style="display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:stretch">
+
+        <!-- Left: USA map — matches card height, right-aligned, natural aspect ratio -->
+        <div class="map-img-wrap" style="display:flex;align-items:center;justify-content:center;background:rgba(0,212,255,.17);border:1px solid rgba(0,212,255,.45);border-radius:9px;padding:2.5%">
+          <img src="/web/assets/images/mapcc.png"
+               alt="Cardone Capital strategic footprint map across the United States — multifamily and commercial properties"
+               style="width:95%;height:auto;display:block" class="map-img">
+        </div>
+
+        <!-- Right: Bitcoin Strategy card — fixed 280px column -->
+        <div style="background:radial-gradient(ellipse 80% 60% at 100% 0%,rgba(255,159,10,.1) 0%,transparent 55%),var(--card);border:1px solid rgba(28,58,67,.8);border-radius:16px;padding:40px 28px;min-height:420px;transition:border-color var(--t-base),transform var(--t-slow);display:flex;flex-direction:column" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(255,159,10,.35)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(28,58,67,.8)'">
+          <img src="/web/assets/images/usacoin.png" alt="" aria-hidden="true" style="width:70px;height:66.7px;aspect-ratio:300/286;object-fit:contain;margin-top:-20px;margin-bottom:12px">
+          <div class="gt-amber" style="font-family:var(--fc);font-weight:800;font-size:clamp(26px,3vw,36px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:24px">46 Properties</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px">
+            <!-- Red dot — 44 Multifamily -->
+            <li style="display:flex;align-items:center;gap:14px">
+              <span style="width:14px;height:14px;border-radius:50%;background:#e02020;flex-shrink:0"></span>
+              <span style="font-family:var(--fb);font-weight:700;font-size:19px;color:#fff">44 Multifamily</span>
+            </li>
+            <!-- Sub white dot — 14,600 Apartments -->
+            <li style="display:flex;align-items:center;gap:14px;padding-left:28px">
+              <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.45);flex-shrink:0"></span>
+              <span style="font-family:var(--fb);font-size:16px;color:rgba(255,255,255,.55)">14,600 Apartments</span>
+            </li>
+            <!-- Orange dot — 2 Commercial Assets -->
+            <li style="display:flex;align-items:center;gap:14px;margin-top:8px">
+              <span style="width:14px;height:14px;border-radius:50%;background:#FF9F0A;flex-shrink:0"></span>
+              <span style="font-family:var(--fb);font-weight:700;font-size:19px;color:#fff">2 Commercial Assets</span>
+            </li>
+            <!-- Sub white dot — 500k Rental Sq. Ft. -->
+            <li style="display:flex;align-items:center;gap:14px;padding-left:28px">
+              <span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.45);flex-shrink:0"></span>
+              <span style="font-family:var(--fb);font-size:16px;color:rgba(255,255,255,.55)">500k Rental Sq. Ft.</span>
+            </li>
+          </ul>
+          <a href="/web/portfolio/" style="display:inline-flex;align-items:center;gap:4px;margin-top:28px;font-family:var(--fb);font-size:12px;font-weight:700;color:var(--a400);letter-spacing:.03em;transition:gap var(--t-fast)" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">
+            Learn More →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /why-bottom -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §8  INVESTOR VOICES CAROUSEL — Alpine.js auto-scroll
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="bg-swirl py-16 lg:py-20" aria-labelledby="carousel-heading"
+    x-data="{
+      cur: 0,
+      total: 6,
+      timer: null,
+      paused: false,
+      slides: [
+        { name:'J. W.', text:'Converting my 401K to passive income with Cardone Capital is the single smartest financial decision I\u2019ve ever made, tax-free monthly cash flow, proven stewardship, and a track record that speaks louder than any pitch ever could.' },
+        { name:'M. L.', text:'I\u2019ve placed $300k across two funds and I can tell you from experience: Grant builds elite teams and the monthly distributions make it easy to stay invested and keep investing more.' },
+        { name:'P. E.', text:'Grant Cardone has given everyday investors like me access to world-class assets and his consistency and integrity have made me a loyal investor for life.' },
+        { name:'S. B.', text:'After 30 years managing hundreds of our own apartment units, handing it all over to Cardone Capital was liberating. Passive income, zero maintenance headaches and the same tax write-offs we\u2019ve always relied on.' },
+        { name:'B. M.', text:'Cardone Capital changed my life by giving me access to institutional-level real estate deals I could only dream of before and Grant\u2019s transparency, trustworthiness and execution have made me a committed investor with absolutely zero regrets.' },
+        { name:'R. O.', text:'Invested in three funds as of 2024 and the timely distributions, effortless investor platform and Grant\u2019s unwavering transparency have given us the kind of confidence that makes us eager to keep investing, this is the real deal.' }
+      ],
+      next(){ this.cur=(this.cur+1)%this.total },
+      prev(){ this.cur=(this.cur-1+this.total)%this.total },
+      go(i){ this.cur=i },
+      start(){ this.timer=setInterval(()=>{ if(!this.paused) this.next() },4000) },
+      stop(){ clearInterval(this.timer) }
+    }"
+    x-init="start()"
+  >
+    <div class="max-w-screen-lg mx-auto px-6 lg:px-16">
+
+      <!-- Heading -->
+      <div class="text-center mb-10 cc-reveal">
+        <p class="overline justify-center mb-4" style="justify-content:center">Investor Voices</p>
+        <h2 id="carousel-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(26px,3.5vw,40px);letter-spacing:-.015em;line-height:1">
+          What Our Investors <span class="gt-amber">Say</span>
+        </h2>
+      </div>
+
+      <!-- Card stage -->
+      <div class="relative overflow-hidden" style="min-height:240px">
+        <template x-for="(slide, i) in slides" :key="i">
+          <div
+            x-show="cur===i"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0 translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center"
+          >
+            <div class="testi-card" style="max-width:780px;margin:0 auto;width:100%" @mouseenter="paused=true" @mouseleave="paused=false">
+              <!-- Stars -->
+              <div class="stars mb-4" aria-label="5 out of 5 stars">★★★★★</div>
+              <!-- Quote + attribution inline -->
+              <p style="font-family:var(--fb);font-size:clamp(14px,1.5vw,17px);line-height:1.75;color:rgba(255,255,255,.78);font-style:italic;margin-bottom:16px">
+                &ldquo;<span x-text="slide.text"></span>&rdquo;&nbsp;&nbsp;<strong style="font-style:normal;font-family:var(--fb);color:#00D4FF;font-weight:700">&mdash;&nbsp;<span x-text="slide.name"></span></strong>
+              </p>
+              <!-- Badge -->
+              <span class="badge-sm badge-amber" style="position:absolute;bottom:18px;right:18px">Verified Investor</span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Dot navigation -->
+      <div class="flex items-center justify-center gap-3" style="margin-top:-6px">
+        <!-- Prev -->
+        <button @click="prev()" aria-label="Previous testimonial"
+          style="width:34px;height:34px;border-radius:50%;background:rgba(28,58,67,.6);border:1px solid rgba(28,58,67,.9);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s"
+          onmouseover="this.style.background='rgba(255,159,10,.15)';this.style.color='#FF9F0A'" onmouseout="this.style.background='rgba(28,58,67,.6)';this.style.color='rgba(255,255,255,.5)'">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2L4 6l3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <!-- Dots -->
+        <template x-for="(_, i) in slides" :key="i">
+          <button @click="go(i)" :aria-label="'Go to testimonial '+(i+1)"
+            :style="cur===i
+              ? 'width:22px;height:6px;border-radius:3px;background:#FF9F0A;border:none;cursor:pointer;transition:all .3s'
+              : 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;transition:all .3s'"
+          ></button>
+        </template>
+        <!-- Next -->
+        <button @click="next()" aria-label="Next testimonial"
+          style="width:34px;height:34px;border-radius:50%;background:rgba(28,58,67,.6);border:1px solid rgba(28,58,67,.9);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s"
+          onmouseover="this.style.background='rgba(255,159,10,.15)';this.style.color='#FF9F0A'" onmouseout="this.style.background='rgba(28,58,67,.6)';this.style.color='rgba(255,255,255,.5)'">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2L8 6l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Disclaimer -->
+      <p class="text-center mt-6" style="font-family:var(--fb);font-size:10px;color:rgba(255,255,255,.18);max-width:600px;margin-left:auto;margin-right:auto">
+        Testimonials are from actual Cardone Capital investors. Individual results vary. Past performance does not guarantee future results. Full names withheld for privacy.
+      </p>
+
+    </div>
+  </section>
+  <!-- /carousel -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       §10  FINAL CTA BAND — "Book a Free Investor Call →"
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section
+    class="relative py-24 lg:py-32 cta-glow overflow-hidden"
+    style="background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(255,159,10,.07) 0%,transparent 60%),var(--carbon);border-top:1px solid rgba(28,58,67,.55);border-bottom:1px solid rgba(28,58,67,.55)"
+    aria-labelledby="cta-heading"
+  >
+    <!-- Ambient particles (decorative) -->
+    <div aria-hidden="true" style="position:absolute;top:-120px;right:-100px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(255,159,10,.08) 0%,transparent 60%);pointer-events:none"></div>
+    <div aria-hidden="true" style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(ellipse,rgba(0,212,255,.05) 0%,transparent 60%);pointer-events:none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
+      <div class="cc-reveal mb-6">
+        <div class="zero-badge" style="padding:6px 16px;font-size:14px;gap:8px;background:rgba(0,200,150,.20);border-color:rgba(0,200,150,.35)">
+          <svg width="15" height="15" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M6 1 2 2.5v3.2C2 8.3 3.8 10 6 10s4-1.7 4-4.3V2.5L6 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M4 6l1.5 1.5L8 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          WAYS TO INVEST: &nbsp;CASH &nbsp;&nbsp;·&nbsp;&nbsp; 401K OR IRA &nbsp;&nbsp;·&nbsp;&nbsp; BITCOIN
+        </div>
+      </div>
+
+      <h2 id="cta-heading" class="font-display font-black uppercase cc-reveal d1 mb-4" style="font-size:clamp(32px,5.5vw,56px);letter-spacing:-.02em;line-height:.92;color:#fff">
+        Ready to Invest in the <span class="gt-amber">Future?</span>
+      </h2>
+
+      <p class="cc-reveal d2 mb-10" style="font-family:var(--fb);font-size:clamp(15px,1.6vw,18px);line-height:1.65;color:rgba(255,255,255,.58);max-width:520px;margin-left:auto;margin-right:auto">
+        Schedule a free 10-minute call with our investor relations team. No pressure. No scripts. Just a real conversation about your financial goals.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="cc-reveal d3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <a href="/web/schedule/" class="btn btn-primary btn-lg">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <rect x="1.5" y="2.5" width="12" height="11" rx="1.3" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 1.5v2M10 1.5v2M1.5 6.5h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Book a Free Investor Call →
+        </a>
+      </div>
+
+      <!-- Trust signals row -->
+      <div class="cc-reveal d4 flex flex-wrap items-center justify-center gap-5">
+        <span style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" stroke="rgba(255,255,255,.3)" stroke-width="1.1"/><path d="M3.5 5.5l1.5 1.5 2.5-3" stroke="rgba(255,255,255,.3)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No commitment required
+        </span>
+        <span style="color:rgba(28,58,67,.8);font-size:16px" aria-hidden="true">·</span>
+        <span style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" stroke="rgba(255,255,255,.3)" stroke-width="1.1"/><path d="M3.5 5.5l1.5 1.5 2.5-3" stroke="rgba(255,255,255,.3)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Accredited investors only
+        </span>
+        <span style="color:rgba(28,58,67,.8);font-size:16px" aria-hidden="true">·</span>
+        <span style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" stroke="rgba(255,255,255,.3)" stroke-width="1.1"/><path d="M3.5 5.5l1.5 1.5 2.5-3" stroke="rgba(255,255,255,.3)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Confidential consultation
+        </span>
+      </div>
+
+    </div>
+  </section>
+  <!-- /final cta -->
+
+</main>
+<!-- /main content -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     HABLAMOS ESPAÑOL BAND + FOOTER
+═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- Spanish Band -->
+<section class="es-band" aria-label="Hablamos Español">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 py-2 flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-4">
+      <div>
+        <p style="font-family:var(--fb);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.14em;color:var(--i400);margin-bottom:2px">Hablamos Español</p>
+        <p style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.52)">¿Prefiere hablar en español? <strong style="color:rgba(255,255,255,.72);font-weight:600">Nuestro equipo está listo para atenderle.</strong></p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 flex-shrink-0">
+      <a href="tel:+13054070276" style="font-family:var(--fc);font-weight:700;font-size:14px;color:rgba(255,255,255,.35);letter-spacing:.03em;white-space:nowrap;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.6)'" onmouseout="this.style.color='rgba(255,255,255,.35)'" aria-label="Llame al 305-407-0276">305-407-0276</a>
+      <a href="/web/lp/es/?utm_source=spanish-band&utm_medium=site-wide&utm_campaign=hablamos" target="_blank" rel="noopener noreferrer" class="btn btn-ice btn-sm" aria-label="Reservar una Llamada en Español — abre en nueva pestaña">
+        Reservar una Llamada →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
+
+    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
+      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
+
+      <!-- Col 1: Brand -->
+      <div class="lg:col-span-1" style="grid-column:1">
+        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+        </a>
+        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
+        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
+        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
+        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
+        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
+        <!-- Socials -->
+        <nav class="flex gap-2" aria-label="Social media">
+          <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@cardone_capital" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="YouTube">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#000e1c"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Col 2: Invest -->
+      <nav aria-labelledby="ft-invest">
+        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
+          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
+          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
+          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
+        </ul>
+      </nav>
+
+      <!-- Col 3: Company — Grant Cardone ABOVE Team (LOCKED) -->
+      <nav aria-labelledby="ft-company">
+        <h3 class="footer-col-label" id="ft-company">Company</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/portfolio/"             class="footer-link py-1 block">Portfolio</a></li>
+          <li><a href="/web/company/#overview"     class="footer-link py-1 block">Overview</a></li>
+          <li><a href="/web/team/"                 class="footer-link py-1 block">Team</a></li>
+          <li><a href="/web/company/#careers"      class="footer-link py-1 block">Careers</a></li>
+          <li><a href="/web/academy/faq/"          class="footer-link py-1 block">FAQ</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Legal disclaimer -->
+    <div class="py-7" style="border-bottom:1px solid rgba(28,58,67,.38)">
+      <p style="font-family:var(--fb);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.15);text-align:center;margin-bottom:14px">Important Disclosures</p>
+      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);text-align:justify">
+        Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a>
+      </p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
+      <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2)">© 2026 Cardone Capital, LLC. All rights reserved.</p>
+      <nav class="flex flex-wrap items-center gap-0" aria-label="Legal pages">
+        <a href="/web/privacy-policy/"       style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/disclosures/"          style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     JAVASCRIPT — Scroll reveal + stat counters + nav pulse animation
+═══════════════════════════════════════════════════════════════════════ -->
+<style>
+  @keyframes pulse29 {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.5;transform:scale(.7)}
+  }
+  @keyframes nowOpenBlink {
+    0%,100%{opacity:1}
+    50%{opacity:.25}
+  }
+  @media(max-width:1023px){
+    .two-col-grid{grid-template-columns:1fr!important}
+    .two-col-grid .map-img{width:100%!important;display:block}
+    .two-col-grid .map-img-wrap{align-items:center!important;justify-content:center!important;padding:2.5%!important}
+    .btc-card{min-height:unset!important}
+  }
+</style>
+
+<script>
+/* ─── Intersection Observer: scroll-reveal ─────────────────────────── */
+(function(){
+  const els=document.querySelectorAll('.cc-reveal,.cc-reveal-l,.cc-reveal-r,.cc-reveal-s');
+  if(!els.length)return;
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+  els.forEach(el=>io.observe(el));
+})();
+
+/* ─── Stat counter animation ────────────────────────────────────────── */
+(function(){
+  const statItems=document.querySelectorAll('[data-counter]');
+  if(!statItems.length)return;
+
+  const format=(val)=>{
+    // Handle numbers like 20020 → "20,020"
+    if(Number.isInteger(val)&&val>999){
+      return val.toLocaleString('en-US');
+    }
+    return val;
+  };
+
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      io.unobserve(e.target);
+      const el=e.target.querySelector('.counter-display');
+      if(!el)return;
+      const target=parseFloat(e.target.dataset.target);
+      const prefix=e.target.dataset.prefix||'';
+      const suffix=e.target.dataset.suffix||'';
+      const isFloat=!Number.isInteger(target);
+      const duration=1800;
+      const start=performance.now();
+      const from=0;
+
+      const tick=(now)=>{
+        const pct=Math.min((now-start)/duration,1);
+        // Ease out cubic
+        const eased=1-Math.pow(1-pct,3);
+        const cur=from+(target-from)*eased;
+        const display=isFloat?cur.toFixed(1):format(Math.round(cur));
+        el.textContent=prefix+display+suffix;
+        if(pct<1)requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.4});
+
+  statItems.forEach(el=>io.observe(el));
+})();
+
+/* ─── Video facade: keyboard support already inline (onclick/onkeydown) ─ */
+
+/* ─── Hero card stack: subtle parallax on mousemove (desktop only) ──── */
+(function(){
+  const hero=document.querySelector('section[aria-label*="Hero"]');
+  const card=hero?.querySelector('.xl\\:block');
+  if(!card||window.innerWidth<1280)return;
+  hero.addEventListener('mousemove',(e)=>{
+    const r=hero.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width-.5)*12;
+    const y=((e.clientY-r.top) /r.height-.5)*8;
+    card.style.transform=`translate(${x}px,${y}px)`;
+  },{passive:true});
+  hero.addEventListener('mouseleave',()=>{card.style.transform='';},{passive:true});
+})();
+</script>
+
+</body>
+</html>

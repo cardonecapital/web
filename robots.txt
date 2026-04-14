@@ -1,0 +1,195 @@
+# ============================================================
+#  robots.txt — cardonecapital.com
+#  Generated: 2026-04-01
+#  Maintained by: Webmaster / Cardone Capital
+#
+#  Strategy:
+#  • All main-site pages (22 indexed URLs) are fully crawlable
+#  • All /lp/ paid-ads funnel pages are DISALLOWED (belt-and-
+#    suspenders alongside their NOINDEX meta tags)
+#  • /thank-you/ and /404/ are crawlable but carry no link
+#    equity — they are included for completeness and in case
+#    search engines discover them via inbound links
+#  • /schedule/ is crawlable; it is an indexed standalone
+#    calendar page, not in nav, but legitimately findable
+# ============================================================
+
+
+# ─────────────────────────────────────────────────────────────
+# DEFAULT — all user agents
+# ─────────────────────────────────────────────────────────────
+User-agent: *
+
+# Block entire paid-ads funnel directory
+# These pages carry NOINDEX meta tags but disallowing here
+# prevents crawl budget waste and guarantees non-indexation
+Disallow: /lp/
+
+# Individual /lp/ variants (redundant with the rule above,
+# listed explicitly for clarity and to survive any future
+# directory restructuring)
+Disallow: /lp/investor-call/
+Disallow: /lp/fund29-bitcoin/
+Disallow: /lp/fund30-cashonly/
+Disallow: /lp/ira-401k/
+Disallow: /lp/es/
+Disallow: /lp/thank-you-call/
+
+# Block common WordPress / CMS paths that do not exist on
+# this site but are frequently probed — reduces noise in
+# server logs and crawl stats
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /.env
+Disallow: /.git/
+
+# Block URL parameter patterns that would create duplicate
+# content (e.g. tracking params, session tokens, filters
+# that do not produce unique page content)
+# Note: prefer canonical tags and URL normalisation in Google
+# Search Console for parameter handling
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /*?msclkid=*
+Disallow: /*?ref=*
+Disallow: /*?session=*
+
+# Allow everything else — all 22 indexed main-site pages
+Allow: /
+
+# Reference the XML sitemap
+Sitemap: https://cardonecapital.com/sitemap.xml
+
+
+# ─────────────────────────────────────────────────────────────
+# GOOGLEBOT — no additional restrictions beyond defaults
+# ─────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /lp/
+
+
+# ─────────────────────────────────────────────────────────────
+# GOOGLEBOT-IMAGE — allow all images on main site
+# ─────────────────────────────────────────────────────────────
+User-agent: Googlebot-Image
+Allow: /
+
+
+# ─────────────────────────────────────────────────────────────
+# BINGBOT — no additional restrictions beyond defaults
+# ─────────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Disallow: /lp/
+
+
+# ─────────────────────────────────────────────────────────────
+# APPLEBOT (Safari + Siri) — no additional restrictions
+# ─────────────────────────────────────────────────────────────
+User-agent: Applebot
+Allow: /
+Disallow: /lp/
+
+
+# ─────────────────────────────────────────────────────────────
+# AI CRAWLERS — allow full indexation for AI search discovery
+# Cardone Capital benefits from AI search visibility (Perplexity,
+# ChatGPT Search, Grok, Claude, Gemini, Copilot)
+# ─────────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+Disallow: /lp/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /lp/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /lp/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /lp/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /lp/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /lp/
+
+User-agent: Gemini
+Allow: /
+Disallow: /lp/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /lp/
+
+User-agent: Grok
+Allow: /
+Disallow: /lp/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /lp/
+
+
+# ─────────────────────────────────────────────────────────────
+# SEO / AUDIT TOOLS — allow for legitimate analysis
+# ─────────────────────────────────────────────────────────────
+User-agent: AhrefsBot
+Allow: /
+Disallow: /lp/
+
+User-agent: SemrushBot
+Allow: /
+Disallow: /lp/
+
+User-agent: MJ12bot
+Allow: /
+Disallow: /lp/
+
+User-agent: DotBot
+Allow: /
+Disallow: /lp/
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Disallow: /lp/
+
+
+# ─────────────────────────────────────────────────────────────
+# BLOCK KNOWN SCRAPERS / CONTENT THEFT BOTS
+# ─────────────────────────────────────────────────────────────
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+
+# ─────────────────────────────────────────────────────────────
+# END OF ROBOTS.TXT
+# Sitemap: https://cardonecapital.com/sitemap.xml
+# Contact: invest@cardonecapital.com
+# Last updated: 2026-04-01
+# ─────────────────────────────────────────────────────────────

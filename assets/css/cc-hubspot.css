@@ -1,0 +1,964 @@
+/**
+ * ============================================================
+ * cc-hubspot.css — Cardone Capital HubSpot CSS Override Sheet
+ * ============================================================
+ * Version:  1.0.0
+ * Updated:  2026-04-01
+ * Site:     cardonecapital.com
+ * Design:   NOVA v6 (Gradient Edition) — dark mode
+ *
+ * WHAT THIS FILE CONTAINS:
+ *   1.  NOVA dark-mode overrides for all HubSpot form fields
+ *   2.  HubSpot calendar / meetings embed wrapper CSS
+ *   3.  HubSpot popup / overlay CSS overrides
+ *   4.  HubSpot cookie banner overrides
+ *   5.  HubSpot chat widget overrides
+ *   6.  Mobile / responsive adjustments for all widgets
+ *
+ * PLACEMENT:
+ *   Link in <head> on ALL main-site pages that include a
+ *   HubSpot form OR the meetings calendar embed:
+ *
+ *   <link rel="stylesheet" href="/assets/css/cc-hubspot.css">
+ *
+ *   Load AFTER your main site CSS so overrides take effect.
+ *   Load BEFORE HubSpot embeds so styles are ready on insert.
+ *
+ * IMPORTANT — WHY !important IS USED:
+ *   HubSpot injects its own inline styles and stylesheet at
+ *   runtime. The only reliable way to override these is with
+ *   !important. This is standard practice for HubSpot styling.
+ *   Do not remove !important from these rules.
+ *
+ * TESTING:
+ *   After updating: hard-refresh (Ctrl+Shift+R / Cmd+Shift+R)
+ *   to clear HubSpot's cached stylesheet.
+ *   Validate in Chrome DevTools → Elements → Computed Styles.
+ *
+ * DESIGN TOKENS (from NOVA v6):
+ *   --void:     #072d51   (page base)
+ *   --carbon:   #00152a   (section bg)
+ *   --card:     #002139   (card bg)
+ *   --raised:   #153043   (elevated surface)
+ *   --bd:       #1c3a43   (borders)
+ *   --a400:     #FF9F0A   (amber primary)
+ *   --a100:     #FFD06B   (amber light)
+ *   --i400:     #00D4FF   (ice secondary)
+ *   --tb:       #BEC5D4   (body text)
+ *   --tm:       #5C7A8A   (muted text)
+ *   --err:      #FF3B30   (error/danger)
+ *   --ok:       #00C896   (success)
+ * ============================================================
+ */
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 1 — HUBSPOT FORM FIELD OVERRIDES (DARK MODE)
+   ────────────────────────────────────────────────────────────
+   Targets all HubSpot embedded forms (.hs-form) rendered
+   inside the page by the HubSpot Forms API or the HubSpot
+   CMS HubL {{module}} embed.
+
+   These overrides apply to forms on:
+   • /contact/        (secondary contact form)
+   • /academy/        (5 book download forms — inline accordion)
+   • /academy/faq/    (if a book form is added here)
+   • /lp/*            (paid ads funnel lead capture forms)
+   • Any future page with an embedded HS form
+════════════════════════════════════════════════════════════ */
+
+
+/* ── Form container ── */
+.hs-form {
+  font-family: 'Barlow', system-ui, sans-serif !important;
+}
+
+.hs-form fieldset {
+  max-width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+/* ── Field groups / rows ── */
+.hs-form .form-columns-1,
+.hs-form .form-columns-2 {
+  max-width: 100% !important;
+}
+
+.hs-form .form-columns-2 .hs-form-field {
+  width: 50% !important;
+  float: left !important;
+  padding-right: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.hs-form .form-columns-2 .hs-form-field:last-child {
+  padding-right: 0 !important;
+}
+
+@media (max-width: 480px) {
+  .hs-form .form-columns-2 .hs-form-field {
+    width: 100% !important;
+    float: none !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   TEXT / EMAIL / TEL / NUMBER INPUTS
+───────────────────────────────────────────────────────────── */
+.hs-form input[type="text"],
+.hs-form input[type="email"],
+.hs-form input[type="tel"],
+.hs-form input[type="number"],
+.hs-form input[type="password"],
+.hs-form input[type="search"],
+.hs-form input[type="url"] {
+  background:    rgba(0, 21, 42, 0.8) !important;
+  border:        1px solid rgba(28, 58, 67, 0.8) !important;
+  border-radius: 6px !important;
+  color:         #BEC5D4 !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  font-size:     13px !important;
+  font-weight:   400 !important;
+  line-height:   1.5 !important;
+  padding:       10px 14px !important;
+  width:         100% !important;
+  box-sizing:    border-box !important;
+  transition:    border-color 0.15s ease, background 0.15s ease !important;
+  -webkit-appearance: none !important;
+  appearance:    none !important;
+  outline:       none !important;
+}
+
+.hs-form input[type="text"]:hover,
+.hs-form input[type="email"]:hover,
+.hs-form input[type="tel"]:hover {
+  border-color: rgba(28, 58, 67, 1) !important;
+}
+
+.hs-form input[type="text"]:focus,
+.hs-form input[type="email"]:focus,
+.hs-form input[type="tel"]:focus,
+.hs-form input[type="number"]:focus {
+  border-color: rgba(255, 159, 10, 0.55) !important;
+  background:   rgba(0, 21, 42, 0.95) !important;
+  outline:      none !important;
+  box-shadow:   0 0 0 3px rgba(255, 159, 10, 0.08) !important;
+}
+
+/* Placeholder text */
+.hs-form input[type="text"]::placeholder,
+.hs-form input[type="email"]::placeholder,
+.hs-form input[type="tel"]::placeholder {
+  color:   #5C7A8A !important;
+  opacity: 1 !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   SELECT / DROPDOWN
+───────────────────────────────────────────────────────────── */
+.hs-form select {
+  background:    rgba(0, 21, 42, 0.8) !important;
+  border:        1px solid rgba(28, 58, 67, 0.8) !important;
+  border-radius: 6px !important;
+  color:         #BEC5D4 !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  font-size:     13px !important;
+  padding:       10px 36px 10px 14px !important;
+  width:         100% !important;
+  cursor:        pointer !important;
+  box-sizing:    border-box !important;
+  /* Custom arrow — replaces native browser arrow */
+  background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235C7A8A' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat:   no-repeat !important;
+  background-position: right 14px center !important;
+  background-size:     10px 6px !important;
+  -webkit-appearance:  none !important;
+  appearance:          none !important;
+  outline:             none !important;
+}
+
+.hs-form select:focus {
+  border-color: rgba(255, 159, 10, 0.55) !important;
+  box-shadow:   0 0 0 3px rgba(255, 159, 10, 0.08) !important;
+  outline:      none !important;
+}
+
+/* Option items (limited browser support, mainly Firefox) */
+.hs-form select option {
+  background: #001020 !important;
+  color:      #BEC5D4 !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   TEXTAREA
+───────────────────────────────────────────────────────────── */
+.hs-form textarea {
+  background:    rgba(0, 21, 42, 0.8) !important;
+  border:        1px solid rgba(28, 58, 67, 0.8) !important;
+  border-radius: 6px !important;
+  color:         #BEC5D4 !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  font-size:     13px !important;
+  line-height:   1.65 !important;
+  padding:       12px 14px !important;
+  width:         100% !important;
+  min-height:    100px !important;
+  resize:        vertical !important;
+  box-sizing:    border-box !important;
+  outline:       none !important;
+  transition:    border-color 0.15s ease !important;
+}
+
+.hs-form textarea:focus {
+  border-color: rgba(255, 159, 10, 0.55) !important;
+  background:   rgba(0, 21, 42, 0.95) !important;
+  box-shadow:   0 0 0 3px rgba(255, 159, 10, 0.08) !important;
+  outline:      none !important;
+}
+
+.hs-form textarea::placeholder {
+  color:   #5C7A8A !important;
+  opacity: 1 !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   CHECKBOX AND RADIO INPUTS
+───────────────────────────────────────────────────────────── */
+.hs-form input[type="checkbox"],
+.hs-form input[type="radio"] {
+  accent-color: #FF9F0A !important;
+  width:        15px !important;
+  height:       15px !important;
+  cursor:       pointer !important;
+  flex-shrink:  0 !important;
+  margin-right: 8px !important;
+  margin-top:   2px !important;
+}
+
+.hs-form .hs-form-checkbox,
+.hs-form .hs-form-radio {
+  display:     flex !important;
+  align-items: flex-start !important;
+  gap:         8px !important;
+  margin:      6px 0 !important;
+}
+
+.hs-form .hs-form-checkbox label,
+.hs-form .hs-form-radio label {
+  font-size:      13px !important;
+  font-weight:    400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  cursor:         pointer !important;
+  color:          rgba(255, 255, 255, 0.65) !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   LABELS
+───────────────────────────────────────────────────────────── */
+.hs-form label,
+.hs-form .hs-form-field > label {
+  display:        block !important;
+  color:          #BEC5D4 !important;
+  font-family:    'Barlow', system-ui, sans-serif !important;
+  font-size:      10px !important;
+  font-weight:    700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom:  6px !important;
+  line-height:    1.4 !important;
+}
+
+/* Optional field indicator */
+.hs-form label .hs-form-required,
+.hs-form .hs-form-required {
+  color:       #FF9F0A !important;
+  margin-left: 3px !important;
+}
+
+/* "optional" suffix label */
+.hs-form .field .hs-field-desc {
+  font-size:   11px !important;
+  color:       #5C7A8A !important;
+  font-weight: 400 !important;
+  font-style:  italic !important;
+  margin-top:  4px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   SUBMIT BUTTON
+───────────────────────────────────────────────────────────── */
+.hs-form .hs-button,
+.hs-form input[type="submit"],
+.hs-form button[type="submit"] {
+  /* Amber gradient — matches btn-primary in NOVA system */
+  background:     linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%) !important;
+  color:          #000e1c !important;
+  font-family:    'Barlow', system-ui, sans-serif !important;
+  font-size:      13px !important;
+  font-weight:    800 !important;
+  letter-spacing: 0.01em !important;
+  border:         none !important;
+  border-radius:  7px !important;
+  padding:        12px 28px !important;
+  width:          100% !important;
+  cursor:         pointer !important;
+  text-align:     center !important;
+  text-transform: none !important;
+  box-shadow:     0 2px 16px rgba(255, 159, 10, 0.28) !important;
+  transition:     transform 0.15s ease, box-shadow 0.15s ease !important;
+  position:       relative !important;
+  overflow:       hidden !important;
+  display:        block !important;
+  /* Removes any default browser button sizing */
+  box-sizing:     border-box !important;
+  -webkit-appearance: none !important;
+  appearance:     none !important;
+  margin-top:     6px !important;
+}
+
+.hs-form .hs-button:hover,
+.hs-form input[type="submit"]:hover {
+  transform:  translateY(-2px) !important;
+  box-shadow: 0 6px 28px rgba(255, 159, 10, 0.42) !important;
+}
+
+.hs-form .hs-button:active,
+.hs-form input[type="submit"]:active {
+  transform: scale(0.97) !important;
+}
+
+/* Shine sweep animation on hover */
+.hs-form .hs-button::after,
+.hs-form input[type="submit"]::after {
+  content:    '' !important;
+  position:   absolute !important;
+  top:        0 !important;
+  left:       -100% !important;
+  width:      55% !important;
+  height:     100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+.hs-form .hs-button:hover::after {
+  left: 140% !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   VALIDATION STATES — ERROR MESSAGES
+───────────────────────────────────────────────────────────── */
+
+/* Error ring on invalid fields */
+.hs-form .hs-input.error,
+.hs-form input.error,
+.hs-form textarea.error,
+.hs-form select.error {
+  border-color: rgba(255, 59, 48, 0.6) !important;
+  background:   rgba(255, 59, 48, 0.04) !important;
+}
+
+/* Error message list */
+.hs-form .hs-error-msgs {
+  list-style:  none !important;
+  padding:     0 !important;
+  margin:      5px 0 0 0 !important;
+}
+
+.hs-form .hs-error-msgs li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hs-form .hs-error-msgs label,
+.hs-form .hs-error-msg {
+  color:          #FF3B30 !important;
+  font-size:      10px !important;
+  font-weight:    600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  display:        flex !important;
+  align-items:    center !important;
+  gap:            5px !important;
+}
+
+/* ── Inline success state ── */
+.hs-form .submitted-message {
+  background:    rgba(0, 200, 150, 0.08) !important;
+  border:        1px solid rgba(0, 200, 150, 0.25) !important;
+  border-radius: 10px !important;
+  padding:       18px 20px !important;
+  color:         #00C896 !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  font-size:     14px !important;
+  font-weight:   600 !important;
+  text-align:    center !important;
+}
+
+/* HubSpot inline form validation indicator */
+.hs-form .hs-form-field.hs-fieldtype-text.valid input,
+.hs-form .hs-form-field.hs-fieldtype-email.valid input {
+  border-color: rgba(0, 200, 150, 0.4) !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   FORM CAPTCHA (hCaptcha / reCAPTCHA)
+   HubSpot uses hCaptcha for spam protection on some forms.
+───────────────────────────────────────────────────────────── */
+.hs-form .h-captcha,
+.hs-form .g-recaptcha {
+  margin-top: 10px !important;
+}
+
+/* Privacy text below forms */
+.hs-form .legal-consent-container {
+  margin-top: 12px !important;
+}
+
+.hs-form .legal-consent-container .field {
+  margin-bottom: 0 !important;
+}
+
+.hs-form .legal-consent-container p,
+.hs-form .legal-consent-container .hs-richtext {
+  font-size:   10px !important;
+  color:       rgba(255, 255, 255, 0.22) !important;
+  line-height: 1.6 !important;
+}
+
+.hs-form .legal-consent-container a {
+  color: rgba(255, 159, 10, 0.55) !important;
+}
+
+.hs-form .legal-consent-container a:hover {
+  color: rgba(255, 159, 10, 0.85) !important;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   SPACING — field rows and the form wrapper itself
+───────────────────────────────────────────────────────────── */
+.hs-form .hs-form-field {
+  margin-bottom: 14px !important;
+}
+
+.hs-form ul.inputs-list {
+  list-style: none !important;
+  padding:    0 !important;
+  margin:     0 !important;
+}
+
+.hs-form .actions {
+  margin-top:    6px !important;
+  margin-bottom: 0 !important;
+  padding:       0 !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 2 — HUBSPOT MEETINGS / CALENDAR EMBED
+   ────────────────────────────────────────────────────────────
+   The HubSpot calendar embeds via an iframe injected by
+   MeetingsEmbedCode.js into .meetings-iframe-container.
+   These styles control the outer wrapper and the iframe.
+
+   HTML structure (from skills spec):
+   <div class="hs-calendar-wrapper">
+     <div class="meetings-iframe-container"
+          data-src="https://meetings.hubspot.com/cardonecapital-invest/call?embed=true">
+     </div>
+   </div>
+   <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+
+   Full embed docs: developers.hubspot.com/docs/cms/building-blocks/modules/meetings
+════════════════════════════════════════════════════════════ */
+
+/* ── Outer wrapper ── */
+.hs-calendar-wrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(255, 159, 10, 0.09) 0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%);
+  border:        1px solid rgba(255, 159, 10, 0.15);
+  border-radius: 16px;
+  overflow:      hidden;
+  min-height:    620px;
+  position:      relative;
+  /* Subtle inner shadow to lift the embed off the page */
+  box-shadow:    0 8px 40px rgba(0, 0, 0, 0.4),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ── Loading skeleton (shown before iframe injects) ── */
+.hs-calendar-wrapper::before {
+  content:          '';
+  position:         absolute;
+  inset:            0;
+  background:       linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size:  200% 100%;
+  animation:        calSkeleton 1.8s ease-in-out infinite;
+  pointer-events:   none;
+  z-index:          0;
+  border-radius:    16px;
+}
+
+/* Stop skeleton once the iframe has loaded */
+.hs-calendar-wrapper.loaded::before {
+  display: none;
+}
+
+@keyframes calSkeleton {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-calendar-wrapper::before { animation: none; }
+}
+
+/* ── meetings-iframe-container (HubSpot's own div) ── */
+.meetings-iframe-container {
+  width:      100% !important;
+  min-height: 620px !important;
+  position:   relative !important;
+  z-index:    1 !important;
+}
+
+/* ── The iframe itself ── */
+.meetings-iframe-container iframe,
+.hs-calendar-wrapper iframe {
+  width:      100% !important;
+  min-height: 620px !important;
+  border:     none !important;
+  display:    block !important;
+  /* Prevents iframe from bleeding through border-radius */
+  border-radius: 0 !important;
+}
+
+/* ── Standalone schedule page (/schedule/) ──
+   On the /schedule/ page the calendar fills more vertical space */
+body.page-schedule .hs-calendar-wrapper,
+body.page-schedule .meetings-iframe-container,
+body.page-schedule .hs-calendar-wrapper iframe,
+body.page-schedule .meetings-iframe-container iframe {
+  min-height: 760px !important;
+}
+
+/* ── Contact page (/contact/) — calendar is primary CTA ── */
+body.page-contact .hs-calendar-wrapper {
+  border-color: rgba(255, 159, 10, 0.22) !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 3 — HUBSPOT POPUP / LEAD FLOW WIDGETS
+   ────────────────────────────────────────────────────────────
+   HubSpot's "Lead Flows" (popups, slide-ins, banners) may be
+   triggered via HubSpot Marketing. These overrides ensure any
+   HubSpot-managed popup respects the NOVA dark aesthetic.
+
+   Class names are HubSpot internal and may change. Test after
+   any HubSpot platform update.
+════════════════════════════════════════════════════════════ */
+
+/* ── Popup / modal overlay ── */
+.leadinModal-backdrop,
+.leadinModal-overlay {
+  background: rgba(0, 8, 18, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* ── Modal container ── */
+.leadinModal,
+.hs-overlay {
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 159, 10, 0.1) 0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%) !important;
+  border:        1px solid rgba(255, 159, 10, 0.2) !important;
+  border-radius: 16px !important;
+  box-shadow:    0 24px 80px rgba(0, 0, 0, 0.7) !important;
+  color:         #BEC5D4 !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+}
+
+/* ── Modal headline ── */
+.leadinModal h2,
+.leadinModal h3,
+.hs-overlay h2,
+.hs-overlay h3 {
+  color:        #ffffff !important;
+  font-family:  'Exo 2', Arial, sans-serif !important;
+  font-weight:  800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ── Modal close button ── */
+.leadinModal .leadinModal-close,
+.hs-overlay .hs-overlay-close {
+  color:            rgba(255, 255, 255, 0.35) !important;
+  background:       rgba(28, 58, 67, 0.5) !important;
+  border:           1px solid rgba(28, 58, 67, 0.9) !important;
+  border-radius:    8px !important;
+  width:            32px !important;
+  height:           32px !important;
+  display:          flex !important;
+  align-items:      center !important;
+  justify-content:  center !important;
+  transition:       color 0.15s ease, background 0.15s ease !important;
+}
+
+.leadinModal .leadinModal-close:hover,
+.hs-overlay .hs-overlay-close:hover {
+  color:       rgba(255, 255, 255, 0.75) !important;
+  background:  rgba(28, 58, 67, 0.9) !important;
+}
+
+/* ── Banner / notification bar ── */
+.leadinBanner {
+  background:    linear-gradient(135deg, rgba(7, 45, 81, 0.95) 0%, rgba(0, 21, 42, 0.95) 100%) !important;
+  border-bottom: 1px solid rgba(255, 159, 10, 0.2) !important;
+  box-shadow:    0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  color:         #BEC5D4 !important;
+}
+
+/* ── Slide-in widget ── */
+.leadinSlide {
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 0%, rgba(255, 159, 10, 0.1) 0%, transparent 55%),
+    linear-gradient(145deg, #001e38 0%, #001020 100%) !important;
+  border:        1px solid rgba(255, 159, 10, 0.18) !important;
+  border-radius: 14px 14px 0 0 !important;
+  box-shadow:    0 -8px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 4 — HUBSPOT COOKIE CONSENT BANNER
+   ────────────────────────────────────────────────────────────
+   HubSpot can serve a cookie consent banner (in Settings →
+   Privacy → Cookie Policy). Override it to match NOVA.
+   NOTE: If you use an external CMP (OneTrust, Cookiebot),
+   disable HubSpot's cookie banner and style your CMP instead.
+════════════════════════════════════════════════════════════ */
+
+/* ── Banner container ── */
+#hs-eu-cookie-confirmation,
+.hs-cookie-notification-banner {
+  background:    linear-gradient(135deg, rgba(0, 21, 42, 0.97) 0%, rgba(0, 8, 18, 0.97) 100%) !important;
+  border-top:    1px solid rgba(255, 159, 10, 0.2) !important;
+  box-shadow:    0 -4px 24px rgba(0, 0, 0, 0.5) !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  color:         rgba(255, 255, 255, 0.6) !important;
+  font-size:     12px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ── Banner text ── */
+#hs-eu-cookie-confirmation-inner,
+.hs-cookie-notification-banner p {
+  color:       rgba(255, 255, 255, 0.55) !important;
+  font-size:   12px !important;
+  line-height: 1.65 !important;
+}
+
+/* ── Cookie banner links ── */
+#hs-eu-cookie-confirmation a,
+.hs-cookie-notification-banner a {
+  color:               rgba(255, 159, 10, 0.75) !important;
+  text-decoration:     underline !important;
+  text-underline-offset: 3px !important;
+}
+
+/* ── Accept button ── */
+#hs-eu-cookie-confirmation #hs-eu-confirmation-button,
+.hs-cookie-notification-banner .cookie-btn-accept {
+  background:    linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%) !important;
+  color:         #000e1c !important;
+  font-family:   'Barlow', system-ui, sans-serif !important;
+  font-weight:   800 !important;
+  font-size:     11px !important;
+  border:        none !important;
+  border-radius: 6px !important;
+  padding:       8px 18px !important;
+  cursor:        pointer !important;
+  white-space:   nowrap !important;
+}
+
+/* ── Decline button ── */
+#hs-eu-cookie-confirmation #hs-eu-decline-button,
+.hs-cookie-notification-banner .cookie-btn-decline {
+  background:  rgba(0, 21, 42, 0.5) !important;
+  color:       rgba(255, 255, 255, 0.35) !important;
+  border:      1px solid rgba(28, 58, 67, 0.9) !important;
+  font-family: 'Barlow', system-ui, sans-serif !important;
+  font-size:   11px !important;
+  border-radius: 6px !important;
+  padding:     7px 14px !important;
+  cursor:      pointer !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 5 — HUBSPOT LIVE CHAT WIDGET
+   ────────────────────────────────────────────────────────────
+   If the HubSpot chat widget is enabled, these rules override
+   the launcher button and chat window colors.
+   The chat widget is an iframe (#hubspot-messages-iframe-container).
+   Direct iframe content styling is not possible via CSS, but
+   the launcher button and container are targetable.
+════════════════════════════════════════════════════════════ */
+
+/* ── Chat launcher button ── */
+#hubspot-messages-iframe-container {
+  /* Ensure the widget doesn't overlap important CTAs on mobile */
+  z-index: 50 !important;
+}
+
+/* On mobile, move the widget up to avoid conflict with
+   the sticky "Invest Now →" button at the bottom of the screen */
+@media (max-width: 640px) {
+  #hubspot-messages-iframe-container {
+    bottom: 80px !important;
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 6 — MOBILE RESPONSIVE ADJUSTMENTS
+════════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+
+  /* Ensure single-column form layout on mobile */
+  .hs-form .form-columns-2 .hs-form-field {
+    width:         100% !important;
+    float:         none !important;
+    padding-right: 0 !important;
+  }
+
+  /* Larger tap targets on touch devices */
+  .hs-form input[type="text"],
+  .hs-form input[type="email"],
+  .hs-form input[type="tel"],
+  .hs-form select {
+    font-size:    14px !important; /* Prevents iOS auto-zoom on focus */
+    padding:      12px 14px !important;
+    min-height:   46px !important;
+  }
+
+  /* Larger submit button on mobile */
+  .hs-form .hs-button,
+  .hs-form input[type="submit"] {
+    font-size:  14px !important;
+    padding:    14px 28px !important;
+    min-height: 48px !important;
+  }
+
+  /* Calendar embed height on mobile */
+  .hs-calendar-wrapper,
+  .meetings-iframe-container,
+  .hs-calendar-wrapper iframe,
+  .meetings-iframe-container iframe {
+    min-height: 780px !important; /* HubSpot calendar is taller on mobile */
+  }
+
+}
+
+@media (max-width: 375px) {
+  /* Very small screens — extra padding reduction */
+  .hs-form input[type="text"],
+  .hs-form input[type="email"],
+  .hs-form input[type="tel"] {
+    font-size: 16px !important; /* iOS safe — prevents zoom */
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 7 — HUBSPOT FORM INSIDE SPECIFIC PAGE CONTEXTS
+   ────────────────────────────────────────────────────────────
+   These rules adjust form styling based on which page or
+   component context the form appears in. Use body classes
+   or parent containers to scope these.
+════════════════════════════════════════════════════════════ */
+
+/* ── Forms inside the dark inline-cta card (academy, articles) ── */
+.inline-cta .hs-form input[type="text"],
+.inline-cta .hs-form input[type="email"],
+.exit-bar .hs-form input[type="text"],
+.exit-bar .hs-form input[type="email"] {
+  /* Slightly more transparent in already-dark contexts */
+  background: rgba(0, 12, 24, 0.9) !important;
+}
+
+/* ── Forms on /lp/ paid-ads pages (no body padding context) ── */
+body.page-lp .hs-form-field {
+  margin-bottom: 16px !important;
+}
+
+body.page-lp .hs-form .hs-button,
+body.page-lp .hs-form input[type="submit"] {
+  padding:   14px 28px !important;
+  font-size: 15px !important;
+}
+
+/* ── Fund 29 fund page — amber-accented form ── */
+body.page-fund29 .hs-form input:focus,
+body.page-fund29 .hs-form textarea:focus,
+body.page-fund29 .hs-form select:focus {
+  border-color: rgba(255, 159, 10, 0.65) !important;
+  box-shadow:   0 0 0 3px rgba(255, 159, 10, 0.1) !important;
+}
+
+/* ── Fund 30 / IRA pages — ice-accented form ── */
+body.page-fund30 .hs-form input:focus,
+body.page-ira .hs-form input:focus,
+body.page-fund30 .hs-form textarea:focus,
+body.page-ira .hs-form textarea:focus {
+  border-color: rgba(0, 212, 255, 0.55) !important;
+  box-shadow:   0 0 0 3px rgba(0, 212, 255, 0.08) !important;
+}
+
+/* ── Contact page — calendar wrapper gets stronger border ── */
+body.page-contact .hs-calendar-wrapper {
+  border-width: 1.5px !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 8 — DARK MODE MEDIA QUERY GUARD
+   ────────────────────────────────────────────────────────────
+   Cardone Capital is dark-mode by design — all NOVA styles
+   are dark. This guard prevents any light-mode HubSpot
+   defaults from bleeding through on light-mode OS users
+   who are viewing the site (which intentionally has no
+   light mode toggle for /lp/ pages).
+════════════════════════════════════════════════════════════ */
+
+/* Force dark appearance on HubSpot widgets regardless of
+   system color scheme preference */
+.hs-form,
+.hs-calendar-wrapper,
+.leadinModal,
+.hs-overlay,
+#hs-eu-cookie-confirmation {
+  color-scheme: dark !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 9 — PRINT STYLES
+════════════════════════════════════════════════════════════ */
+
+@media print {
+  .hs-calendar-wrapper,
+  #hubspot-messages-iframe-container,
+  .leadinModal,
+  .leadinBanner,
+  .hs-eu-cookie-confirmation {
+    display: none !important;
+  }
+
+  .hs-form {
+    background: #fff !important;
+    border:     1px solid #ccc !important;
+    padding:    16px !important;
+    border-radius: 4px !important;
+  }
+
+  .hs-form input,
+  .hs-form select,
+  .hs-form textarea {
+    background:  #fff !important;
+    border:      1px solid #ccc !important;
+    color:       #000 !important;
+  }
+
+  .hs-form label {
+    color: #333 !important;
+  }
+}
+
+
+/*
+ * ============================================================
+ * USAGE CHEATSHEET
+ * ============================================================
+ *
+ * ADD TO EVERY PAGE WITH A HUBSPOT FORM OR CALENDAR:
+ *   <link rel="stylesheet" href="/assets/css/cc-hubspot.css">
+ *
+ * HTML FOR CALENDAR EMBED (paste on /contact/ and /schedule/):
+ *
+ *   <div class="hs-calendar-wrapper" id="hubspot-cal">
+ *     <div class="meetings-iframe-container"
+ *          data-src="https://meetings.hubspot.com/cardonecapital-invest/call?embed=true">
+ *     </div>
+ *   </div>
+ *   <script
+ *     src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js">
+ *   </script>
+ *
+ *   Optional: mark wrapper as loaded once iframe injects:
+ *   <script>
+ *   window.addEventListener('message', function(e) {
+ *     if (e.data && e.data.meetingBookSucceeded) {
+ *       document.getElementById('hubspot-cal').classList.add('loaded');
+ *     }
+ *   });
+ *   </script>
+ *
+ * EMBEDDED HS FORM (replace [PORTAL_ID] and [FORM_ID]):
+ *
+ *   <script charset="utf-8" type="text/javascript"
+ *     src="//js.hsforms.net/forms/embed/v2.js">
+ *   </script>
+ *   <script>
+ *   hbspt.forms.create({
+ *     region:    "na1",
+ *     portalId:  "[PORTAL_ID]",
+ *     formId:    "[FORM_ID]",
+ *     onFormSubmit: function($form) {
+ *       // Fire GA4 event after HubSpot form submit:
+ *       window.CCTrack && CCTrack.bookDownload('re-investor-guide', 'academy');
+ *     }
+ *   });
+ *   </script>
+ *
+ * PAGE BODY CLASSES (add to <body> tag per page for context scoping):
+ *   Homepage:       class="page-home"
+ *   Fund 29:        class="page-fund29"
+ *   Fund 30:        class="page-fund30"
+ *   IRA page:       class="page-ira"
+ *   Contact:        class="page-contact"
+ *   Schedule:       class="page-schedule"
+ *   /lp/* pages:    class="page-lp"
+ *
+ * SEQUENCE REFERENCE (HubSpot):
+ *   Book 1 — RE Investor Guide      → Seq #4
+ *   Book 2 — 401k / IRA Book        → Seq #2
+ *   Book 3 — Bitcoin + RE Guide     → Seq #5
+ *   Book 4 — How To Create Wealth   → Seq #1
+ *   Book 5 — 1031 Exchange Book     → Seq #3
+ * ============================================================
+ */

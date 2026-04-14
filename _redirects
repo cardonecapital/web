@@ -1,0 +1,15 @@
+# 301 redirects — Cardone Capital
+# Legacy blog → Academy
+/gcs-insights            /academy/    301
+/gcs-insights/           /academy/    301
+/gcs-insights/*          /academy/    301
+
+# Force trailing slash (prevents duplicate content)
+/invest                  /invest/     301
+/fund29                  /fund29/     301
+/fund30                  /fund30/     301
+/portfolio               /portfolio/  301
+/company                 /company/    301
+/team                    /team/       301
+/academy                 /academy/    301
+/contact                 /contact/    301

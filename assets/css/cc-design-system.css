@@ -1,0 +1,3439 @@
+/* =============================================================================
+   CARDONE CAPITAL — DESIGN SYSTEM v6 NOVA (GRADIENT EDITION)
+   cc-design-system.css
+   © 2026 Cardone Capital. All rights reserved.
+   IA v1.9 LOCKED | Design System v6 NOVA LOCKED | April 2026
+   ─────────────────────────────────────────────────────────────────────────────
+   IMPORT THIS FILE FIRST on every page, before any page-level styles.
+   Load order:
+     1. cc-design-system.css   ← this file
+     2. [page-specific].css    ← page overrides
+   ─────────────────────────────────────────────────────────────────────────────
+   TABLE OF CONTENTS
+   ─────────────────────────────────────────────────────────────────────────────
+    §00  @fontsource imports (Exo 2 + Barlow + Barlow Condensed via unpkg.com)
+    §01  CSS custom properties (all design tokens)
+    §02  CSS reset & base
+    §03  Typography scale
+    §04  Gradient text utilities (.gt-amber / .gt-ice / .gt-fire)
+    §05  Background gradient utility classes
+         §05a  Page void / hero base
+         §05b  Section A — lateral swirl
+         §05c  Section B — conic aurora
+         §05d  Card — amber corner (Fund 29)
+         §05e  Card — ice corner (Fund 30)
+         §05f  Stats bar spectrum
+         §05g  Nav bar
+         §05h  Scanline overlay (hero pseudo-element)
+         §05i  Light mode page override
+         §05j  HubSpot calendar wrapper
+    §06  Gradient border wrappers (.pf-w29 / .pf-w30)
+    §07  Card backgrounds (.card-f29 / .card-f30 / .card-base / .card-raised)
+    §08  Button system
+    §09  Badge system
+    §10  Navigation (.cc-nav)
+    §11  Footer (.cc-footer)
+    §12  Spanish band (.es-band)
+    §13  Investor portal link (.nav-investor-login)
+    §14  Form base styles (native HTML forms)
+    §15  HubSpot form CSS overrides (all .hs-form classes)
+    §16  HubSpot calendar wrapper (.hs-calendar-wrapper)
+    §17  Ticker / marquee strip
+    §18  Section spacing utilities
+    §19  Responsive grid system (mobile-first, 12-column)
+    §20  Utility helpers (flex, spacing, text, visibility)
+    §21  Stat counter components
+    §22  Accordion / collapsible
+    §23  Scroll-triggered animation base classes
+    §24  Focus / accessibility
+    §25  Dark/light mode switch
+    §26  Print
+   ============================================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §00  @FONTSOURCE IMPORTS  (unpkg.com — ZERO Google Fonts / GDPR exposure)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Exo 2 — Display / Headlines ── */
+@import url('https://unpkg.com/@fontsource/exo-2/400.css');
+@import url('https://unpkg.com/@fontsource/exo-2/400-italic.css');
+@import url('https://unpkg.com/@fontsource/exo-2/700.css');
+@import url('https://unpkg.com/@fontsource/exo-2/800.css');
+@import url('https://unpkg.com/@fontsource/exo-2/900.css');
+
+/* ── Barlow — Body / UI ── */
+@import url('https://unpkg.com/@fontsource/barlow/400.css');
+@import url('https://unpkg.com/@fontsource/barlow/500.css');
+@import url('https://unpkg.com/@fontsource/barlow/600.css');
+@import url('https://unpkg.com/@fontsource/barlow/700.css');
+
+/* ── Barlow Condensed — Stats / Numbers / Data ── */
+@import url('https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css');
+@import url('https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css');
+
+/*
+   npm equivalent (for Next.js / Vite builds):
+   npm install @fontsource/exo-2 @fontsource/barlow @fontsource-condensed/barlow-condensed
+*/
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §01  CSS CUSTOM PROPERTIES — ALL DESIGN TOKENS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+
+  /* ── Font Families ── */
+  --fe: 'Exo 2', 'Arial', sans-serif;            /* Display / headlines */
+  --fb: 'Barlow', 'system-ui', sans-serif;        /* Body / UI */
+  --fc: 'Barlow Condensed', 'Barlow', 'Arial', sans-serif; /* Stats / data */
+
+  /* ── Void Background Depth Layers ── */
+  --void:      #072d51;   /* Page base */
+  --carbon:    #00152a;   /* Section backgrounds */
+  --card:      #002139;   /* Card backgrounds */
+  --raised:    #153043;   /* Elevated surfaces */
+  --border-d:  #1c3a43;   /* Borders and dividers */
+
+  /* ── Electric Amber — Primary Brand ── */
+  --amber-50:  #FFF4DD;
+  --amber-100: #FFD06B;
+  --amber-400: #FF9F0A;   /* PRIMARY */
+  --amber-600: #CC7C00;
+  --amber-800: #7A4A00;
+
+  /* ── Ice Signal — Secondary / Fund 30 / Data ── */
+  --ice-50:    #D8F8FF;
+  --ice-200:   #6AE8FF;
+  --ice-400:   #00D4FF;   /* SECONDARY */
+  --ice-600:   #008FAA;
+
+  /* ── Text on dark ── */
+  --text-heading: #FFFFFF;
+  --text-body:    #BEC5D4;
+  --text-muted:   #5C7A8A;
+
+  /* ── Semantic ── */
+  --success:  #00C896;
+  --danger:   #FF3B30;
+  --warning:  #FF8A00;
+
+  /* ── Fund Identity ── */
+  --fund-29:  #FF9F0A;   /* Amber */
+  --fund-30:  #00D4FF;   /* Ice */
+
+  /* ── Light Mode (activated via [data-theme="light"] or .light) ── */
+  --lm-page:   #F4F5F6;
+  --lm-card:   #FFFFFF;
+  --lm-border: #D8DADD;
+  --lm-text:   #072d51;
+  --lm-muted:  #8090A0;
+
+  /* ── Spacing Scale ── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+
+  /* ── Section vertical rhythm ── */
+  --section-py:      80px;
+  --section-py-sm:   48px;
+  --section-py-lg:  120px;
+
+  /* ── Container widths ── */
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1440px;
+  --container-px:   24px;   /* horizontal padding on small screens */
+  --container-px-md: 40px;
+  --container-px-xl: 64px;
+
+  /* ── Border radius ── */
+  --r-sm:   4px;
+  --r-md:   7px;
+  --r-lg:  12px;
+  --r-xl:  16px;
+  --r-2xl: 20px;
+  --r-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-card:   0 4px 24px rgba(0,0,0,0.35), 0 1px 4px rgba(0,0,0,0.2);
+  --shadow-raised: 0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.25);
+  --shadow-glow-amber: 0 0 24px rgba(255,159,10,0.25), 0 0 48px rgba(255,159,10,0.08);
+  --shadow-glow-ice:   0 0 24px rgba(0,212,255,0.2),   0 0 48px rgba(0,212,255,0.06);
+
+  /* ── Transitions ── */
+  --t-fast:   150ms ease;
+  --t-base:   250ms ease;
+  --t-slow:   400ms ease;
+  --t-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-index scale ── */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-sticky:   20;
+  --z-nav:     100;
+  --z-dropdown: 200;
+  --z-modal:   500;
+  --z-toast:   900;
+  --z-top:    1000;
+
+  /* ── Nav height ── */
+  --nav-h:    72px;
+  --nav-h-sm: 60px;
+
+  /* ── Gradient text stops (re-usable in custom CSS) ── */
+  --gt-amber-stops: #FFD06B 0%, #FF9F0A 50%, #FFB830 100%;
+  --gt-ice-stops:   #A8EEFF 0%, #00D4FF 50%, #6AE8FF 100%;
+  --gt-fire-stops:  #FFD06B 0%, #FF9F0A 30%, #FF6B00 70%, #FF9F0A 100%;
+
+  /* ── Gradient background stops (re-usable) ── */
+  --bg-btn-primary:  linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+  --bg-btn-primary-hover: linear-gradient(135deg, #FFE08A 0%, #FFB020 45%, #FF9A10 100%);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §02  CSS RESET & BASE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--fb);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-body);
+  background-color: var(--carbon);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  /* Lazy-loading is set via HTML attribute: loading="lazy" */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Scrollbar (dark, branded) */
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: var(--carbon); }
+::-webkit-scrollbar-thumb        { background: var(--border-d); border-radius: var(--r-pill); }
+::-webkit-scrollbar-thumb:hover  { background: var(--amber-600); }
+
+/* Selection highlight */
+::selection {
+  background: rgba(255,159,10,0.3);
+  color: #fff;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §03  TYPOGRAPHY SCALE
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Heading defaults ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fe);
+  color: var(--text-heading);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* ── H1 Hero ── */
+h1,
+.h1 {
+  font-family: var(--fe);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 62px);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* ── H2 Section ── */
+h2,
+.h2 {
+  font-family: var(--fe);
+  font-weight: 800;
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+}
+
+/* ── H3 Sub ── */
+h3,
+.h3 {
+  font-family: var(--fe);
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 28px);
+  line-height: 1.15;
+}
+
+/* ── H4 ── */
+h4,
+.h4 {
+  font-family: var(--fe);
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.2;
+}
+
+/* ── Body ── */
+p,
+.body {
+  font-family: var(--fb);
+  font-weight: 400;
+  font-size: clamp(13px, 1.2vw, 14px);
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.body-lg {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+}
+
+.body-sm {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* ── Label (micro) ── */
+.label,
+.cc-label {
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ── Nav label ── */
+.nav-label {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Stat number ── */
+.stat-num {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: clamp(24px, 3.5vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat-num-lg {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+/* ── Eyebrow (section prefix label) ── */
+.eyebrow {
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--amber-400);
+}
+
+.eyebrow-ice {
+  color: var(--ice-400);
+}
+
+/* ── Overline ── */
+.overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--amber-400);
+}
+
+.overline::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--amber-400);
+  border-radius: 2px;
+}
+
+.overline-ice {
+  color: var(--ice-400);
+}
+
+.overline-ice::before {
+  background: var(--ice-400);
+}
+
+/* ── Legal / disclosure micro text ── */
+.legal-text {
+  font-family: var(--fb);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ── Monospace (for data/terminal feel) ── */
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 12px;
+  color: var(--ice-400);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §04  GRADIENT TEXT UTILITIES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Amber gradient text — use on all major stats and hero "DIGITAL." ── */
+.gt-amber {
+  background: linear-gradient(135deg, var(--gt-amber-stops));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ── Ice gradient text — Fund 30 / data highlights ── */
+.gt-ice {
+  background: linear-gradient(135deg, var(--gt-ice-stops));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ── Fire gradient text — hero urgency / high-energy callouts ── */
+.gt-fire {
+  background: linear-gradient(135deg, var(--gt-fire-stops));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ── White gradient (for headings that transition white→body) ── */
+.gt-white {
+  background: linear-gradient(135deg, #FFFFFF 0%, #BEC5D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ── Success gradient ── */
+.gt-success {
+  background: linear-gradient(135deg, #00E8AD 0%, #00C896 50%, #00A07A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/*
+  USAGE NOTE: Apply .gt-amber / .gt-ice / .gt-fire on:
+    - All h1/h2 "hero word" callouts
+    - All stats in the stats bar
+    - Fund card numbers (AUM, distribution yield, IRR targets)
+    - Section headline accent words
+    - Homepage "DIGITAL." → .gt-amber
+*/
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §05  BACKGROUND GRADIENT UTILITY CLASSES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* §05a  PAGE VOID / HERO BASE ─────────────────────────────────────────────── */
+/*
+  Use on: <body>, hero sections, full-bleed page backgrounds.
+  Also set as body background on every main site page.
+*/
+.bg-void,
+.bg-hero {
+  background:
+    radial-gradient(ellipse 60% 80% at 92% 5%,   rgba(255,159,10,0.22)  0%, rgba(255,159,10,0.06) 35%, transparent 60%),
+    radial-gradient(ellipse 55% 70% at 5%  95%,  rgba(0,212,255,0.16)   0%, rgba(0,212,255,0.04)  35%, transparent 58%),
+    radial-gradient(ellipse 70% 50% at 50% 50%,  rgba(7,45,81,0.8)      0%, transparent 70%),
+    radial-gradient(ellipse 100% 60% at 0%  0%,  #072d51                0%, transparent 55%),
+    radial-gradient(ellipse 80%  80% at 100% 100%, #1c3a43              0%, transparent 60%),
+    linear-gradient(160deg, #001020 0%, #000d1c 40%, #001525 100%);
+}
+
+/* §05b  SECTION A — LATERAL SWIRL ──────────────────────────────────────────── */
+/*
+  Use on: alternating content sections (odd).
+  Quiet, directional — pulls eye left-to-right.
+*/
+.bg-section-a,
+.bg-swirl {
+  background:
+    radial-gradient(ellipse 90% 60% at 5%  50%, rgba(7,45,81,0.6)   0%, transparent 60%),
+    radial-gradient(ellipse 60% 75% at 95% 50%, rgba(28,58,67,0.5)  0%, transparent 55%),
+    #001020;
+}
+
+/* §05c  SECTION B — CONIC AURORA ────────────────────────────────────────────── */
+/*
+  Use on: alternating content sections (even), "Why Cardone Capital" block.
+  Dual conic gradients create an aurora shimmer effect.
+*/
+.bg-section-b,
+.bg-aurora {
+  background:
+    conic-gradient(from 220deg at 70% 40%, rgba(0,212,255,0.06)   0deg, transparent 60deg),
+    conic-gradient(from  40deg at 20% 60%, rgba(255,159,10,0.07)  0deg, transparent 50deg),
+    radial-gradient(ellipse 80% 100% at 0% 50%, rgba(7,45,81,0.8) 0%, transparent 60%),
+    linear-gradient(180deg, #001525 0%, #000e1c 50%, #001525 100%);
+}
+
+/* §05d  CARD — AMBER CORNER (FUND 29) ───────────────────────────────────────── */
+/*
+  Use on: Fund 29 fund card interior (inside .pf-w29 wrapper).
+*/
+.bg-card-f29,
+.card-f29 {
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%,   rgba(255,159,10,0.13) 0%, rgba(255,159,10,0.02) 45%, transparent 65%),
+    radial-gradient(ellipse 60% 60% at 0%   100%,  rgba(7,45,81,0.7)    0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%);
+}
+
+/* §05e  CARD — ICE CORNER (FUND 30) ─────────────────────────────────────────── */
+/*
+  Use on: Fund 30 fund card interior (inside .pf-w30 wrapper).
+*/
+.bg-card-f30,
+.card-f30 {
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%,   rgba(0,212,255,0.12)  0%, rgba(0,212,255,0.02) 45%, transparent 65%),
+    radial-gradient(ellipse 60% 60% at 0%   100%,  rgba(28,58,67,0.7)   0%, transparent 55%),
+    linear-gradient(145deg, #001e38 0%, #001020 100%);
+}
+
+/* §05f  STATS BAR SPECTRUM ───────────────────────────────────────────────────── */
+/*
+  Use on: the global stats band ($591M / 20,020 / $1.9B / $5.3B).
+  Amber left, neutral center, ice right.
+*/
+.bg-stats-bar {
+  background: linear-gradient(135deg,
+    rgba(255,159,10,0.08) 0%,
+    rgba(7,45,81,0.6)    25%,
+    rgba(0,21,42,0.8)    50%,
+    rgba(28,58,67,0.6)   75%,
+    rgba(0,212,255,0.06) 100%
+  );
+}
+
+/* §05g  NAV BAR ─────────────────────────────────────────────────────────────── */
+/*
+  Applied via .cc-nav (see §10). Listed here for token reference.
+  backdrop-filter: blur is applied inline on the nav component.
+*/
+.bg-nav {
+  background: linear-gradient(
+    135deg,
+    rgba(7,45,81,0.85)  0%,
+    rgba(0,21,42,0.75)  50%,
+    rgba(28,58,67,0.7)  100%
+  );
+  border-bottom: 1px solid rgba(255,159,10,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* §05h  SCANLINE OVERLAY ────────────────────────────────────────────────────── */
+/*
+  Use on: hero sections. Apply as a pseudo-element overlay above the bg.
+  Technique: add class .scanlines to hero wrapper; the ::after is already included.
+*/
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-raised);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 47px,
+      rgba(0,212,255,0.025) 47px,
+      rgba(0,212,255,0.025) 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 95px,
+      rgba(255,159,10,0.015) 95px,
+      rgba(255,159,10,0.015) 96px
+    );
+  /* Prevent scanline from covering interactive content */
+  mix-blend-mode: screen;
+}
+
+/* §05i  LIGHT MODE PAGE OVERRIDE ────────────────────────────────────────────── */
+/*
+  Applied when [data-theme="light"] is set on <html> or <body>.
+  Overrides void bg with a soft gradient light canvas.
+*/
+[data-theme="light"] body,
+[data-theme="light"] .bg-void,
+[data-theme="light"] .bg-hero,
+.light-bg {
+  background:
+    radial-gradient(ellipse 75% 70% at 90% 5%,  rgba(255,159,10,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 60% at 5%  95%,  rgba(7,45,81,0.08)   0%, transparent 58%),
+    linear-gradient(160deg, #F2F4F6 0%, #EDF0F3 50%, #F0F3F5 100%);
+  color: var(--lm-text);
+}
+
+[data-theme="light"] body {
+  color: var(--lm-text);
+}
+
+/* §05j  HUBSPOT CALENDAR WRAPPER ────────────────────────────────────────────── */
+/*
+  See also §16 for full .hs-calendar-wrapper spec.
+*/
+.bg-hs-calendar {
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(255,159,10,0.09) 0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%);
+}
+
+/* ── Generic card base (plain, no fund identity) ── */
+.bg-card {
+  background: var(--card);
+}
+
+.bg-raised {
+  background: var(--raised);
+}
+
+.bg-carbon {
+  background: var(--carbon);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §06  GRADIENT BORDER WRAPPERS (.pf-w29 / .pf-w30)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  USAGE PATTERN:
+  <div class="pf-w29">
+    <div class="card-f29">
+      <!-- Fund 29 card content -->
+    </div>
+  </div>
+
+  The wrapper provides the 1.5px gradient border via padding trick.
+  The inner element fills the space with the card background.
+*/
+
+/* ── Fund 29 — Amber gradient border ── */
+.pf-w29 {
+  padding: 1.5px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(255,159,10,0.6)  0%,
+    rgba(255,180,50,0.3) 30%,
+    rgba(28,58,67,0.3)   65%,
+    transparent          100%
+  );
+  transition: background var(--t-slow);
+}
+
+.pf-w29:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255,159,10,0.85) 0%,
+    rgba(255,180,50,0.5)  30%,
+    rgba(28,58,67,0.4)    65%,
+    rgba(255,159,10,0.1)  100%
+  );
+  box-shadow: var(--shadow-glow-amber);
+}
+
+/* ── Fund 30 — Ice gradient border ── */
+.pf-w30 {
+  padding: 1.5px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(0,212,255,0.55)  0%,
+    rgba(0,180,220,0.25) 30%,
+    rgba(7,45,81,0.3)    65%,
+    transparent          100%
+  );
+  transition: background var(--t-slow);
+}
+
+.pf-w30:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0,212,255,0.8)   0%,
+    rgba(0,180,220,0.45)  30%,
+    rgba(7,45,81,0.4)     65%,
+    rgba(0,212,255,0.1)   100%
+  );
+  box-shadow: var(--shadow-glow-ice);
+}
+
+/* ── Generic gradient border (neutral) ── */
+.pf-w-neutral {
+  padding: 1.5px;
+  border-radius: var(--r-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(28,58,67,0.8)   0%,
+    rgba(7,45,81,0.5)   50%,
+    rgba(0,21,42,0.3)   100%
+  );
+}
+
+/* ── Property card wrapper (portfolio grid) ── */
+.pf-w-property {
+  padding: 1px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(28,58,67,0.9)   0%,
+    rgba(7,45,81,0.3)   100%
+  );
+  transition: background var(--t-base);
+}
+
+.pf-w-property:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255,159,10,0.4) 0%,
+    rgba(28,58,67,0.5)   100%
+  );
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §07  CARD BACKGROUNDS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* The inner card element that sits inside the gradient border wrapper */
+.card-inner {
+  border-radius: calc(var(--r-xl) - 1.5px);
+  overflow: hidden;
+  height: 100%;
+}
+
+.card-f29.card-inner {
+  border-radius: calc(var(--r-xl) - 1.5px);
+}
+
+.card-f30.card-inner {
+  border-radius: calc(var(--r-xl) - 1.5px);
+}
+
+/* ── Base card (no fund identity) ── */
+.card-base {
+  background: var(--card);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.card-base:hover {
+  border-color: rgba(255,159,10,0.3);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Raised card ── */
+.card-raised {
+  background: var(--raised);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Glass card (light frosted overlay) ── */
+.card-glass {
+  background: rgba(0,33,57,0.65);
+  border: 1px solid rgba(28,58,67,0.7);
+  border-radius: var(--r-xl);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Feature card (3-column "why" section) ── */
+.card-feature {
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255,159,10,0.07) 0%, transparent 55%),
+    var(--card);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8) var(--sp-8);
+  transition: border-color var(--t-base), transform var(--t-spring), box-shadow var(--t-slow);
+}
+
+.card-feature:hover {
+  border-color: rgba(255,159,10,0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+
+/* ── Legal card (Disclosures / Privacy / Terms) ── */
+.card-legal {
+  background: var(--raised);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6) var(--sp-6);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  transition: border-color var(--t-base);
+}
+
+.card-legal:hover {
+  border-color: rgba(255,159,10,0.3);
+}
+
+/* ── Book card (Academy) ── */
+.card-book {
+  background:
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(255,159,10,0.1) 0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: border-color var(--t-base), box-shadow var(--t-slow);
+}
+
+.card-book:hover {
+  border-color: rgba(255,159,10,0.4);
+  box-shadow: var(--shadow-glow-amber);
+}
+
+/* ── Testimonial card ── */
+.card-testimonial {
+  background: var(--raised);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  position: relative;
+}
+
+.card-testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: var(--sp-4);
+  left: var(--sp-6);
+  font-family: var(--fe);
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(255,159,10,0.15);
+  line-height: 1;
+  user-select: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §08  BUTTON SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Shared button base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--fb);
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1;
+  border-radius: var(--r-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background   var(--t-base),
+    transform    var(--t-spring),
+    box-shadow   var(--t-slow),
+    border-color var(--t-fast),
+    opacity      var(--t-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Shimmer effect on hover (primary only) ── */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.2) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after {
+  left: 140%;
+}
+
+/* ── PRIMARY — Amber gradient fill ── */
+/*
+  CTA: "Invest Now →" → /invest/
+  Use on every main page. Highest visual weight.
+*/
+.btn-primary {
+  background: var(--bg-btn-primary);
+  color: #000e1c;
+  padding: 11px 26px;
+  border-radius: var(--r-md);
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 16px rgba(255,159,10,0.3);
+}
+
+.btn-primary:hover {
+  background: var(--bg-btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(255,159,10,0.45);
+}
+
+/* ── SECONDARY — Amber outlined ── */
+/*
+  CTA: "Book a Call" → /schedule/
+  Amber ghost; prominent but subordinate to primary.
+*/
+.btn-secondary {
+  background: rgba(255,159,10,0.06);
+  color: var(--amber-400);
+  border: 1px solid rgba(255,159,10,0.4);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,159,10,0.14);
+  border-color: rgba(255,159,10,0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255,159,10,0.2);
+}
+
+/* ── ICE — Fund 30 / secondary action in ice context ── */
+.btn-ice {
+  background: rgba(0,212,255,0.07);
+  color: var(--ice-400);
+  border: 1px solid rgba(0,212,255,0.35);
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-ice:hover {
+  background: rgba(0,212,255,0.14);
+  border-color: rgba(0,212,255,0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,212,255,0.15);
+}
+
+/* ── GHOST — Subdued, minimal ── */
+.btn-ghost {
+  background: rgba(0,21,42,0.5);
+  color: var(--text-muted);
+  border: 1px solid rgba(28,58,67,0.9);
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,21,42,0.8);
+  color: var(--text-body);
+  border-color: var(--border-d);
+}
+
+/* ── SUCCESS — Confirmation / success states ── */
+.btn-success {
+  background: rgba(0,200,150,0.12);
+  color: var(--success);
+  border: 1px solid rgba(0,200,150,0.35);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-success:hover {
+  background: rgba(0,200,150,0.2);
+  border-color: rgba(0,200,150,0.6);
+}
+
+/* ── SIZE MODIFIERS ── */
+.btn-sm {
+  font-size: 11px;
+  padding: 7px 14px;
+  border-radius: 5px;
+}
+
+.btn-lg {
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 32px;
+  border-radius: var(--r-lg);
+}
+
+.btn-xl {
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 40px;
+  border-radius: var(--r-lg);
+  letter-spacing: 0.02em;
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Icon button ── */
+.btn-icon {
+  padding: 8px;
+  border-radius: var(--r-md);
+  line-height: 1;
+}
+
+/* ── Pill variant ── */
+.btn-pill {
+  border-radius: var(--r-pill);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §09  BADGE SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: var(--r-pill);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ── Amber / Fund 29 ── */
+.badge-amber {
+  background: rgba(255,159,10,0.15);
+  color: var(--amber-400);
+  border: 1px solid rgba(255,159,10,0.3);
+}
+
+/* ── Ice / Fund 30 ── */
+.badge-ice {
+  background: rgba(0,212,255,0.12);
+  color: var(--ice-400);
+  border: 1px solid rgba(0,212,255,0.28);
+}
+
+/* ── Success ── */
+.badge-success {
+  background: rgba(0,200,150,0.12);
+  color: var(--success);
+  border: 1px solid rgba(0,200,150,0.28);
+}
+
+/* ── Danger ── */
+.badge-danger {
+  background: rgba(255,59,48,0.12);
+  color: var(--danger);
+  border: 1px solid rgba(255,59,48,0.28);
+}
+
+/* ── Muted ── */
+.badge-muted {
+  background: rgba(28,58,67,0.8);
+  color: var(--text-muted);
+  border: 1px solid var(--border-d);
+}
+
+/* ── Live / pulsing dot ── */
+.badge-live {
+  background: rgba(0,200,150,0.12);
+  color: var(--success);
+  border: 1px solid rgba(0,200,150,0.28);
+  position: relative;
+  padding-left: 18px;
+}
+
+.badge-live::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: livePulse 2s ease infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 0.5; transform: translateY(-50%) scale(0.7); }
+}
+
+/* ── Featured / NYT best-seller ── */
+.badge-featured {
+  background: linear-gradient(135deg, rgba(255,208,107,0.2) 0%, rgba(255,159,10,0.1) 100%);
+  color: var(--amber-100);
+  border: 1px solid rgba(255,159,10,0.4);
+}
+
+/* ── Fund tag on property cards ── */
+.badge-fund-29 {
+  background: rgba(255,159,10,0.12);
+  color: var(--amber-400);
+  border: 1px solid rgba(255,159,10,0.25);
+}
+
+.badge-fund-30 {
+  background: rgba(0,212,255,0.1);
+  color: var(--ice-400);
+  border: 1px solid rgba(0,212,255,0.22);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §10  NAVIGATION (.cc-nav)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  LOCKED STRUCTURE:
+  [CC Logo] | Invest▾ | Portfolio | Company | Team | 10X Academy▾ |
+  Contact | [spacer] | Investor Login↗ | Book a Call | [Invest Now→]
+*/
+
+.cc-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(7,45,81,0.88)  0%,
+    rgba(0,21,42,0.80)  50%,
+    rgba(28,58,67,0.75) 100%
+  );
+  border-bottom: 1px solid rgba(255,159,10,0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background var(--t-slow), box-shadow var(--t-slow);
+}
+
+/* Scrolled state — deepen background */
+.cc-nav.scrolled {
+  background: linear-gradient(
+    135deg,
+    rgba(0,15,32,0.96)  0%,
+    rgba(0,10,22,0.94)  50%,
+    rgba(10,30,40,0.92) 100%
+  );
+  box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+
+.cc-nav__inner {
+  max-width: var(--container-2xl);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-px-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+/* ── Logo ── */
+.cc-nav__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-right: var(--sp-4);
+}
+
+.cc-nav__logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* ── Main links container ── */
+.cc-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+/* ── Nav link base ── */
+.cc-nav__link {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.7);
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--t-fast), background var(--t-fast);
+  position: relative;
+}
+
+.cc-nav__link:hover,
+.cc-nav__link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+/* Active indicator underline */
+.cc-nav__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--amber-400);
+  border-radius: 2px;
+}
+
+/* ── Dropdown toggle arrow ── */
+.cc-nav__link--dropdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cc-nav__link--dropdown::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform var(--t-fast);
+}
+
+.cc-nav__link--dropdown[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown menu ── */
+.cc-nav__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background: linear-gradient(
+    160deg,
+    rgba(0,26,48,0.98) 0%,
+    rgba(0,15,30,0.97) 100%
+  );
+  border: 1px solid rgba(255,159,10,0.18);
+  border-radius: var(--r-lg);
+  padding: var(--sp-2) 0;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.cc-nav__dropdown-item {
+  display: block;
+  padding: 9px 16px;
+  font-family: var(--fb);
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color var(--t-fast), background var(--t-fast), padding-left var(--t-fast);
+}
+
+.cc-nav__dropdown-item:hover {
+  color: #fff;
+  background: rgba(255,159,10,0.08);
+  padding-left: 20px;
+}
+
+/* ── Spacer (pushes utility links right) ── */
+.cc-nav__spacer {
+  flex: 1;
+}
+
+/* ── Investor Login (subdued — NOT a CTA) ── */
+.nav-investor-login {
+  font-family: var(--fb);
+  font-weight: 600;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  padding: 0 var(--sp-2);
+  transition: color var(--t-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-investor-login:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── Nav CTA group ── */
+.cc-nav__ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+/* ── Mobile hamburger ── */
+.cc-nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.cc-nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: transform var(--t-base), opacity var(--t-base), width var(--t-base);
+}
+
+/* Open state (x) */
+.cc-nav__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.cc-nav__hamburger.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.cc-nav__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile full-screen overlay ── */
+.cc-nav__mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background: rgba(0,8,18,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  padding: var(--sp-20) var(--sp-6) 120px; /* bottom space for pinned CTA */
+  overflow-y: auto;
+}
+
+.cc-nav__mobile-overlay.open {
+  display: flex;
+}
+
+.cc-nav__mobile-link {
+  font-family: var(--fe);
+  font-weight: 800;
+  font-size: clamp(20px, 5vw, 28px);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color var(--t-fast);
+}
+
+.cc-nav__mobile-link:hover {
+  color: #fff;
+}
+
+/* ── Pinned mobile CTA ── */
+.cc-nav__mobile-cta-pin {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--sp-4) var(--sp-6);
+  background: rgba(0,8,18,0.98);
+  border-top: 1px solid rgba(255,159,10,0.2);
+  z-index: var(--z-nav);
+}
+
+/* ── Responsive: hide desktop nav, show hamburger on mobile ── */
+@media (max-width: 1023px) {
+  .cc-nav__links,
+  .cc-nav__spacer,
+  .nav-investor-login,
+  .cc-nav__ctas {
+    display: none;
+  }
+  .cc-nav__hamburger {
+    display: flex;
+  }
+  .cc-nav__inner {
+    padding: 0 var(--container-px);
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §11  FOOTER (.cc-footer)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  LOCKED 4-COLUMN STRUCTURE:
+  Col 1: Brand + address + invest@cardonecapital.com + social
+  Col 2: Invest (Fund 29, Fund 30, IRA, Portfolio, Book a Call)
+  Col 3: Company (Overview, Performance, Grant Cardone ABOVE Team, Careers)
+  Col 4: 10X Academy (Free Books, Bitcoin Strategy, RE 101, IRA Guide, FAQ)
+  Bottom bar: © 2026 | Privacy Policy | Terms | Disclosures
+*/
+
+.cc-footer {
+  background:
+    radial-gradient(ellipse 60% 80% at 0% 100%, rgba(7,45,81,0.7) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 100% 0%, rgba(28,58,67,0.4) 0%, transparent 50%),
+    #00090f;
+  border-top: 1px solid rgba(28,58,67,0.8);
+  padding-top: var(--sp-20);
+}
+
+.cc-footer__inner {
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--container-px-xl);
+}
+
+/* ── 4-column grid ── */
+.cc-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--sp-12);
+  padding-bottom: var(--sp-16);
+  border-bottom: 1px solid rgba(28,58,67,0.6);
+}
+
+/* ── Footer column ── */
+.cc-footer__col-label {
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-4);
+}
+
+.cc-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.cc-footer__link {
+  font-family: var(--fb);
+  font-weight: 500;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.cc-footer__link:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+/* ── Brand column specifics ── */
+.cc-footer__logo {
+  height: 28px;
+  width: auto;
+  margin-bottom: var(--sp-6);
+}
+
+.cc-footer__address {
+  font-family: var(--fb);
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: var(--sp-4);
+}
+
+.cc-footer__contact-link {
+  display: block;
+  font-family: var(--fb);
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color var(--t-fast);
+  margin-bottom: var(--sp-1);
+}
+
+.cc-footer__contact-link:hover {
+  color: var(--amber-400);
+}
+
+/* ── Social icons ── */
+.cc-footer__social {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.cc-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(28,58,67,0.7);
+  border: 1px solid rgba(28,58,67,0.9);
+  border-radius: var(--r-md);
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+
+.cc-footer__social-link:hover {
+  background: rgba(255,159,10,0.15);
+  border-color: rgba(255,159,10,0.4);
+  color: var(--amber-400);
+}
+
+/* ── Bottom bar ── */
+.cc-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  padding: var(--sp-6) 0 var(--sp-8);
+}
+
+.cc-footer__copy {
+  font-family: var(--fb);
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+}
+
+.cc-footer__legal-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.cc-footer__legal-link {
+  font-family: var(--fb);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.cc-footer__legal-link:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── Responsive footer ── */
+@media (max-width: 1023px) {
+  .cc-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-10);
+  }
+  .cc-footer__inner {
+    padding: 0 var(--container-px-md);
+  }
+}
+
+@media (max-width: 639px) {
+  .cc-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+  .cc-footer__inner {
+    padding: 0 var(--container-px);
+  }
+  .cc-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §12  SPANISH BAND (.es-band)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  PLACED ABOVE footer on EVERY main site page.
+  Links to: /lp/es/?utm_source=spanish-band&utm_medium=site-wide
+  Target="_blank" (new tab)
+*/
+
+.es-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: 14px var(--container-px);
+  background: rgba(0,212,255,0.06);
+  border-top: 1px solid rgba(0,212,255,0.15);
+  border-bottom: 1px solid rgba(0,212,255,0.1);
+  text-decoration: none;
+  transition: background var(--t-base);
+}
+
+.es-band:hover {
+  background: rgba(0,212,255,0.1);
+}
+
+.es-band__text {
+  font-family: var(--fb);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+}
+
+.es-band__cta {
+  font-family: var(--fb);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ice-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.es-band__flag {
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §13  INVESTOR PORTAL LINK (.nav-investor-login)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Already defined in §10. Listed here for standalone reference.
+  This is NOT a CTA — it's subdued intentionally.
+  Links to: investors.appfolioim.com/cardonecapital/investor/login
+  target="_blank" rel="noopener noreferrer"
+*/
+
+/* See §10 .nav-investor-login for implementation */
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §14  NATIVE FORM BASE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Native HTML forms — NOT HubSpot.
+  Used on: /contact/ secondary form, inline book forms (if not using HubSpot embed).
+  For HubSpot-embedded forms, see §15.
+*/
+
+.cc-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.cc-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.cc-form__label {
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-body);
+}
+
+.cc-form__input,
+.cc-form__select,
+.cc-form__textarea {
+  background: rgba(0,21,42,0.8);
+  border: 1px solid rgba(28,58,67,0.8);
+  color: var(--text-body);
+  font-family: var(--fb);
+  font-size: 13px;
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  width: 100%;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cc-form__input::placeholder,
+.cc-form__textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.cc-form__input:focus,
+.cc-form__textarea:focus,
+.cc-form__select:focus {
+  border-color: rgba(255,159,10,0.5);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,159,10,0.1);
+}
+
+.cc-form__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C7A8A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.cc-form__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.cc-form__error {
+  font-family: var(--fb);
+  font-size: 11px;
+  color: var(--danger);
+  margin-top: 2px;
+}
+
+.cc-form__hint {
+  font-family: var(--fb);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Two-column form row ── */
+.cc-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 639px) {
+  .cc-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Checkbox / radio ── */
+.cc-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  cursor: pointer;
+}
+
+.cc-form__check input[type="checkbox"],
+.cc-form__check input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--amber-400);
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.cc-form__check-label {
+  font-family: var(--fb);
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §15  HUBSPOT FORM CSS OVERRIDES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  All .hs-form classes overridden to match NOVA design system.
+  Applied globally so they take effect on any HubSpot embed in any page.
+  IMPORTANT: These MUST use !important because HubSpot inlines some base styles.
+*/
+
+/* ── Form container ── */
+.hs-form {
+  font-family: var(--fb) !important;
+}
+
+/* ── Fields ── */
+.hs-form input[type="text"],
+.hs-form input[type="email"],
+.hs-form input[type="tel"],
+.hs-form input[type="number"],
+.hs-form input[type="url"],
+.hs-form select,
+.hs-form textarea {
+  background:   rgba(0,21,42,0.8)    !important;
+  border:       1px solid rgba(28,58,67,0.8) !important;
+  color:        #BEC5D4              !important;
+  font-family:  'Barlow', sans-serif !important;
+  font-size:    12px                 !important;
+  font-weight:  400                  !important;
+  border-radius: 6px                 !important;
+  padding:      10px 14px            !important;
+  width:        100%                 !important;
+  box-sizing:   border-box           !important;
+  transition:   border-color 150ms ease, box-shadow 150ms ease !important;
+  -webkit-appearance: none           !important;
+  appearance:   none                 !important;
+}
+
+/* ── Placeholder text ── */
+.hs-form input::placeholder,
+.hs-form textarea::placeholder {
+  color: #5C7A8A !important;
+  opacity: 1     !important;
+}
+
+/* ── Focus states ── */
+.hs-form input[type="text"]:focus,
+.hs-form input[type="email"]:focus,
+.hs-form input[type="tel"]:focus,
+.hs-form input[type="number"]:focus,
+.hs-form input[type="url"]:focus,
+.hs-form select:focus,
+.hs-form textarea:focus {
+  border-color: rgba(255,159,10,0.5) !important;
+  outline:      none                 !important;
+  box-shadow:   0 0 0 3px rgba(255,159,10,0.1) !important;
+}
+
+/* ── Submit button ── */
+.hs-form .hs-button,
+.hs-form input[type="submit"] {
+  background:   linear-gradient(135deg, #FFD06B, #FF9F0A, #FF8000) !important;
+  color:        #000e1c             !important;
+  font-family:  'Barlow', sans-serif !important;
+  font-weight:  800                 !important;
+  font-size:    13px                !important;
+  letter-spacing: 0.02em            !important;
+  border:       none                !important;
+  border-radius: 6px                !important;
+  padding:      11px 24px           !important;
+  width:        100%                !important;
+  cursor:       pointer             !important;
+  transition:   opacity 150ms ease, transform 200ms ease !important;
+}
+
+.hs-form .hs-button:hover,
+.hs-form input[type="submit"]:hover {
+  opacity: 0.9                      !important;
+  transform: translateY(-1px)       !important;
+}
+
+/* ── Labels ── */
+.hs-form label {
+  color:          #BEC5D4           !important;
+  font-family:    'Barlow', sans-serif !important;
+  font-size:      10px              !important;
+  font-weight:    700               !important;
+  letter-spacing: 0.06em            !important;
+  text-transform: uppercase         !important;
+  margin-bottom:  4px               !important;
+  display:        block             !important;
+}
+
+/* ── Error messages ── */
+.hs-form .hs-error-msgs {
+  list-style: none !important;
+  padding: 0       !important;
+  margin: 4px 0 0  !important;
+}
+
+.hs-form .hs-error-msgs label {
+  color:          #FF3B30           !important;
+  text-transform: none              !important;
+  font-size:      11px              !important;
+  letter-spacing: 0                 !important;
+  font-weight:    500               !important;
+}
+
+/* ── Field group spacing ── */
+.hs-form .hs-form-field {
+  margin-bottom: 14px !important;
+}
+
+/* ── Form fieldset ── */
+.hs-form fieldset {
+  border:     none    !important;
+  padding:    0       !important;
+  margin:     0       !important;
+  max-width:  none    !important;
+}
+
+/* ── Checkbox / radio ── */
+.hs-form input[type="checkbox"],
+.hs-form input[type="radio"] {
+  width:   16px !important;
+  height:  16px !important;
+  padding: 0    !important;
+  accent-color: #FF9F0A !important;
+}
+
+/* ── Select arrow ── */
+.hs-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C7A8A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  padding-right: 32px !important;
+}
+
+/* ── GDPR / consent text ── */
+.hs-form .hs_recaptcha,
+.hs-form .legal-consent-container {
+  font-family: 'Barlow', sans-serif !important;
+  font-size:   10px                 !important;
+  color:       #5C7A8A              !important;
+}
+
+/* ── Multi-column HubSpot form layout ── */
+.hs-form fieldset.form-columns-2 .hs-form-field {
+  width: 50% !important;
+  float: left !important;
+  padding-right: 8px !important;
+}
+
+.hs-form fieldset.form-columns-2 .hs-form-field:last-child {
+  padding-right: 0 !important;
+}
+
+/* Clearfix for floated columns */
+.hs-form fieldset.form-columns-2::after {
+  content: '' !important;
+  display: table !important;
+  clear: both !important;
+}
+
+/* ── Submitted state overlay ── */
+.hs-form .submitted-message {
+  font-family: 'Barlow', sans-serif !important;
+  font-size:   14px                 !important;
+  color:       #BEC5D4              !important;
+  padding:     16px                 !important;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §16  HUBSPOT CALENDAR WRAPPER (.hs-calendar-wrapper)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Wraps HubSpot meetings embed.
+  Calendar embed URL: meetings.hubspot.com/cardonecapital-invest/call
+  HTML:
+    <div class="hs-calendar-wrapper">
+      <div class="meetings-iframe-container"
+           data-src="https://meetings.hubspot.com/cardonecapital-invest/call?embed=true">
+      </div>
+      <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+    </div>
+*/
+
+.hs-calendar-wrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(255,159,10,0.09) 0%, transparent 55%),
+    linear-gradient(145deg, #002245 0%, #001020 100%);
+  border:        1px solid rgba(255,159,10,0.15);
+  border-radius: 14px;
+  overflow:      hidden;
+  min-height:    600px;
+}
+
+.hs-calendar-wrapper .meetings-iframe-container iframe {
+  width:      100%   !important;
+  min-height: 600px  !important;
+  border:     none   !important;
+  display:    block  !important;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §17  TICKER / MARQUEE STRIP
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Used on: hero section bottom edge ("Digital Asset Class · $5.3B AUM · …")
+*/
+
+.ticker-wrap {
+  overflow:  hidden;
+  background: rgba(0,21,42,0.6);
+  border-top: 1px solid rgba(28,58,67,0.8);
+  border-bottom: 1px solid rgba(28,58,67,0.8);
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Left / right fade vignette */
+.ticker-wrap::before,
+.ticker-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: var(--z-raised);
+  pointer-events: none;
+}
+
+.ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0,21,42,0.8) 0%, transparent 100%);
+}
+
+.ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(0,21,42,0.8) 0%, transparent 100%);
+}
+
+.ticker-inner {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 30s linear infinite;
+}
+
+.ticker-inner:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 0 var(--sp-8);
+  font-family: var(--fc);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+
+.ticker-item .ticker-sep {
+  width: 4px;
+  height: 4px;
+  background: var(--amber-400);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.ticker-item .ticker-val {
+  color: var(--amber-400);
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §18  SECTION SPACING UTILITIES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Section wrappers ── */
+.cc-section {
+  padding: var(--section-py) 0;
+}
+
+.cc-section--sm {
+  padding: var(--section-py-sm) 0;
+}
+
+.cc-section--lg {
+  padding: var(--section-py-lg) 0;
+}
+
+.cc-section--top-only {
+  padding-bottom: 0;
+}
+
+.cc-section--bottom-only {
+  padding-top: 0;
+}
+
+/* ── Container ── */
+.cc-container {
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px-xl);
+  padding-right: var(--container-px-xl);
+}
+
+.cc-container--wide {
+  max-width: var(--container-2xl);
+}
+
+.cc-container--narrow {
+  max-width: var(--container-md);
+}
+
+@media (max-width: 1279px) {
+  .cc-container {
+    padding-left: var(--container-px-md);
+    padding-right: var(--container-px-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .cc-container {
+    padding-left: var(--container-px);
+    padding-right: var(--container-px);
+  }
+  .cc-section      { padding: var(--section-py-sm) 0; }
+  .cc-section--lg  { padding: var(--section-py) 0; }
+}
+
+/* ── Section header block ── */
+.cc-section-header {
+  margin-bottom: var(--sp-12);
+}
+
+.cc-section-header--center {
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--sp-12);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §19  RESPONSIVE GRID SYSTEM (mobile-first, 12-column)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Breakpoints:
+    xs   < 480px
+    sm   480px+
+    md   768px+
+    lg   1024px+
+    xl   1280px+
+    2xl  1440px+
+*/
+
+.grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+/* ── Column utilities ── */
+.col-1  { grid-column: span 1; }
+.col-2  { grid-column: span 2; }
+.col-3  { grid-column: span 3; }
+.col-4  { grid-column: span 4; }
+.col-5  { grid-column: span 5; }
+.col-6  { grid-column: span 6; }
+.col-7  { grid-column: span 7; }
+.col-8  { grid-column: span 8; }
+.col-9  { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+.col-full { grid-column: 1 / -1; }
+
+/* ── Common grid patterns ── */
+.grid-2   { grid-template-columns: repeat(2, 1fr); }
+.grid-3   { grid-template-columns: repeat(3, 1fr); }
+.grid-4   { grid-template-columns: repeat(4, 1fr); }
+.grid-6   { grid-template-columns: repeat(6, 1fr); }
+.grid-12  { grid-template-columns: repeat(12, 1fr); }
+
+/* ── Auto-fill grids (for property cards, testimonials) ── */
+.grid-auto-3 {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.grid-auto-4 {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* ── Gap modifiers ── */
+.gap-2  { gap: var(--sp-2); }
+.gap-4  { gap: var(--sp-4); }
+.gap-6  { gap: var(--sp-6); }
+.gap-8  { gap: var(--sp-8); }
+.gap-10 { gap: var(--sp-10); }
+.gap-12 { gap: var(--sp-12); }
+.gap-16 { gap: var(--sp-16); }
+
+/* ── Responsive overrides ── */
+
+/* sm: 480px+ */
+@media (min-width: 480px) {
+  .sm\:grid-2  { grid-template-columns: repeat(2, 1fr); }
+  .sm\:grid-3  { grid-template-columns: repeat(3, 1fr); }
+  .sm\:col-1   { grid-column: span 1; }
+  .sm\:col-2   { grid-column: span 2; }
+  .sm\:col-6   { grid-column: span 6; }
+  .sm\:col-12  { grid-column: span 12; }
+}
+
+/* md: 768px+ */
+@media (min-width: 768px) {
+  .md\:grid-2  { grid-template-columns: repeat(2, 1fr); }
+  .md\:grid-3  { grid-template-columns: repeat(3, 1fr); }
+  .md\:grid-4  { grid-template-columns: repeat(4, 1fr); }
+  .md\:col-1   { grid-column: span 1; }
+  .md\:col-2   { grid-column: span 2; }
+  .md\:col-3   { grid-column: span 3; }
+  .md\:col-4   { grid-column: span 4; }
+  .md\:col-6   { grid-column: span 6; }
+  .md\:col-8   { grid-column: span 8; }
+  .md\:col-12  { grid-column: span 12; }
+}
+
+/* lg: 1024px+ */
+@media (min-width: 1024px) {
+  .lg\:grid-3  { grid-template-columns: repeat(3, 1fr); }
+  .lg\:grid-4  { grid-template-columns: repeat(4, 1fr); }
+  .lg\:col-1   { grid-column: span 1; }
+  .lg\:col-2   { grid-column: span 2; }
+  .lg\:col-3   { grid-column: span 3; }
+  .lg\:col-4   { grid-column: span 4; }
+  .lg\:col-6   { grid-column: span 6; }
+  .lg\:col-8   { grid-column: span 8; }
+  .lg\:col-9   { grid-column: span 9; }
+  .lg\:col-12  { grid-column: span 12; }
+}
+
+/* xl: 1280px+ */
+@media (min-width: 1280px) {
+  .xl\:grid-4  { grid-template-columns: repeat(4, 1fr); }
+  .xl\:col-3   { grid-column: span 3; }
+  .xl\:col-4   { grid-column: span 4; }
+  .xl\:col-6   { grid-column: span 6; }
+}
+
+/* ── Fluid two-column (sidebar layouts) ── */
+.grid-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--sp-12);
+  align-items: start;
+}
+
+.grid-sidebar--reverse {
+  grid-template-columns: 380px 1fr;
+}
+
+@media (max-width: 1023px) {
+  .grid-sidebar,
+  .grid-sidebar--reverse {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Stats 4-column ── */
+.grid-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+@media (max-width: 767px) {
+  .grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .grid-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Responsive collapse helpers ── */
+@media (max-width: 1023px) {
+  .lg\:grid-3  { grid-template-columns: repeat(2, 1fr); }
+  .lg\:grid-4  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .md\:grid-2,
+  .md\:grid-3,
+  .md\:grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §20  UTILITY HELPERS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Flex ── */
+.flex         { display: flex; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+.items-start  { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end    { align-items: flex-end; }
+.justify-start   { justify-content: flex-start; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around  { justify-content: space-around; }
+.self-start   { align-self: flex-start; }
+.flex-1       { flex: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+/* ── Text alignment ── */
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+
+/* ── Text colors ── */
+.text-white   { color: #fff; }
+.text-heading { color: var(--text-heading); }
+.text-body    { color: var(--text-body); }
+.text-muted   { color: var(--text-muted); }
+.text-amber   { color: var(--amber-400); }
+.text-ice     { color: var(--ice-400); }
+.text-success { color: var(--success); }
+.text-danger  { color: var(--danger); }
+
+/* ── Font weight ── */
+.font-400 { font-weight: 400; }
+.font-500 { font-weight: 500; }
+.font-600 { font-weight: 600; }
+.font-700 { font-weight: 700; }
+.font-800 { font-weight: 800; }
+.font-900 { font-weight: 900; }
+
+/* ── Text transform ── */
+.uppercase    { text-transform: uppercase; }
+.lowercase    { text-transform: lowercase; }
+.capitalize   { text-transform: capitalize; }
+
+/* ── Visibility ── */
+.hidden           { display: none !important; }
+.invisible        { visibility: hidden; }
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Responsive show/hide ── */
+@media (max-width: 767px)  { .hide-mobile  { display: none !important; } }
+@media (min-width: 768px)  { .hide-desktop { display: none !important; } }
+@media (max-width: 1023px) { .hide-tablet  { display: none !important; } }
+
+/* ── Overflow ── */
+.overflow-hidden { overflow: hidden; }
+.overflow-x-hidden { overflow-x: hidden; }
+
+/* ── Position ── */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.sticky   { position: sticky; }
+.fixed    { position: fixed; }
+
+/* ── Inset ── */
+.inset-0 { inset: 0; }
+
+/* ── Width / height ── */
+.w-full  { width: 100%; }
+.h-full  { height: 100%; }
+.w-auto  { width: auto; }
+.min-h-0 { min-height: 0; }
+
+/* ── Margin shortcuts ── */
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+
+/* ── Padding shortcuts (use sparingly — prefer cc-section) ── */
+.p-0   { padding: 0 !important; }
+.pt-0  { padding-top: 0 !important; }
+.pb-0  { padding-bottom: 0 !important; }
+
+/* ── Border ── */
+.border-bottom {
+  border-bottom: 1px solid var(--border-d);
+}
+
+.border-top {
+  border-top: 1px solid var(--border-d);
+}
+
+.border-amber {
+  border-color: rgba(255,159,10,0.3);
+}
+
+/* ── Rounded ── */
+.rounded-sm  { border-radius: var(--r-sm); }
+.rounded-md  { border-radius: var(--r-md); }
+.rounded-lg  { border-radius: var(--r-lg); }
+.rounded-xl  { border-radius: var(--r-xl); }
+.rounded-2xl { border-radius: var(--r-2xl); }
+.rounded-pill { border-radius: var(--r-pill); }
+
+/* ── Divider ── */
+.cc-divider {
+  border: none;
+  border-top: 1px solid rgba(28,58,67,0.7);
+  margin: var(--sp-8) 0;
+}
+
+.cc-divider--amber {
+  border-color: rgba(255,159,10,0.2);
+}
+
+/* ── Backdrop blur (glass panels) ── */
+.backdrop-blur-sm  { backdrop-filter: blur(8px);  -webkit-backdrop-filter: blur(8px); }
+.backdrop-blur-md  { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.backdrop-blur-lg  { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+
+/* ── Aspect ratios ── */
+.aspect-video    { aspect-ratio: 16 / 9; }
+.aspect-square   { aspect-ratio: 1 / 1; }
+.aspect-property { aspect-ratio: 4 / 3; }
+
+/* ── Object fit ── */
+.object-cover  { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.object-center { object-position: center; }
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §21  STAT COUNTER COMPONENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Global stats bar values (LOCKED — never change):
+    $591M distributed · 20,020 investors · $1.9B raised · $5.3B AUM
+*/
+
+.stats-bar {
+  padding: var(--sp-8) 0;
+}
+
+.stats-bar.bg-stats-bar {
+  padding: var(--sp-10) 0;
+}
+
+/* ── Individual stat item ── */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  position: relative;
+}
+
+/* Divider between stats */
+.stat-item + .stat-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(28,58,67,0.8);
+}
+
+.stat-item__value {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  /* Apply .gt-amber to this element for gradient */
+}
+
+.stat-item__label {
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+}
+
+.stat-item__sub {
+  font-family: var(--fb);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Animated counter (JS hook class) ── */
+[data-counter] {
+  /* JS targets this attribute to run countUp animation on scroll */
+}
+
+/* ── Zero loss callout ── */
+.zero-loss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 12px;
+  background: rgba(0,200,150,0.1);
+  border: 1px solid rgba(0,200,150,0.25);
+  border-radius: var(--r-pill);
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--success);
+  letter-spacing: 0.06em;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §22  ACCORDION / COLLAPSIBLE
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Used on: FAQ strip (homepage), /academy/faq/, accredited investor inline collapse.
+*/
+
+.cc-accordion {
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.cc-accordion__item {
+  border-bottom: 1px solid rgba(28,58,67,0.6);
+}
+
+.cc-accordion__item:last-child {
+  border-bottom: none;
+}
+
+.cc-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-5) var(--sp-6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--fb);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-heading);
+  transition: background var(--t-fast);
+}
+
+.cc-accordion__trigger:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Plus/minus icon */
+.cc-accordion__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(28,58,67,0.8);
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1;
+  transition: transform var(--t-base), border-color var(--t-fast), color var(--t-fast);
+}
+
+.cc-accordion__item[open] .cc-accordion__icon,
+.cc-accordion__item.open  .cc-accordion__icon {
+  transform: rotate(45deg);
+  border-color: rgba(255,159,10,0.4);
+  color: var(--amber-400);
+}
+
+.cc-accordion__content {
+  padding: 0 var(--sp-6) var(--sp-5);
+  font-family: var(--fb);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+/* ── Accredited investor inline collapsible (fund pages only) ── */
+.accredited-collapse {
+  background: rgba(0,21,42,0.6);
+  border: 1px solid rgba(28,58,67,0.7);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.accredited-collapse__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-5);
+  cursor: pointer;
+  font-family: var(--fb);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  user-select: none;
+  transition: color var(--t-fast);
+}
+
+.accredited-collapse__trigger:hover {
+  color: var(--text-body);
+}
+
+.accredited-collapse__body {
+  padding: var(--sp-2) var(--sp-5) var(--sp-5);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(28,58,67,0.6);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §23  SCROLL-TRIGGERED ANIMATION BASE CLASSES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  TECHNIQUE:
+  1. Add .cc-reveal (or variant) to any element.
+  2. JS IntersectionObserver adds .is-visible when element enters viewport.
+  3. CSS transitions handle the animation.
+
+  Recommended threshold: 0.15. rootMargin: "0px 0px -60px 0px"
+  Stagger children using --delay custom property.
+*/
+
+/* ── Fade up (default) ── */
+.cc-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.6s ease,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cc-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Fade in (no translate) ── */
+.cc-reveal-fade {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.cc-reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* ── Fade left ── */
+.cc-reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cc-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Fade right ── */
+.cc-reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cc-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Scale up ── */
+.cc-reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cc-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Stagger delay utilities ── */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* ── Continuous float (hero elements) ── */
+.cc-float {
+  animation: ccFloat 6s ease-in-out infinite;
+}
+
+@keyframes ccFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── Gradient shimmer (on stat numbers loading) ── */
+.cc-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.0) 0%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Amber pulse glow (active fund cards) ── */
+.glow-amber-pulse {
+  animation: glowAmberPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowAmberPulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(255,159,10,0.15); }
+  50%       { box-shadow: 0 0 32px rgba(255,159,10,0.35); }
+}
+
+/* ── Reduce motion: respect user preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .cc-reveal,
+  .cc-reveal-fade,
+  .cc-reveal-left,
+  .cc-reveal-right,
+  .cc-reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cc-float,
+  .badge-live::before,
+  .ticker-inner,
+  .glow-amber-pulse,
+  .cc-shimmer {
+    animation: none;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §24  FOCUS / ACCESSIBILITY
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  WCAG 2.2 AA compliant focus indicators.
+  Using :focus-visible to only show ring on keyboard navigation.
+*/
+
+:focus-visible {
+  outline: 2px solid var(--amber-400);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Remove default outline for mouse/touch */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Skip-to-content link (first element in <body>) ── */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: var(--sp-4);
+  z-index: var(--z-top);
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--amber-400);
+  color: #000;
+  font-family: var(--fb);
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: var(--r-md);
+  text-decoration: none;
+  transition: top var(--t-fast);
+}
+
+.skip-to-content:focus {
+  top: var(--sp-4);
+}
+
+/* ── Min tap target size ── */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea {
+  min-height: 44px;
+  /* Note: override for decorative elements (badges, etc.) as needed */
+}
+
+/* Override for inline badges / micro elements */
+.badge,
+.cc-label,
+.cc-footer__legal-link {
+  min-height: unset;
+}
+
+/* ── Color contrast helpers ── */
+/* All text on dark backgrounds uses var(--text-body) = #BEC5D4 = 7.1:1 contrast */
+/* All muted text uses var(--text-muted) = #5C7A8A — limit to decorative/non-essential use only */
+/* Amber #FF9F0A on --carbon #00152a = 8.4:1 contrast */
+/* Ice #00D4FF on --carbon #00152a = 6.9:1 contrast */
+
+/* ── ARIA live region ── */
+.cc-live-region {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §25  DARK / LIGHT MODE TOGGLE
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Default is DARK (NOVA).
+  Light mode activates via [data-theme="light"] on <html>.
+
+  JS Implementation:
+    const root = document.documentElement;
+    const stored = localStorage.getItem('cc-theme');
+    if (stored === 'light') root.dataset.theme = 'light';
+
+    toggleBtn.addEventListener('click', () => {
+      const isLight = root.dataset.theme === 'light';
+      root.dataset.theme = isLight ? 'dark' : 'light';
+      localStorage.setItem('cc-theme', root.dataset.theme);
+    });
+
+    // System preference detection:
+    if (!stored && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      root.dataset.theme = 'light';
+    }
+*/
+
+[data-theme="light"] {
+  /* Override background depth layers */
+  --void:      #F4F5F6;
+  --carbon:    #EBEEF2;
+  --card:      #FFFFFF;
+  --raised:    #F8F9FA;
+  --border-d:  #D8DADD;
+
+  /* Override text */
+  --text-heading: #072d51;
+  --text-body:    #2C4460;
+  --text-muted:   #8090A0;
+}
+
+[data-theme="light"] body {
+  background: var(--lm-page);
+  color: var(--lm-text);
+}
+
+[data-theme="light"] .card-base,
+[data-theme="light"] .card-raised {
+  background: var(--lm-card);
+  border-color: var(--lm-border);
+}
+
+[data-theme="light"] .cc-nav {
+  background: rgba(244,245,246,0.92);
+  border-bottom-color: rgba(7,45,81,0.1);
+}
+
+[data-theme="light"] .cc-nav__link {
+  color: rgba(7,45,81,0.7);
+}
+
+[data-theme="light"] .cc-nav__link:hover {
+  color: var(--void);
+  background: rgba(7,45,81,0.05);
+}
+
+/* ── Theme toggle button ── */
+.cc-theme-toggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28,58,67,0.5);
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background var(--t-fast), color var(--t-fast);
+  min-height: unset; /* override §24 touch target for icon button */
+}
+
+.cc-theme-toggle:hover {
+  background: rgba(28,58,67,0.8);
+  color: var(--text-body);
+}
+
+[data-theme="light"] .cc-theme-toggle {
+  background: rgba(7,45,81,0.08);
+  border-color: var(--lm-border);
+}
+
+/* ── Dark mode icon / light mode icon visibility ── */
+.icon-dark-mode  { display: block; }
+.icon-light-mode { display: none; }
+
+[data-theme="light"] .icon-dark-mode  { display: none; }
+[data-theme="light"] .icon-light-mode { display: block; }
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   §26  PRINT
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Gradient text — fall back to solid color in print */
+  .gt-amber,
+  .gt-ice,
+  .gt-fire {
+    -webkit-text-fill-color: currentColor !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    color: #FF9F0A !important;
+  }
+
+  .cc-nav,
+  .cc-footer,
+  .es-band,
+  .ticker-wrap,
+  .btn-primary,
+  .btn-secondary,
+  .scanlines::after {
+    display: none !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 11px;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  p, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPENDIX A — PROPERTY CARD STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  Used in: /portfolio/, homepage portfolio preview section.
+  Rule: NO individual property pages. "View Property ↗" = new tab to resident page only.
+*/
+
+.property-card {
+  background: var(--card);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-d);
+  transition: transform var(--t-spring), border-color var(--t-base), box-shadow var(--t-slow);
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,159,10,0.25);
+  box-shadow: var(--shadow-raised);
+}
+
+.property-card__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--carbon);
+}
+
+.property-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.property-card:hover .property-card__image img {
+  transform: scale(1.05);
+}
+
+.property-card__badges {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.property-card__body {
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+}
+
+.property-card__name {
+  font-family: var(--fe);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.property-card__location {
+  font-family: var(--fb);
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.property-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+.property-card__stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.property-card__stat-value {
+  font-family: var(--fc);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text-heading);
+}
+
+.property-card__stat-label {
+  font-family: var(--fb);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.property-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid rgba(28,58,67,0.5);
+}
+
+.property-card__view-link {
+  font-family: var(--fb);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--amber-400);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.04em;
+  transition: gap var(--t-fast), color var(--t-fast);
+}
+
+.property-card__view-link:hover {
+  gap: 8px;
+  color: var(--amber-100);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPENDIX B — MEDIA LOGOS STRIP ("As Seen In")
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.media-logos-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+  padding: var(--sp-8) 0;
+}
+
+.media-logo {
+  opacity: 0.25;
+  filter: grayscale(100%) brightness(2);
+  transition: opacity var(--t-base), filter var(--t-base);
+  max-height: 24px;
+  width: auto;
+}
+
+.media-logo:hover {
+  opacity: 0.6;
+  filter: grayscale(80%) brightness(1.5);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPENDIX C — FINAL CTA BAND
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  "Book a Free Investor Call →" — used at bottom of most pages.
+*/
+
+.cta-band {
+  padding: var(--sp-20) 0;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255,159,10,0.08) 0%, transparent 60%),
+    var(--carbon);
+  border-top:    1px solid rgba(28,58,67,0.6);
+  border-bottom: 1px solid rgba(28,58,67,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow orb */
+.cta-band::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255,159,10,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-band__inner {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+.cta-band__eyebrow {
+  font-family: var(--fb);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--amber-400);
+  margin-bottom: var(--sp-4);
+}
+
+.cta-band__title {
+  font-family: var(--fe);
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: var(--sp-4);
+  letter-spacing: -0.02em;
+}
+
+.cta-band__sub {
+  font-family: var(--fb);
+  font-size: 14px;
+  color: var(--text-body);
+  max-width: 480px;
+  margin: 0 auto var(--sp-8);
+  line-height: 1.6;
+}
+
+.cta-band__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPENDIX D — VIDEO EMBED (Grant Cardone YouTube)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/*
+  YouTube embed URL: youtube.com/watch?v=_jhN8ZxnwzQ
+  Wrap in .video-embed for responsive 16:9 with lazy load via facade.
+*/
+
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--carbon);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid rgba(28,58,67,0.7);
+}
+
+.video-embed iframe,
+.video-embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── YouTube facade (performance) ── */
+.video-facade {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  border: 1px solid rgba(28,58,67,0.7);
+}
+
+.video-facade__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.video-facade:hover .video-facade__thumb {
+  transform: scale(1.03);
+}
+
+.video-facade__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  transition: background var(--t-base);
+}
+
+.video-facade:hover .video-facade__play {
+  background: rgba(0,0,0,0.4);
+}
+
+.video-facade__play-btn {
+  width: 72px;
+  height: 72px;
+  background: rgba(255,159,10,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(255,159,10,0.4);
+  transition: transform var(--t-spring), background var(--t-fast);
+}
+
+.video-facade:hover .video-facade__play-btn {
+  transform: scale(1.1);
+  background: var(--amber-400);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   END OF cc-design-system.css
+   Cardone Capital Design System v6 NOVA (Gradient Edition)
+   IA v1.9 LOCKED | April 2026
+   ─────────────────────────────────────────────────────────────────────────────
+   Import order reminder:
+     <link rel="stylesheet" href="/css/cc-design-system.css">
+     <link rel="stylesheet" href="/css/[page-name].css">   ← page-level overrides
+   ─────────────────────────────────────────────────────────────────────────────
+   Next session: Build Homepage (/) using this design system as the foundation.
+   ============================================================================= */

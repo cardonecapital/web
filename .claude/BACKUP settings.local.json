@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python fix_dropdown_transitions.py)",
+      "Bash(python3 -)"
+    ]
+  }
+}

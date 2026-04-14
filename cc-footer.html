@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/web/assets/images/favicon_cc.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC Footer — Cardone Capital Design System v6 NOVA</title>
+
+  <!-- ─── Tailwind CSS v3 CDN ─── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ─── @fontsource — Exo 2 + Barlow + Barlow Condensed (no Google Fonts) ─── -->
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/900.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/700.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/600.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/500.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/400.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css">
+
+  <!-- ─── Tailwind config: extend with NOVA tokens ─── -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display:   ['"Exo 2"', 'Arial', 'sans-serif'],
+            body:      ['Barlow', 'system-ui', 'sans-serif'],
+            condensed: ['"Barlow Condensed"', 'Barlow', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            void:       '#072d51',
+            carbon:     '#00152a',
+            card:       '#002139',
+            raised:     '#153043',
+            'border-d': '#1c3a43',
+            amber: {
+              50:  '#FFF4DD',
+              100: '#FFD06B',
+              400: '#FF9F0A',
+              600: '#CC7C00',
+              800: '#7A4A00',
+            },
+            ice: {
+              50:  '#D8F8FF',
+              200: '#6AE8FF',
+              400: '#00D4FF',
+              600: '#008FAA',
+            },
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       NOVA DESIGN TOKENS
+    ════════════════════════════════════════════════════════ */
+    :root {
+      --fe: 'Exo 2', Arial, sans-serif;
+      --fb: 'Barlow', system-ui, sans-serif;
+      --fc: 'Barlow Condensed', Barlow, Arial, sans-serif;
+
+      --void:      #072d51;
+      --carbon:    #00152a;
+      --card:      #002139;
+      --raised:    #153043;
+      --border-d:  #1c3a43;
+
+      --amber-100: #FFD06B;
+      --amber-400: #FF9F0A;
+      --amber-600: #CC7C00;
+
+      --ice-200:   #6AE8FF;
+      --ice-400:   #00D4FF;
+
+      --text-heading: #FFFFFF;
+      --text-body:    #BEC5D4;
+      --text-muted:   #5C7A8A;
+
+      --t-fast: 150ms ease;
+      --t-base: 250ms ease;
+
+      --r-md:   7px;
+      --r-lg:  12px;
+      --r-xl:  16px;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--fb);
+      background: #000d1c;
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    /* ── Demo spacer (remove in production) ── */
+    .demo-spacer {
+      min-height: 50vh;
+      background:
+        radial-gradient(ellipse 60% 80% at 92% 5%,  rgba(255,159,10,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 70% at 5%  95%, rgba(0,212,255,0.10)  0%, transparent 58%),
+        linear-gradient(160deg, #001020 0%, #000d1c 40%, #001525 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo-label {
+      font-family: var(--fb);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* ── Focus ring ── */
+    :focus-visible {
+      outline: 2px solid var(--amber-400);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* ── Reduce motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §1  HABLAMOS ESPAÑOL BAND
+       ─────────────────────────────────────────────────────
+       Lives immediately above <footer> on every main site
+       page. NOINDEX /lp/ pages: omit this band entirely.
+       UTM: utm_source=spanish-band&utm_medium=site-wide
+            &utm_campaign=hablamos
+    ════════════════════════════════════════════════════════ */
+    .es-band {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 100% 300% at 50% 50%,
+          rgba(0,212,255,0.055) 0%, transparent 65%),
+        rgba(0,15,28,0.95);
+      border-top:    1px solid rgba(0,212,255,0.13);
+      border-bottom: 1px solid rgba(0,212,255,0.09);
+    }
+
+    /* Fine horizontal grain lines */
+    .es-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 11px,
+        rgba(0,212,255,0.014) 11px,
+        rgba(0,212,255,0.014) 12px
+      );
+    }
+
+    .es-band__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Left: icon + text ── */
+    .es-band__left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .es-band__icon-ring {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0,212,255,0.07);
+      border: 1px solid rgba(0,212,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .es-band__eyebrow {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ice-400);
+      margin-bottom: 3px;
+    }
+
+    .es-band__headline {
+      font-family: var(--fb);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.35;
+    }
+
+    .es-band__headline strong {
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+    }
+
+    /* ── Right: phone + button ── */
+    .es-band__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .es-band__phone {
+      font-family: var(--fc);
+      font-weight: 700;
+      font-size: 15px;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      transition: color var(--t-fast);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .es-band__phone:hover { color: rgba(255,255,255,0.68); }
+    .es-band__phone svg { opacity: 0.55; flex-shrink: 0; }
+
+    /* "Reservar una Llamada →" — ice outlined button */
+    .es-band__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--ice-400);
+      background: rgba(0,212,255,0.07);
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: var(--r-md);
+      padding: 10px 18px;
+      white-space: nowrap;
+      letter-spacing: 0.015em;
+      transition:
+        background var(--t-fast),
+        border-color var(--t-fast),
+        transform var(--t-fast),
+        box-shadow var(--t-fast);
+    }
+    .es-band__cta:hover {
+      background: rgba(0,212,255,0.13);
+      border-color: rgba(0,212,255,0.52);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,212,255,0.14);
+    }
+    .es-band__cta:active { transform: scale(0.97); }
+    .es-band__cta svg { flex-shrink: 0; }
+
+    /* ── Band responsive ── */
+    @media (max-width: 1023px) {
+      .es-band__inner { padding: 18px 40px; }
+    }
+    @media (max-width: 767px) {
+      .es-band__inner {
+        padding: 16px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .es-band__right { width: 100%; justify-content: space-between; }
+    }
+    @media (max-width: 479px) {
+      .es-band__right {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .es-band__cta { justify-content: center; }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §2  FOOTER WRAPPER
+    ════════════════════════════════════════════════════════ */
+    .cc-footer {
+      position: relative;
+      overflow: hidden;
+
+      /* NOVA footer deep-dark gradient —
+         void glow from bottom-left, border tint from top-right,
+         amber barely breathes at the very base center.
+         Base: near-pitch-black to preserve visual separation
+         from the page body's #000d1c. */
+      background:
+        radial-gradient(ellipse 65%  90%  at 0%   100%, rgba(7,45,81,0.60)    0%, transparent 55%),
+        radial-gradient(ellipse 50%  60%  at 100%   0%, rgba(28,58,67,0.38)   0%, transparent 50%),
+        radial-gradient(ellipse 85%  32%  at 50%  100%, rgba(255,159,10,0.035) 0%, transparent 52%),
+        radial-gradient(ellipse 100% 50%  at 100% 100%, rgba(0,21,42,0.75)    0%, transparent 60%),
+        linear-gradient(180deg, #000810 0%, #000610 55%, #000912 100%);
+
+      border-top: 1px solid rgba(28,58,67,0.75);
+    }
+
+    /* Very subtle horizontal grid texture */
+    .cc-footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 47px,
+        rgba(28,58,67,0.22) 47px,
+        rgba(28,58,67,0.22) 48px
+      );
+    }
+
+    /* Amber glow hairline at very bottom edge */
+    .cc-footer::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,159,10,0.2)  25%,
+        rgba(255,159,10,0.38) 50%,
+        rgba(255,159,10,0.2)  75%,
+        transparent 100%
+      );
+    }
+
+    .cc-footer__wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .cc-footer__body {
+      padding-top: 68px;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §3  CC LOGO MARK
+    ════════════════════════════════════════════════════════ */
+    .cc-logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 14px rgba(255,159,10,0.30);
+      position: relative;
+      overflow: hidden;
+    }
+    .cc-logo-mark::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 50%; height: 46%;
+      background: rgba(255,255,255,0.13);
+      border-radius: 9px 0 0 0;
+    }
+    .cc-logo-mark__cc {
+      font-family: var(--fe);
+      font-weight: 900;
+      font-size: 13px;
+      color: #000e1c;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+    .cc-wordmark {
+      font-family: var(--fc);
+      font-weight: 800;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.065em;
+      color: rgba(255,255,255,0.85);
+      line-height: 1;
+    }
+    .cc-wordmark em { font-style: normal; color: var(--amber-400); }
+
+    /* ════════════════════════════════════════════════════════
+       §4  4-COLUMN FOOTER GRID
+       Desktop (1024px+):   2fr 1fr 1fr 1fr
+       Tablet  (640–1023px): 1fr 1fr  (brand + invest / co + academy)
+       Mobile  (< 640px):    1fr (fully stacked)
+    ════════════════════════════════════════════════════════ */
+    .cc-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 0 44px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(28,58,67,0.5);
+    }
+
+    /* Each column gets a right border except the last */
+    .cc-footer-grid > * + * {
+      padding-left: 44px;
+      border-left: 1px solid rgba(28,58,67,0.3);
+    }
+
+    @media (max-width: 1023px) {
+      .cc-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 0;
+      }
+      .cc-footer-grid > * + * {
+        padding-left: 0;
+        border-left: none;
+      }
+      /* Even-column items get left padding on tablet */
+      .cc-footer-grid > *:nth-child(even) {
+        padding-left: 32px;
+        border-left: 1px solid rgba(28,58,67,0.3);
+      }
+    }
+
+    @media (max-width: 639px) {
+      .cc-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px 0;
+      }
+      .cc-footer-grid > * + *,
+      .cc-footer-grid > *:nth-child(even) {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 32px;
+        border-top: 1px solid rgba(28,58,67,0.35);
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §5  COLUMN COMPONENTS
+    ════════════════════════════════════════════════════════ */
+
+    /* ── Column header label ── */
+    .cc-col-heading {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cc-col-heading::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--amber-400) 0%, transparent 100%);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    /* Ice variant for Academy */
+    .cc-col-heading--ice { color: var(--ice-400); }
+    .cc-col-heading--ice::before {
+      background: linear-gradient(90deg, var(--ice-400) 0%, transparent 100%);
+    }
+
+    /* ── Footer nav link base ── */
+    .cc-fl {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--fb);
+      font-weight: 500;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      padding: 5.5px 0;
+      transition: color var(--t-fast), padding-left var(--t-fast);
+      line-height: 1.3;
+    }
+    .cc-fl:hover {
+      color: rgba(255,255,255,0.88);
+      padding-left: 5px;
+    }
+    .cc-fl svg { flex-shrink: 0; opacity: 0.38; transition: opacity var(--t-fast); }
+    .cc-fl:hover svg { opacity: 0.65; }
+
+    /* Fund identity dots */
+    .fund-dot {
+      width: 5.5px;
+      height: 5.5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .fund-dot--amber {
+      background: var(--amber-400);
+      box-shadow: 0 0 5px rgba(255,159,10,0.45);
+    }
+    .fund-dot--ice {
+      background: var(--ice-400);
+      box-shadow: 0 0 5px rgba(0,212,255,0.38);
+    }
+
+    /* Book a Call CTA link — amber tinted */
+    .cc-fl--cta {
+      color: rgba(255,159,10,0.65);
+      font-weight: 600;
+    }
+    .cc-fl--cta:hover { color: var(--amber-400); padding-left: 5px; }
+
+    /* Grant Cardone — founder treatment: slightly brighter, amber on hover */
+    .cc-fl--founder { color: rgba(255,255,255,0.58); }
+    .cc-fl--founder:hover { color: rgba(255,185,50,0.92); }
+
+    /* Column link group divider */
+    .cc-fl-divider {
+      height: 1px;
+      background: rgba(28,58,67,0.5);
+      margin: 8px 0;
+    }
+
+    /* ── Column 1: Invest Now button ── */
+    .footer-invest-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--fb);
+      font-weight: 800;
+      font-size: 12px;
+      color: #000e1c;
+      background: linear-gradient(135deg, #FFD06B 0%, #FF9F0A 45%, #FF8000 100%);
+      border-radius: 6px;
+      padding: 9px 18px;
+      box-shadow: 0 2px 12px rgba(255,159,10,0.25);
+      letter-spacing: 0.01em;
+      transition: opacity var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+      overflow: hidden;
+      position: relative;
+    }
+    .footer-invest-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    .footer-invest-btn:hover {
+      opacity: 0.93;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(255,159,10,0.38);
+    }
+    .footer-invest-btn:hover::after { left: 140%; }
+    .footer-invest-btn:active { transform: scale(0.97); }
+
+    /* ── Contact link ── */
+    .footer-contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--fb);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      padding: 3px 0;
+      transition: color var(--t-fast);
+    }
+    .footer-contact-link:hover { color: rgba(255,159,10,0.8); }
+    .footer-contact-link svg { opacity: 0.5; flex-shrink: 0; }
+
+    /* ── Social icons ── */
+    .cc-footer-socials {
+      display: flex;
+      gap: 7px;
+      margin-top: 22px;
+    }
+    .cc-social-link {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(28,58,67,0.55);
+      border: 1px solid rgba(28,58,67,0.85);
+      border-radius: 7px;
+      color: rgba(255,255,255,0.36);
+      transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+    }
+    .cc-social-link:hover {
+      background: rgba(255,159,10,0.1);
+      border-color: rgba(255,159,10,0.32);
+      color: var(--amber-400);
+    }
+    .cc-social-link svg { width: 14px; height: 14px; }
+
+    /* ── Accredited mini-note (under Academy col) ── */
+    .cc-accredited-note {
+      margin-top: 22px;
+      padding: 10px 13px;
+      background: rgba(255,159,10,0.045);
+      border: 1px solid rgba(255,159,10,0.11);
+      border-radius: 8px;
+    }
+    .cc-accredited-note__label {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 8.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,159,10,0.48);
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cc-accredited-note__label svg { opacity: 0.7; flex-shrink: 0; }
+    .cc-accredited-note__text {
+      font-family: var(--fb);
+      font-size: 10px;
+      line-height: 1.58;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §6  LEGAL DISCLAIMER BLOCK
+    ════════════════════════════════════════════════════════ */
+    .cc-disclaimer {
+      padding: 30px 0 26px;
+      border-bottom: 1px solid rgba(28,58,67,0.42);
+    }
+
+    .cc-disclaimer__label {
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.18);
+      margin-bottom: 13px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cc-disclaimer__label::before,
+    .cc-disclaimer__label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(28,58,67,0.65);
+    }
+
+    .cc-disclaimer__para {
+      font-family: var(--fb);
+      font-size: 10px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.19);
+    }
+    .cc-disclaimer__para + .cc-disclaimer__para {
+      margin-top: 9px;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       §7  BOTTOM BAR
+       © 2026 | Privacy Policy | Terms & Conditions |
+       Disclosures
+    ════════════════════════════════════════════════════════ */
+    .cc-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 20px 0 32px;
+    }
+
+    .cc-copyright {
+      font-family: var(--fb);
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.015em;
+    }
+    .cc-copyright span { color: rgba(255,255,255,0.3); }
+
+    /* Right side: reg badge + legal links */
+    .cc-bottom-bar__right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Reg D accredited badge */
+    .cc-reg-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--fb);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.17);
+      white-space: nowrap;
+    }
+    .cc-reg-badge svg { opacity: 0.45; flex-shrink: 0; }
+
+    /* Thin separator between badge and legal links */
+    .cc-bottom-separator {
+      width: 1px;
+      height: 14px;
+      background: rgba(28,58,67,0.7);
+      flex-shrink: 0;
+    }
+
+    /* Legal page links */
+    .cc-legal-links {
+      display: flex;
+      align-items: center;
+    }
+    .cc-legal-link {
+      font-family: var(--fb);
+      font-size: 11px;
+      color: rgba(255,255,255,0.23);
+      padding: 3px 14px;
+      transition: color var(--t-fast);
+      position: relative;
+      white-space: nowrap;
+    }
+    .cc-legal-link:hover { color: rgba(255,255,255,0.58); }
+    .cc-legal-link + .cc-legal-link::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 22%; height: 56%;
+      width: 1px;
+      background: rgba(28,58,67,0.75);
+    }
+
+    /* ── Responsive inner padding ── */
+    @media (max-width: 1023px) {
+      .cc-footer__wrap { padding: 0 40px; }
+    }
+    @media (max-width: 639px) {
+      .cc-footer__wrap { padding: 0 24px; }
+      .cc-footer__body { padding-top: 48px; }
+      .cc-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .cc-bottom-bar__right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .cc-bottom-separator { display: none; }
+      .cc-legal-links { flex-wrap: wrap; }
+      .cc-legal-link { padding: 3px 0; margin-right: 12px; }
+      .cc-legal-link + .cc-legal-link::before { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Demo context spacer — remove in production -->
+<div class="demo-spacer" aria-hidden="true">
+  <p class="demo-label">↑ Page body content sits here ↑</p>
+</div>
+
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  §1  HABLAMOS ESPAÑOL BAND
+  ─────────────────────────────────────────────────────────────────────────────
+  MANDATORY on every main site page. Omit on all /lp/* NOINDEX funnels.
+  Links to /lp/es/ in new tab with full UTM attribution.
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<section class="es-band" aria-label="Hablamos Español — opción en español">
+
+  <div class="es-band__inner">
+
+    <!-- Left: flag icon + copy block -->
+    <div class="es-band__left">
+
+      <div class="es-band__icon-ring" role="img" aria-hidden="true">🇲🇽</div>
+
+      <div>
+        <p class="es-band__eyebrow">Hablamos Español</p>
+        <p class="es-band__headline">
+          ¿Prefiere hablar en español?
+          <strong>Nuestro equipo está listo para atenderle.</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: phone number + CTA button -->
+    <div class="es-band__right">
+
+      <!-- Phone — tel: link for mobile tap-to-call -->
+      <a
+        href="tel:+13054070276"
+        class="es-band__phone"
+        aria-label="Llame al +1 305 407 0276"
+      >
+        <!-- Phone icon -->
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <path d="M2.4 1.7h2.6l1 2.3-1.45 1.2c.67 1.45 1.65 2.43 3.1 3.1L8.9 7.1l2.3 1v2.6C11.2 10.7 7.2 11 4.3 8.7 2.2 6.9 1 4.4 2.4 1.7z"
+            stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+        </svg>
+        305-407-0276
+      </a>
+
+      <!-- Reservar una Llamada CTA — ice outlined -->
+      <a
+        href="/web/lp/es/?utm_source=spanish-band&utm_medium=site-wide&utm_campaign=hablamos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="es-band__cta"
+        aria-label="Reservar una Llamada en Español — abre en nueva pestaña"
+      >
+        <!-- Calendar icon -->
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <rect x="1.5" y="2.5" width="10" height="9.5" rx="1.2"
+            stroke="currentColor" stroke-width="1.15"/>
+          <path d="M4.5 1.5v2M8.5 1.5v2M1.5 6.5h10"
+            stroke="currentColor" stroke-width="1.15" stroke-linecap="round"/>
+        </svg>
+        Reservar una Llamada
+        <!-- Arrow icon -->
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <path d="M2.5 8.5 8.5 2.5M8.5 2.5H4m4.5 0V7"
+            stroke="currentColor" stroke-width="1.3"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+<!-- /es-band -->
+
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  §2  FOOTER — canonical footer (matches index.html)
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<!-- Footer -->
+<footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
+
+    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
+      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
+
+      <!-- Col 1: Brand -->
+      <div class="lg:col-span-1" style="grid-column:1">
+        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+        </a>
+        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
+        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
+        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
+        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
+        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
+        <!-- Socials -->
+        <nav class="flex gap-2" aria-label="Social media">
+          <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@cardone_capital" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="YouTube">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#000e1c"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Col 2: Invest -->
+      <nav aria-labelledby="ft-invest">
+        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
+          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
+          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
+          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
+        </ul>
+      </nav>
+
+      <!-- Col 3: Company -->
+      <nav aria-labelledby="ft-company">
+        <h3 class="footer-col-label" id="ft-company">Company</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/portfolio/"          class="footer-link py-1 block">Portfolio</a></li>
+          <li><a href="/web/company/#overview"   class="footer-link py-1 block">Overview</a></li>
+          <li><a href="/web/team/"               class="footer-link py-1 block">Team</a></li>
+          <li><a href="/web/company/#careers"    class="footer-link py-1 block">Careers</a></li>
+          <li><a href="/web/academy/faq/"        class="footer-link py-1 block">FAQ</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Legal disclaimer -->
+    <div class="py-7" style="border-bottom:1px solid rgba(28,58,67,.38)">
+      <p style="font-family:var(--fb);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.15);text-align:center;margin-bottom:14px">Important Disclosures</p>
+      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);text-align:justify">
+        Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a>
+      </p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
+      <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2)">© 2026 Cardone Capital, LLC. All rights reserved.</p>
+      <nav class="flex flex-wrap items-center gap-0" aria-label="Legal pages">
+        <a href="/web/privacy-policy/"       style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/disclosures/"          style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+<!-- /footer -->
+
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  INTEGRATION NOTES
+  ─────────────────────────────────────────────────────────────────────────────
+  1. PLACEMENT:
+     - <es-band> + <footer> always placed directly above </body> on all
+       main site pages (22 indexed pages).
+     - On ALL /lp/* pages (NOINDEX paid ad funnels): OMIT BOTH components.
+
+  2. IMPORT:
+     <link rel="stylesheet" href="/web/css/cc-design-system.css">  ← first
+     Page styles next. Footer uses the design system's §11 class definitions.
+
+  3. LOGO SWAP:
+     Replace .cc-logo-mark + .cc-wordmark with:
+       <img src="/web/img/cc-logo-white.svg" alt="Cardone Capital"
+            width="148" height="32" loading="lazy" decoding="async">
+
+  4. COLUMN 3 ORDER — IA v1.9 LOCKED (absolutely non-negotiable):
+     Overview → Performance → Grant Cardone → Team → Careers
+     Grant Cardone must always appear above Team. Never reorder.
+
+  5. SPANISH BAND UTM (baked into href, no JS required):
+     utm_source=spanish-band
+     utm_medium=site-wide
+     utm_campaign=hablamos
+
+  6. SOCIAL LINKS (from skills §11):
+     Facebook:  https://facebook.com/cardonecapital/
+     Instagram: https://instagram.com/cardonecapital/
+     LinkedIn:  https://linkedin.com/company/cardonecapital/
+     YouTube:   https://youtube.com/watch?v=_jhN8ZxnwzQ  (Grant Cardone video)
+
+  7. LEGAL DISCLAIMER:
+     These 3 paragraphs cover the SEC/Reg D boilerplate required for
+     Regulation D Rule 506(c) offerings. Have the client's legal counsel
+     review and approve before production deployment. Paragraph 3 references
+     all key stats exactly as locked in the skills file.
+
+  8. NEXT.JS MIGRATION:
+     - Move es-band → components/SpanishBand.tsx
+     - Move footer → components/Footer.tsx (or app/layout.tsx)
+     - All href → Next.js <Link> component (except external hrefs)
+     - Social links remain standard <a target="_blank" rel="noopener noreferrer">
+     - © year: consider {new Date().getFullYear()} for automatic update
+
+  9. ACCESSIBILITY SUMMARY:
+     - Semantic <footer role="contentinfo">
+     - Semantic <address> for physical location
+     - All nav elements have aria-labelledby pointing to heading IDs
+     - All icon-only links have descriptive aria-label
+     - tel:/mailto:/sms: links have aria-label for screen readers
+     - :focus-visible ring with amber 2px outline
+     - prefers-reduced-motion collapses all transitions
+═══════════════════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>

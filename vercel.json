@@ -1,0 +1,12 @@
+{
+  cleanUrls true,
+  trailingSlash true,
+  redirects [
+    { source gcs-insights, destination academy, permanent true },
+    { source gcs-insightspath, destination academy, permanent true }
+  ],
+  routes [
+    { handle filesystem },
+    { src (.), status 404, dest 404.html }
+  ]
+}

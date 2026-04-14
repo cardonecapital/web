@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/web/assets/images/favicon_cc.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ── NOINDEX: /lp/ pages are never indexed ── -->
+<meta name="robots" content="noindex, nofollow">
+<title>Call Confirmed! | Cardone Capital</title>
+<!-- No canonical on NOINDEX pages -->
+
+<!-- Open Graph — minimal, for social shares in case someone screenshots -->
+<meta property="og:title"       content="Call Confirmed — Cardone Capital Investor Call">
+<meta property="og:description" content="Your investor call with Cardone Capital is booked. Here's everything you need to know before your call.">
+<meta property="og:image"       content="https://cardonecapital.com/og/thank-you-call.jpg">
+<meta property="og:type"        content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GrantCardone">
+<meta name="theme-color" content="#FF9F0A">
+
+<!-- Fonts — zero Google Fonts -->
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/900.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/800.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/700.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/exo-2/400-italic.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/700.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/600.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource/barlow/400.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/800.css">
+<link rel="stylesheet" href="https://unpkg.com/@fontsource-condensed/barlow-condensed/700.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['"Exo 2"','Arial','sans-serif'],body:['Barlow','system-ui','sans-serif'],condensed:['"Barlow Condensed"','Barlow','Arial','sans-serif']}}}}</script>
+<!-- GA4 + GTM placeholders — uncomment with real IDs before launch -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-XXXX');</script> -->
+
+<style>
+/* ── NOVA v6 Design Tokens ── */
+:root{
+  --fe:'Exo 2',Arial,sans-serif;
+  --fb:Barlow,system-ui,sans-serif;
+  --fc:'Barlow Condensed',Barlow,Arial,sans-serif;
+  --void:#072d51;--carbon:#00152a;--card:#002139;--raised:#153043;--bd:#1c3a43;
+  --a400:#FF9F0A;--a100:#FFD06B;--a600:#CC7C00;
+  --i400:#00D4FF;--i200:#6AE8FF;
+  --th:#fff;--tb:#BEC5D4;--tm:#5C7A8A;
+  --ok:#00C896;--err:#FF3B30;
+  --tf:150ms ease;--ts:420ms ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{
+  font-family:var(--fb);
+  /* Void bg — radial mesh gradient */
+  background:
+    radial-gradient(ellipse 60% 80% at 92% 5%,rgba(255,159,10,.22) 0%,rgba(255,159,10,.06) 35%,transparent 60%),
+    radial-gradient(ellipse 55% 70% at 5% 95%,rgba(0,212,255,.16) 0%,rgba(0,212,255,.04) 35%,transparent 58%),
+    radial-gradient(ellipse 70% 50% at 50% 50%,rgba(7,45,81,.8) 0%,transparent 70%),
+    radial-gradient(ellipse 100% 60% at 0% 0%,#072d51 0%,transparent 55%),
+    radial-gradient(ellipse 80% 80% at 100% 100%,#1c3a43 0%,transparent 60%),
+    linear-gradient(160deg,#001020 0%,#000d1c 40%,#001525 100%);
+  min-height:100vh;
+  color:var(--tb);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* Scanlines overlay */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,212,255,.025) 47px,rgba(0,212,255,.025) 48px),
+    repeating-linear-gradient(90deg,transparent,transparent 95px,rgba(255,159,10,.015) 95px,rgba(255,159,10,.015) 96px);
+}
+/* All content above scanlines */
+.z1{position:relative;z-index:1}
+a{text-decoration:none;color:inherit}
+[x-cloak]{display:none!important}
+:focus-visible{outline:2px solid var(--a400);outline-offset:3px;border-radius:4px}
+:focus:not(:focus-visible){outline:none}
+::selection{background:rgba(255,159,10,.28);color:#fff}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--carbon)}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:999px}
+
+/* ── Gradient text ── */
+.gt-amber{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 50%,#FFB830 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.gt-ok{background:linear-gradient(135deg,#00F5B8 0%,#00C896 60%,#00F0A8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.gt-ice{background:linear-gradient(135deg,#A8EEFF 0%,#00D4FF 50%,#6AE8FF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:var(--fb);font-weight:800;font-size:13px;border-radius:7px;cursor:pointer;white-space:nowrap;text-decoration:none;border:none;transition:transform var(--tf),box-shadow var(--tf);position:relative;overflow:hidden;letter-spacing:.01em}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);color:#000e1c;padding:13px 32px;box-shadow:0 2px 20px rgba(255,159,10,.32)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:left .5s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 32px rgba(255,159,10,.48)}
+.btn-primary:hover::after{left:140%}
+.btn-gcal{background:rgba(255,255,255,.06);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.14);padding:11px 22px}
+.btn-gcal:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
+.btn-acal{background:rgba(255,159,10,.07);color:var(--a400);border:1px solid rgba(255,159,10,.3);padding:11px 22px}
+.btn-acal:hover{background:rgba(255,159,10,.13);border-color:rgba(255,159,10,.55);transform:translateY(-1px)}
+.btn-ghost{background:rgba(0,21,42,.5);color:var(--tm);border:1px solid rgba(28,58,67,.9);padding:11px 22px}
+.btn-ghost:hover{background:rgba(0,21,42,.8);color:var(--tb)}
+.btn-lg{font-size:15px;padding:14px 36px;border-radius:9px}
+.btn-sm{font-size:11px;padding:8px 16px;border-radius:5px}
+.btn-full{width:100%}
+
+/* ── Badges ── */
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:999px}
+.b-ok{background:rgba(0,200,150,.12);color:var(--ok);border:1px solid rgba(0,200,150,.28)}
+.b-amber{background:rgba(255,159,10,.14);color:var(--a400);border:1px solid rgba(255,159,10,.28)}
+.b-muted{background:rgba(28,58,67,.8);color:var(--tm);border:1px solid var(--bd)}
+.b-ice{background:rgba(0,212,255,.12);color:var(--i400);border:1px solid rgba(0,212,255,.26)}
+
+/* ── Confirmation checkmark ring ── */
+.check-ring{
+  width:88px;height:88px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,200,150,.18) 0%,rgba(0,200,150,.04) 65%,transparent 100%);
+  border:2px solid rgba(0,200,150,.35);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 36px rgba(0,200,150,.18),0 0 72px rgba(0,200,150,.08);
+  animation:ringPulse 3s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes ringPulse{
+  0%,100%{box-shadow:0 0 36px rgba(0,200,150,.18),0 0 72px rgba(0,200,150,.08)}
+  50%{box-shadow:0 0 50px rgba(0,200,150,.28),0 0 100px rgba(0,200,150,.14)}
+}
+.check-svg{animation:checkDraw .7s ease .2s both}
+@keyframes checkDraw{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* ── Confirmation card ── */
+.conf-card{
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%,rgba(0,200,150,.1) 0%,rgba(0,200,150,.02) 50%,transparent 65%),
+    radial-gradient(ellipse 60% 60% at 0% 100%,rgba(7,45,81,.7) 0%,transparent 55%),
+    linear-gradient(145deg,#002245 0%,#001020 100%);
+  border:1px solid rgba(0,200,150,.22);
+  border-radius:20px;
+  overflow:hidden;
+}
+/* variant-specific tints applied via JS */
+.conf-card.v-bitcoin {background:
+  radial-gradient(ellipse 90% 70% at 100% 0%,rgba(255,159,10,.14) 0%,transparent 60%),
+  linear-gradient(145deg,#001e38 0%,#001020 100%)}
+.conf-card.v-bitcoin{border-color:rgba(255,159,10,.28)}
+.conf-card.v-cashonly,
+.conf-card.v-ira,
+.conf-card.v-spanish {background:
+  radial-gradient(ellipse 90% 70% at 100% 0%,rgba(0,212,255,.12) 0%,transparent 60%),
+  linear-gradient(145deg,#001e38 0%,#001020 100%)}
+.conf-card.v-cashonly,
+.conf-card.v-ira,
+.conf-card.v-spanish{border-color:rgba(0,212,255,.24)}
+
+/* ── Booking detail row ── */
+.bdr{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid rgba(28,58,67,.5)}
+.bdr:last-child{border-bottom:none}
+.bdr-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--a400)}
+.bdr-label{font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--tm);margin-bottom:3px}
+.bdr-value{font-family:var(--fb);font-weight:600;font-size:14px;color:#fff;line-height:1.3}
+.bdr-value.loading{color:var(--tm);font-style:italic;font-weight:400}
+
+/* ── What to expect bullets ── */
+.wtx-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(28,58,67,.4)}
+.wtx-item:last-child{border-bottom:none}
+.wtx-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,rgba(255,159,10,.18),rgba(255,159,10,.08));border:1.5px solid rgba(255,159,10,.3);display:flex;align-items:center;justify-content:center;font-family:var(--fc);font-weight:800;font-size:13px;color:var(--a400);flex-shrink:0}
+
+/* ── YouTube embed ── */
+.yt-wrap{
+  position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border-radius:14px;background:#000c18;
+  box-shadow:0 16px 56px rgba(0,0,0,.65);
+  border:1px solid rgba(28,58,67,.6);
+}
+.yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* ── Stats ticker ── */
+.stat-pill{
+  background:rgba(0,0,0,.4);border:1px solid rgba(28,58,67,.55);
+  border-radius:999px;padding:5px 14px;
+  font-family:var(--fc);font-weight:800;font-size:12px;color:rgba(255,255,255,.6);
+  white-space:nowrap;display:flex;align-items:center;gap:6px;
+  flex-shrink:0;
+}
+.stat-pill strong{color:#fff}
+
+/* ── CC logo mark ── */
+.cc-lm{width:44px;height:44px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(255,159,10,.35);position:relative;overflow:hidden}
+.cc-lm::after{content:'';position:absolute;top:0;left:0;right:50%;height:46%;background:rgba(255,255,255,.14);border-radius:10px 0 0 0}
+.cc-lm span{font-family:var(--fc);font-weight:900;font-size:16px;color:#000e1c;letter-spacing:-.04em;position:relative;z-index:1}
+
+/* ── Resource cards ── */
+.res-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px;transition:border-color var(--ts),transform var(--ts),box-shadow var(--ts);display:flex;flex-direction:column;gap:8px;text-decoration:none}
+.res-card:hover{border-color:rgba(255,159,10,.28);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.5)}
+
+/* ── Fade-in ── */
+.fade-up{opacity:0;transform:translateY(18px);animation:fadeUp .65s cubic-bezier(.16,1,.3,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.7s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* ── Confetti canvas (decorative) ── */
+#confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+/* ── Divider ── */
+.div-amber{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,159,10,.35) 30%,rgba(255,159,10,.35) 70%,transparent 100%);margin:0 auto}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<!-- ── GTM noscript (uncomment with real ID) ── -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<!-- ════════════════════════════════════════
+     ALPINE.JS APP
+════════════════════════════════════════ -->
+<div
+  id="app"
+  class="z1"
+  x-data="thankYouPage()"
+  x-init="init()"
+>
+
+<!-- ── TOP BRAND BAR (no nav — just logo + trust signal) ── -->
+<div class="z1 flex items-center justify-between px-6 sm:px-10 py-5 max-w-screen-xl mx-auto">
+  <a href="/web/" class="flex items-center gap-2.5" aria-label="Cardone Capital home">
+    <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+  </a>
+  <!-- Secured / trust pill -->
+  <span class="badge b-ok hidden sm:inline-flex">
+    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4 .5L.5 2v2.5C.5 6.3 2 7.7 4 8c2-0.3 3.5-1.7 3.5-3.5V2L4 .5z" fill="currentColor" opacity=".8"/></svg>
+    Secured Booking Confirmed
+  </span>
+</div>
+
+<!-- ════════════════════════════════════════
+     HERO — CONFIRMATION
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pt-6 pb-12 max-w-screen-xl mx-auto" aria-label="Booking confirmation">
+<div class="max-w-2xl mx-auto text-center fade-up">
+
+  <!-- Animated check ring -->
+  <div class="flex justify-center mb-7">
+    <div class="check-ring" role="img" aria-label="Call confirmed checkmark">
+      <svg class="check-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M8 21l8 8L32 12" stroke="#00C896" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Headline -->
+  <p style="font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--ok);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px">
+    <span style="display:inline-block;width:22px;height:1.5px;background:var(--ok);border-radius:2px"></span>
+    Booking Confirmed
+    <span style="display:inline-block;width:22px;height:1.5px;background:var(--ok);border-radius:2px"></span>
+  </p>
+  <h1 class="font-display font-black uppercase" style="font-size:clamp(28px,5vw,56px);letter-spacing:-.022em;line-height:.92;color:#fff;margin-bottom:16px">
+    You're Confirmed —<br><span class="gt-ok">Your Call Is Booked.</span>
+  </h1>
+
+  <!-- Variant-aware sub-headline -->
+  <p style="font-family:var(--fb);font-size:clamp(14px,1.6vw,17px);line-height:1.65;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto 10px" x-text="variantMessage"></p>
+
+  <!-- Invitee name personalisation -->
+  <p style="font-family:var(--fb);font-size:14px;color:rgba(255,255,255,.4);margin-bottom:0" x-show="booking.inviteeName">
+    We'll see you soon, <strong style="color:rgba(255,255,255,.72)" x-text="booking.inviteeName"></strong>.
+  </p>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════════════
+     CONFIRMATION CARD — DATE / TIME / WHO
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pb-12 max-w-2xl mx-auto fade-up d1" aria-label="Booking details">
+
+  <!-- Card adapts border/bg to variant -->
+  <div class="conf-card" :class="variantCardClass">
+
+    <!-- Top bar -->
+    <div style="padding:16px 22px;border-bottom:1px solid rgba(28,58,67,.55);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <p style="font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--tm);margin-bottom:3px">Cardone Capital Investor Call</p>
+        <p style="font-family:var(--fc);font-weight:800;font-size:15px;color:#fff;text-transform:uppercase;letter-spacing:.03em" x-text="variantLabel"></p>
+      </div>
+      <span class="badge b-ok">
+        <span style="width:5px;height:5px;border-radius:50%;background:var(--ok);animation:blink 1.8s ease-in-out infinite"></span>
+        Confirmed
+      </span>
+    </div>
+
+    <!-- Booking details -->
+    <div style="padding:8px 22px 16px">
+
+      <!-- Date -->
+      <div class="bdr">
+        <div class="bdr-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x=".7" y="1.7" width="14.6" height="12.6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 .7v2M12 .7v2M.7 6.2h14.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <p class="bdr-label">Date</p>
+          <p class="bdr-value" :class="booking.date?'':'loading'" x-text="booking.date || 'Loading confirmation…'"></p>
+        </div>
+      </div>
+
+      <!-- Time -->
+      <div class="bdr">
+        <div class="bdr-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.3" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.5V8l3 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="bdr-label">Time</p>
+          <p class="bdr-value" :class="booking.time?'':'loading'" x-text="booking.time ? booking.time + ' (' + booking.timezone + ')' : 'Loading confirmation…'"></p>
+        </div>
+      </div>
+
+      <!-- Who -->
+      <div class="bdr">
+        <div class="bdr-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 13.5C1.5 11 4.5 9 8 9s6.5 2 6.5 4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <p class="bdr-label">With</p>
+          <p class="bdr-value" x-text="booking.host">Cardone Capital Investor Relations</p>
+        </div>
+      </div>
+
+      <!-- Location / dial-in -->
+      <div class="bdr">
+        <div class="bdr-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6.5 1.5C4 2 2 4.5 2 7.5c0 4 6 8 6 8s6-4 6-8c0-3-2-5.5-4.5-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.8" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div>
+          <p class="bdr-label">Location</p>
+          <p class="bdr-value">Video / Phone Call</p>
+          <p style="font-family:var(--fb);font-size:11px;color:var(--tm);margin-top:2px">A calendar invite with dial-in details has been sent to your email.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add to Calendar buttons -->
+    <div style="padding:14px 22px 20px;display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(28,58,67,.4)">
+      <p style="width:100%;font-family:var(--fb);font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--tm);margin-bottom:4px">Add to your calendar</p>
+      <!-- Google Calendar -->
+      <a
+        :href="googleCalLink"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-gcal"
+        style="font-size:12px;padding:9px 18px;gap:6px"
+        aria-label="Add to Google Calendar"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 9h18M9 3v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="15" cy="15" r="2" fill="currentColor" opacity=".5"/>
+        </svg>
+        Google Calendar
+      </a>
+      <!-- Apple Calendar (.ics download) -->
+      <a
+        :href="appleCalLink"
+        :download="'cardone-capital-call-' + booking.rawDate + '.ics'"
+        class="btn btn-acal"
+        style="font-size:12px;padding:9px 18px;gap:6px"
+        aria-label="Add to Apple Calendar — downloads .ics file"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18.7 6.2C16.7 4 14 3 11.2 3.2 8.4 3.3 6 4.5 4.3 6.7c-3.5 4.5-2.8 11 1.6 14.5 2.1 1.8 4.5 2.7 6.9 2.7.3 0 .5 0 .8-.05 2.4-.15 4.5-1.2 6.1-3 1.6-1.8 2.4-4.2 2.3-6.7-.1-2.8-1.3-5.3-3.3-7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M15 1.5c-1 1.2-1.6 2.7-1.4 4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 11v4M10 13h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        Apple Calendar
+      </a>
+      <!-- Outlook / other -->
+      <a
+        :href="appleCalLink"
+        :download="'cardone-capital-call-' + booking.rawDate + '.ics'"
+        class="btn btn-ghost"
+        style="font-size:12px;padding:9px 16px;gap:6px"
+        aria-label="Add to Outlook or other calendar — downloads .ics file"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 3v18M15 3v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Outlook / Other
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Divider -->
+<div class="div-amber z1" style="max-width:400px;margin:0 auto 48px"></div>
+
+<!-- ════════════════════════════════════════
+     WHAT TO EXPECT
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pb-14 max-w-2xl mx-auto fade-up d2" aria-labelledby="wtx-heading">
+
+  <div class="text-center mb-7">
+    <p style="font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--a400);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:7px">
+      <span style="display:inline-block;width:18px;height:1.5px;background:var(--a400);border-radius:2px"></span>
+      Before Your Call
+    </p>
+    <h2 id="wtx-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(22px,3.5vw,34px);letter-spacing:-.015em;line-height:1">
+      What to Expect on<br><span class="gt-amber">Your Investor Call</span>
+    </h2>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 22px;margin-bottom:18px">
+
+    <!-- Bullet 1 -->
+    <div class="wtx-item">
+      <div class="wtx-num" aria-hidden="true">1</div>
+      <div>
+        <p style="font-family:var(--fe);font-weight:800;font-size:14px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;margin-bottom:5px">We'll review your investment objectives</p>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.68;color:rgba(255,255,255,.58)">Our investor relations specialist will ask about your goals, timeline, and current portfolio. This is not a sales pitch — it's a structured conversation to understand whether Fund 29, Fund 30, or an IRA structure is the right fit for your situation. You're encouraged to ask every question you have.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 2 -->
+    <div class="wtx-item">
+      <div class="wtx-num" aria-hidden="true">2</div>
+      <div>
+        <p style="font-family:var(--fe);font-weight:800;font-size:14px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;margin-bottom:5px">We'll walk you through the fund mechanics</p>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.68;color:rgba(255,255,255,.58)">You'll get a clear explanation of how your chosen fund works — how capital is deployed, how distributions are paid, what the minimum investment is, and what the subscription process looks like from start to first distribution. No jargon. No pressure. Just clarity.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 3 -->
+    <div class="wtx-item">
+      <div class="wtx-num" aria-hidden="true">3</div>
+      <div>
+        <p style="font-family:var(--fe);font-weight:800;font-size:14px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;margin-bottom:5px">You'll leave knowing your next step</p>
+        <p style="font-family:var(--fb);font-size:13px;line-height:1.68;color:rgba(255,255,255,.58)">By the end of the call, you'll know exactly whether Cardone Capital is right for you — and if so, what the next step is. You're under zero obligation to invest. The call exists to give you the information you need to make a confident decision.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick-prep tip -->
+  <div style="background:rgba(255,159,10,.06);border:1px solid rgba(255,159,10,.18);border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:18px;flex-shrink:0;line-height:1.4" aria-hidden="true">💡</span>
+    <div>
+      <p style="font-family:var(--fb);font-weight:700;font-size:12px;color:rgba(255,255,255,.8);margin-bottom:3px">Quick prep tip</p>
+      <p style="font-family:var(--fb);font-size:12px;line-height:1.65;color:rgba(255,255,255,.52)">Have a rough sense of how much capital you'd like to deploy and whether you're investing personally, through an LLC, or through a Self-Directed IRA. The call goes faster and you'll get more out of it.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Divider -->
+<div class="div-amber z1" style="max-width:400px;margin:0 auto 48px"></div>
+
+<!-- ════════════════════════════════════════
+     GRANT CARDONE YOUTUBE EMBED
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pb-14 max-w-3xl mx-auto fade-up d3" aria-labelledby="video-heading">
+
+  <div class="text-center mb-7">
+    <p style="font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--a400);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:7px">
+      <span style="display:inline-block;width:18px;height:1.5px;background:var(--a400);border-radius:2px"></span>
+      Watch This While You Wait
+    </p>
+    <h2 id="video-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(20px,3vw,30px);letter-spacing:-.015em;line-height:1;margin-bottom:10px">
+      Grant Cardone on Why <span class="gt-amber">Real Estate + Bitcoin</span><br>Is the Future of Wealth
+    </h2>
+    <p style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.45);max-width:480px;margin:0 auto">This 10-minute watch will give you the full context for your call — Grant's philosophy, his track record, and the case for institutional real estate.</p>
+  </div>
+
+  <!-- YouTube embed — privacy-enhanced mode via youtube-nocookie.com -->
+  <div class="yt-wrap" aria-label="Grant Cardone video: Real Estate and Bitcoin investing strategy">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/_jhN8ZxnwzQ?rel=0&modestbranding=1&color=white&iv_load_policy=3"
+      title="Grant Cardone — Real Estate + Bitcoin Investment Strategy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- Author credit under video -->
+  <div class="flex items-center justify-center gap-4 mt-5">
+    <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(255,159,10,.3),rgba(7,45,81,.8));border:1.5px solid rgba(255,159,10,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--fc);font-weight:800;font-size:14px;color:var(--a400)">GC</div>
+    <div>
+      <p style="font-family:var(--fb);font-weight:700;font-size:13px;color:#fff">Grant Cardone</p>
+      <p style="font-family:var(--fb);font-size:11px;color:var(--tm)">Founder &amp; CEO · Cardone Capital · $5.3B AUM · ~20M followers</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════
+     STATS TRUST BAR
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pb-12 max-w-screen-xl mx-auto" aria-label="Cardone Capital key statistics">
+  <div style="background:linear-gradient(135deg,rgba(255,159,10,.08) 0%,rgba(7,45,81,.6) 25%,rgba(0,21,42,.8) 50%,rgba(28,58,67,.6) 75%,rgba(0,212,255,.06) 100%);border:1px solid rgba(28,58,67,.7);border-radius:14px;padding:18px 24px">
+    <div class="flex flex-wrap justify-center gap-3">
+      <div class="stat-pill"><strong style="font-family:var(--fc);font-weight:800;font-size:16px;letter-spacing:-.01em;background:linear-gradient(135deg,#FFD06B,#FF9F0A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$5.3B</strong> <span>AUM</span></div>
+      <div class="stat-pill"><strong style="font-family:var(--fc);font-weight:800;font-size:16px;letter-spacing:-.01em;background:linear-gradient(135deg,#FFD06B,#FF9F0A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$591M</strong> <span>Distributed</span></div>
+      <div class="stat-pill"><strong style="font-family:var(--fc);font-weight:800;font-size:16px;letter-spacing:-.01em;background:linear-gradient(135deg,#FFD06B,#FF9F0A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">20,020</strong> <span>Investors</span></div>
+      <div class="stat-pill"><strong style="font-family:var(--fc);font-weight:800;font-size:16px;letter-spacing:-.01em;background:linear-gradient(135deg,#FFD06B,#FF9F0A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">46</strong> <span>Properties</span></div>
+      <div class="stat-pill"><strong style="font-family:var(--fc);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ok)">Zero</strong> <span>Principal Losses</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="div-amber z1" style="max-width:400px;margin:0 auto 48px"></div>
+
+<!-- ════════════════════════════════════════
+     SOFT SECONDARY CTA — EXPLORE FREE RESOURCES
+════════════════════════════════════════ -->
+<section class="z1 px-6 sm:px-10 pb-14 max-w-3xl mx-auto fade-up d4" aria-labelledby="resources-heading">
+
+  <div class="text-center mb-7">
+    <p style="font-family:var(--fb);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--tm);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:7px">
+      <span style="display:inline-block;width:18px;height:1.5px;background:rgba(28,58,67,.8);border-radius:2px"></span>
+      While You Wait
+    </p>
+    <h2 id="resources-heading" class="font-display font-black uppercase text-white" style="font-size:clamp(20px,3vw,30px);letter-spacing:-.015em;line-height:1;margin-bottom:10px">
+      Explore Grant's Free Resources →
+    </h2>
+    <p style="font-family:var(--fb);font-size:13px;color:rgba(255,255,255,.42);max-width:440px;margin:0 auto">Every book, article, and guide Grant has written for accredited investors — all free, all in one place.</p>
+  </div>
+
+  <!-- Resource cards grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+
+    <!-- Academy hub -->
+    <a href="/web/academy/" class="res-card" aria-label="Visit the 10X Academy — all 5 free books">
+      <div style="width:38px;height:38px;border-radius:10px;background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.2);display:flex;align-items:center;justify-content:center;font-size:18px" aria-hidden="true">📚</div>
+      <p style="font-family:var(--fe);font-weight:800;font-size:13px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;line-height:1.25">10X Academy</p>
+      <p style="font-family:var(--fb);font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);flex:1">All 5 free books — RE Investor Guide, IRA Book, Bitcoin+RE Guide, NYT Best-Seller, 1031 Exchange Book.</p>
+      <span style="font-family:var(--fb);font-size:11px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Visit Academy <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+    </a>
+
+    <!-- Fund comparison -->
+    <a href="/web/invest/" class="res-card" aria-label="Compare Fund 29 and Fund 30">
+      <div style="width:38px;height:38px;border-radius:10px;background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.2);display:flex;align-items:center;justify-content:center;font-size:18px" aria-hidden="true">📊</div>
+      <p style="font-family:var(--fe);font-weight:800;font-size:13px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;line-height:1.25">Fund 29 vs Fund 30</p>
+      <p style="font-family:var(--fb);font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);flex:1">Side-by-side comparison. RE + Bitcoin vs Cash Only Distributions. Find the right fit before your call.</p>
+      <span style="font-family:var(--fb);font-size:11px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">Compare Funds <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+    </a>
+
+    <!-- Portfolio -->
+    <a href="/web/portfolio/" class="res-card" aria-label="Browse the Cardone Capital property portfolio">
+      <div style="width:38px;height:38px;border-radius:10px;background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.2);display:flex;align-items:center;justify-content:center;font-size:18px" aria-hidden="true">🏙</div>
+      <p style="font-family:var(--fe);font-weight:800;font-size:13px;color:#fff;text-transform:uppercase;letter-spacing:-.005em;line-height:1.25">Portfolio</p>
+      <p style="font-family:var(--fb);font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);flex:1">46 Class-A multifamily assets across FL, TX, AZ, GA, AL, MD. Browse the full portfolio before your call.</p>
+      <span style="font-family:var(--fb);font-size:11px;font-weight:700;color:var(--a400);display:flex;align-items:center;gap:4px">View Portfolio <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+    </a>
+
+  </div>
+
+  <!-- Primary CTA — explore academy -->
+  <div class="text-center">
+    <a href="/web/academy/" class="btn btn-primary btn-lg" style="font-size:15px;padding:14px 40px">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 1.5l5.5 3.5V10L7.5 13.5 2 10V5L7.5 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7.5 5.5v4M5.5 7.5h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Explore Free Resources at the 10X Academy →
+    </a>
+    <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);margin-top:10px">5 free books · 3 pillar articles · 30+ Q&amp;A · Always free</p>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
+
+    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
+      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
+
+      <!-- Col 1: Brand -->
+      <div class="lg:col-span-1" style="grid-column:1">
+        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+        </a>
+        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
+        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
+        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
+        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
+        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
+        <!-- Socials -->
+        <nav class="flex gap-2" aria-label="Social media">
+          <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@cardone_capital" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="YouTube">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#000e1c"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Col 2: Invest -->
+      <nav aria-labelledby="ft-invest">
+        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
+          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
+          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
+          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
+        </ul>
+      </nav>
+
+      <!-- Col 3: Company -->
+      <nav aria-labelledby="ft-company">
+        <h3 class="footer-col-label" id="ft-company">Company</h3>
+        <ul class="flex flex-col gap-1">
+          <li><a href="/web/portfolio/"          class="footer-link py-1 block">Portfolio</a></li>
+          <li><a href="/web/company/#overview"   class="footer-link py-1 block">Overview</a></li>
+          <li><a href="/web/team/"               class="footer-link py-1 block">Team</a></li>
+          <li><a href="/web/company/#careers"    class="footer-link py-1 block">Careers</a></li>
+          <li><a href="/web/academy/faq/"        class="footer-link py-1 block">FAQ</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Legal disclaimer -->
+    <div class="py-7" style="border-bottom:1px solid rgba(28,58,67,.38)">
+      <p style="font-family:var(--fb);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.15);text-align:center;margin-bottom:14px">Important Disclosures</p>
+      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);text-align:justify">
+        Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a>
+      </p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
+      <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2)">© 2026 Cardone Capital, LLC. All rights reserved.</p>
+      <nav class="flex flex-wrap items-center gap-0" aria-label="Legal pages">
+        <a href="/web/privacy-policy/"       style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a>
+        <span style="color:rgba(28,58,67,.8)">|</span>
+        <a href="/web/disclosures/"          style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+<!-- /footer -->
+
+</div><!-- /app -->
+
+
+<!-- ════════════════════════════════════════
+     ALPINE.JS + PAGE LOGIC
+════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────
+   Variant config — maps ?variant= to
+   display strings and card tint class
+───────────────────────────────────────── */
+const VARIANTS = {
+  bitcoin: {
+    label:   'Fund 29 — Real Estate + Bitcoin',
+    message: 'We're looking forward to walking you through the Fund 29 strategy — how institutional real estate cash flow funds Bitcoin accumulation, and why this is the most compelling dual-hard-asset structure available to accredited investors today.',
+    cardClass: 'v-bitcoin',
+    ga4:    'bitcoin'
+  },
+  cashonly: {
+    label:   'Fund 30 — Cash Only Distributions',
+    message: 'We're looking forward to discussing Fund 30 with you — institutional multifamily real estate designed to maximize quarterly cash distributions to investors, with zero Bitcoin exposure.',
+    cardClass: 'v-cashonly',
+    ga4:    'cashonly'
+  },
+  ira: {
+    label:   'IRA / 401k Investor Call',
+    message: 'We're looking forward to walking you through the Self-Directed IRA and 401k rollover process — how to invest your retirement account in Cardone Capital's institutional real estate portfolio, tax-advantaged.',
+    cardClass: 'v-ira',
+    ga4:    'ira'
+  },
+  spanish: {
+    label:   'Llamada con Inversionistas',
+    message: 'Estamos emocionados de hablar contigo sobre cómo Cardone Capital puede ayudarte a construir riqueza a través de bienes raíces institucionales. Nuestro equipo habla español y está listo para guiarte.',
+    cardClass: 'v-spanish',
+    ga4:    'spanish'
+  },
+  general: {
+    label:   'Cardone Capital Investor Call',
+    message: 'We're looking forward to speaking with you about institutional real estate investing — how Cardone Capital's portfolio works, which fund fits your goals, and what the investment process looks like from first call to first distribution.',
+    cardClass: '',
+    ga4:    'general'
+  }
+};
+
+/* ─────────────────────────────────────────
+   URL param parsing helpers
+───────────────────────────────────────── */
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name) || '';
+}
+
+/**
+ * Parse a datetime string (ISO 8601 or HubSpot format) into components.
+ * HubSpot passes times like: 2026-04-15T14:00:00-04:00
+ * We display them in a human-readable format and calculate the timezone label.
+ */
+function parseDatetime(iso) {
+  if (!iso) return null;
+  try {
+    // Decode URI component if needed
+    const decoded = decodeURIComponent(iso);
+    const dt = new Date(decoded);
+    if (isNaN(dt.getTime())) return null;
+
+    const dateStr = dt.toLocaleDateString('en-US', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const timeStr = dt.toLocaleTimeString('en-US', {
+      hour: 'numeric', minute: '2-digit', hour12: true
+    });
+    const rawDate = dt.toISOString().split('T')[0]; // YYYY-MM-DD
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Local Time';
+
+    return { dateStr, timeStr, rawDate, dt, tz };
+  } catch(e) {
+    return null;
+  }
+}
+
+/**
+ * Build Google Calendar "Add to Calendar" deep link.
+ * Requires: start datetime, end datetime (assumed +30min if not provided), title.
+ */
+function buildGoogleCalLink(dtStart, dtEnd, title, description, location) {
+  const fmt = (d) => d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+  const start = fmt(dtStart);
+  const end   = fmt(dtEnd || new Date(dtStart.getTime() + 30 * 60000));
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text:   title,
+    dates:  `${start}/${end}`,
+    details: description,
+    location: location || 'Video / Phone Call'
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+/**
+ * Build Apple Calendar / Outlook .ics data URI.
+ * Returns a data: URI so the browser downloads the .ics file on click.
+ */
+function buildIcsLink(dtStart, dtEnd, title, description, location) {
+  const fmt = (d) => d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+  const start = fmt(dtStart);
+  const end   = fmt(dtEnd || new Date(dtStart.getTime() + 30 * 60000));
+  const uid   = `cc-call-${dtStart.getTime()}@cardonecapital.com`;
+  const now   = fmt(new Date());
+
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Cardone Capital//Investor Call//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `DTSTART:${start}`,
+    `DTEND:${end}`,
+    `DTSTAMP:${now}`,
+    `UID:${uid}`,
+    `SUMMARY:${title}`,
+    `DESCRIPTION:${description.replace(/\n/g, '\\n')}`,
+    `LOCATION:${location || 'Video / Phone Call'}`,
+    'STATUS:CONFIRMED',
+    'BEGIN:VALARM',
+    'TRIGGER:-PT15M',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Reminder: Cardone Capital investor call in 15 minutes',
+    'END:VALARM',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+}
+
+/* ─────────────────────────────────────────
+   Alpine.js component
+───────────────────────────────────────── */
+function thankYouPage() {
+  return {
+    /* Booking details */
+    booking: {
+      date:        '',
+      time:        '',
+      timezone:    '',
+      rawDate:     '',
+      host:        'Cardone Capital Investor Relations',
+      inviteeName: '',
+      dtObj:       null
+    },
+    /* Variant data */
+    variant: 'general',
+    variantLabel:     'Cardone Capital Investor Call',
+    variantMessage:   VARIANTS.general.message,
+    variantCardClass: '',
+    /* Calendar links */
+    googleCalLink: '#',
+    appleCalLink:  '#',
+
+    init() {
+      /* ── Parse URL params ── */
+      const params = new URLSearchParams(window.location.search);
+
+      // Variant
+      const v = (params.get('variant') || 'general').toLowerCase();
+      const cfg = VARIANTS[v] || VARIANTS.general;
+      this.variant          = v;
+      this.variantLabel     = cfg.label;
+      this.variantMessage   = cfg.message;
+      this.variantCardClass = cfg.cardClass;
+
+      // HubSpot passes event details in query params after booking:
+      // event_start_time, event_end_time, invitee_full_name, assigned_to
+      const startRaw = params.get('event_start_time') || params.get('start') || '';
+      const endRaw   = params.get('event_end_time')   || params.get('end')   || '';
+      const name     = params.get('invitee_full_name')|| params.get('name')  || '';
+      const host     = params.get('assigned_to')      || params.get('host')  || 'Cardone Capital Investor Relations';
+
+      // Parse datetimes
+      const parsed = parseDatetime(startRaw);
+      if (parsed) {
+        this.booking.date     = parsed.dateStr;
+        this.booking.time     = parsed.timeStr;
+        this.booking.timezone = parsed.tz;
+        this.booking.rawDate  = parsed.rawDate;
+        this.booking.dtObj    = parsed.dt;
+      }
+
+      this.booking.inviteeName = name ? this._toTitleCase(name.split(' ')[0]) : '';
+      this.booking.host = host || 'Cardone Capital Investor Relations';
+
+      // Build calendar links
+      const calTitle = `Cardone Capital Investor Call — ${cfg.label}`;
+      const calDesc  = `Your Cardone Capital investor call is confirmed.\n\nFund focus: ${cfg.label}\n\nPrepare by:\n• Knowing how much capital you'd like to deploy\n• Whether you're investing personally, via LLC, or Self-Directed IRA\n• Any questions you have about the fund structure, fees, or terms\n\nMore info: https://cardonecapital.com/academy/`;
+      const calLoc   = 'Video / Phone Call — dial-in details in your confirmation email';
+
+      if (parsed && parsed.dt) {
+        const endDt = parseDatetime(endRaw)?.dt || new Date(parsed.dt.getTime() + 30 * 60000);
+        this.googleCalLink = buildGoogleCalLink(parsed.dt, endDt, calTitle, calDesc, calLoc);
+        this.appleCalLink  = buildIcsLink(parsed.dt, endDt, calTitle, calDesc, calLoc);
+      } else {
+        // Fallback links when no datetime provided (should not happen in production)
+        this.googleCalLink = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cardone+Capital+Investor+Call';
+        this.appleCalLink  = '#';
+      }
+
+      /* ── GA4 conversion event ── */
+      this._fireGA4(cfg.ga4);
+
+      /* ── Confetti burst (lightweight canvas, runs once) ── */
+      this.$nextTick(() => this._confetti());
+    },
+
+    /* ── GA4 call_booked event ── */
+    _fireGA4(funnelVariant) {
+      /*
+       * PRODUCTION: Replace the console.log below with your live gtag() call.
+       * Ensure window.gtag is initialised before this fires (load GA4 script in <head>).
+       *
+       * gtag('event', 'call_booked', {
+       *   event_category: 'conversion',
+       *   funnel_variant:  funnelVariant,
+       *   value:           1
+       * });
+       *
+       * Also push to dataLayer for GTM if using:
+       * window.dataLayer = window.dataLayer || [];
+       * window.dataLayer.push({ event: 'call_booked', funnel_variant: funnelVariant });
+       */
+      console.log(`[GA4] call_booked fired — funnel_variant: "${funnelVariant}"`);
+    },
+
+    /* ── Helpers ── */
+    _toTitleCase(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    },
+
+    /* ── Lightweight confetti (canvas, runs once for 2 seconds) ── */
+    _confetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      // Respect prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const ctx = canvas.getContext('2d');
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const COLORS = ['#FF9F0A','#FFD06B','#00D4FF','#00C896','#ffffff'];
+      const COUNT  = 80;
+      const particles = Array.from({ length: COUNT }, () => ({
+        x:    Math.random() * canvas.width,
+        y:    Math.random() * canvas.height * -0.5,
+        r:    Math.random() * 5 + 2,
+        d:    Math.random() * COUNT,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        tilt: Math.floor(Math.random() * 10) - 10,
+        tiltAngle: 0,
+        tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+        opacity: Math.random() * 0.6 + 0.4
+      }));
+
+      let angle = 0;
+      let frame = 0;
+      const MAX_FRAMES = 140; // ~2.3s at 60fps
+
+      const draw = () => {
+        if (frame > MAX_FRAMES) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          return;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        angle += 0.01;
+        frame++;
+
+        particles.forEach((p, i) => {
+          p.tiltAngle += p.tiltAngleIncrement;
+          p.y += (Math.cos(angle + p.d) + 1.5 + p.r / 2) * 1.2;
+          p.tilt = Math.sin(p.tiltAngle - i / 3) * 15;
+          p.opacity = Math.max(0, p.opacity - 0.003 * (frame / MAX_FRAMES * 3));
+
+          ctx.beginPath();
+          ctx.globalAlpha = p.opacity;
+          ctx.fillStyle = p.color;
+          ctx.roundRect
+            ? ctx.roundRect(p.x + p.tilt + p.r / 3, p.y, p.r, p.r * 2.2, 2)
+            : ctx.rect(p.x + p.tilt + p.r / 3, p.y, p.r, p.r * 2.2);
+          ctx.fill();
+        });
+
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(draw);
+      };
+      requestAnimationFrame(draw);
+    }
+  };
+}
+
+/* blink keyframe for the confirmed dot (Safari compat) */
+const styleEl = document.createElement('style');
+styleEl.textContent = '@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}';
+document.head.appendChild(styleEl);
+</script>
+
+</body>
+</html>
