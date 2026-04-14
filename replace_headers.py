@@ -21,8 +21,17 @@ nav_b2 = re.search(r'(    /\* [─]+ Mobile hamburger[\s\S]*?    \.mob-divider\{
 if not nav_b1 or not nav_b2:
     print("ERROR: Could not extract nav CSS from index.html"); exit(1)
 
+# Skip-link CSS (must be present on every page that has the skip link element)
+skip_css = (
+    "    /* ─── Skip link ─── */\n"
+    "    .skip{position:absolute;top:-100px;left:16px;z-index:9999;padding:8px 20px;\n"
+    "      background:var(--a400);color:#000;font-family:var(--fb);font-weight:700;\n"
+    "      font-size:13px;border-radius:6px;transition:top var(--t-fast)}\n"
+    "    .skip:focus{top:16px}\n"
+)
+
 # The full nav CSS block to inject (ends with a blank line)
-new_nav_css = nav_b1.group(1) + "\n\n" + nav_b2.group(1) + "\n\n"
+new_nav_css = nav_b1.group(1) + "\n\n" + nav_b2.group(1) + "\n\n" + skip_css + "\n"
 print(f"Nav CSS: {len(new_nav_css)} chars")
 
 # ─── 4. Walk all pages ─────────────────────────────────────────────────────
@@ -52,10 +61,9 @@ for dirpath, dirnames, filenames in os.walk(root):
         if n: changed = True
 
         # ── b) Update nav CSS ──────────────────────────────────────────────
-        # If the page already has the correct CSS classes, nothing to do.
-        # Otherwise: remove any old .cc-nav{...} block, then inject new CSS
-        # right before the canonical footer marker.
-        if '.cc-nav-link{' not in content and '.cc-nav-link {' not in content:
+        # Replace nav CSS if correct classes OR skip CSS are missing.
+        if '.cc-nav-link{' not in content and '.cc-nav-link {' not in content \
+                or '.skip{' not in content:
             # Remove old nav CSS (if present): from optional comment + .cc-nav{
             # up to just before /* ─── Canonical footer
             content, _ = re.subn(

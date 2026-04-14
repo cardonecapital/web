@@ -401,6 +401,7 @@
     ::-webkit-scrollbar-thumb { background: rgba(255,159,10,0.3); border-radius: 2px; }
 
 
+
     .cc-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;
       display:flex;align-items:center;background:transparent;
       border-bottom:1px solid transparent;
@@ -477,7 +478,13 @@
     .mob-sub:hover{color:rgba(255,255,255,.88);padding-left:22px}
     .mob-divider{height:1px;background:rgba(28,58,67,.55);margin:7px 0}
 
-        /* ─── Canonical footer styles ─── */
+    /* ─── Skip link ─── */
+    .skip{position:absolute;top:-100px;left:16px;z-index:9999;padding:8px 20px;
+      background:var(--a400);color:#000;font-family:var(--fb);font-weight:700;
+      font-size:13px;border-radius:6px;transition:top var(--t-fast)}
+    .skip:focus{top:16px}
+
+            /* ─── Canonical footer styles ─── */
     .cc-footer-bg{background:
       radial-gradient(ellipse 65% 90% at 0% 100%,rgba(7,45,81,.6) 0%,transparent 55%),
       radial-gradient(ellipse 50% 60% at 100% 0%,rgba(28,58,67,.38) 0%,transparent 50%),
@@ -642,6 +649,8 @@ Invest
     </div>
   </div>
 </header>
+<!-- /nav -->
+<!-- /nav -->
 <!-- /nav -->
 <!-- /nav -->
 <!-- /nav -->

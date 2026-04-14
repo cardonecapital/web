@@ -105,7 +105,13 @@
       --text-b:   #BEC5D4;
       --text-m:   #5C7A8A;
       --fb:       'Barlow', sans-serif;
-      --t-fast:   0.18s;
+      --t-fast:   150ms ease;
+      /* ── Nav compatibility aliases ── */
+      --nav-h:72px; --sn-h:52px;
+      --fe:'Exo 2',Arial,sans-serif; --fc:'Barlow Condensed',Barlow,Arial,sans-serif;
+      --th:#fff; --tb:#BEC5D4; --tm:#5C7A8A;
+      --a400:#FF9F0A; --i400:#00D4FF; --success:#00C896;
+      --tf:150ms ease; --t-base:250ms ease; --t-slow:400ms ease;
     }
 
     /* ── Full page base — void gradient mesh ── */
@@ -204,6 +210,15 @@
       border-color: rgba(255,159,10,0.58);
       box-shadow: 0 4px 18px rgba(255,159,10,0.12);
     }
+
+    /* ── Nav button overrides (page .btn-primary is larger; scope to nav) ── */
+    .cc-nav .btn,.mob-overlay .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fb);font-weight:800;border-radius:7px;cursor:pointer;white-space:nowrap;text-decoration:none;border:none;transition:transform var(--tf),box-shadow var(--tf);position:relative;overflow:hidden;letter-spacing:.01em}
+    .cc-nav .btn-primary,.mob-overlay .btn-primary{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);color:#000e1c;padding:12px 28px;box-shadow:0 2px 16px rgba(255,159,10,.28)}
+    .cc-nav .btn-secondary,.mob-overlay .btn-secondary{background:rgba(255,159,10,.06);color:#FF9F0A;border:1px solid rgba(255,159,10,.4);padding:11px 24px}
+    .cc-nav .btn-sm,.mob-overlay .btn-sm{font-size:11px;padding:8px 16px;border-radius:5px}
+    /* ── Skip link ── */
+    .skip{position:absolute;top:-100px;left:16px;z-index:9999;padding:8px 20px;background:var(--a400);color:#000;font-family:var(--fb);font-weight:700;font-size:13px;border-radius:6px;transition:top var(--tf)}
+    .skip:focus{top:16px}
 
     /* ── Minimal header bar ── */
     .page-header {
@@ -644,7 +659,6 @@ Invest
     </div>
   </div>
 </header>
-<!-- /nav -->
 <!-- /nav -->
 <!-- /nav -->
 <!-- /nav -->
