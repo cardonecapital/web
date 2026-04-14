@@ -298,25 +298,26 @@
   <!-- ══════════════════════════════════════
        TOP BAR — CC logo only
   ══════════════════════════════════════ -->
-  <header style="position:fixed;top:0;left:0;right:0;height:72px;z-index:100;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(7,45,81,.88) 0%,rgba(0,21,42,.82) 50%,rgba(28,58,67,.78) 100%);border-bottom:1px solid rgba(255,159,10,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)">
-  <a href="/web/" aria-label="Cardone Capital home">
-    <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:46px;width:auto;display:block;">
-  </a>
-</header>
-<!-- /nav -->
+  
 
 
   <!-- ══════════════════════════════════════
        HERO — Bitcoin angle
   ══════════════════════════════════════ -->
-  <section id="hero" class="relative overflow-hidden hex-grid scl" style="padding-top:90px;padding-bottom:0" aria-labelledby="h1-29">
+  <section id="hero" class="relative overflow-hidden hex-grid scl" style="padding-top:0;padding-bottom:0" aria-labelledby="h1-29">
     <!-- Orbs -->
     <div aria-hidden="true" style="position:absolute;top:-160px;right:-120px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,159,10,.15) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
     <div aria-hidden="true" style="position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.08) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
 
     <div class="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 text-center">
 
-      <!-- Bitcoin ticker badge -->
+    <div style="text-align:center;padding-top:36px;padding-bottom:28px">
+      <a href="/web/" aria-label="Cardone Capital home">
+        <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:44px;width:auto;display:inline-block;">
+      </a>
+    </div>
+
+          <!-- Bitcoin ticker badge -->
       <div class="flex items-center justify-center mb-5 r">
         <div class="btc-ticker">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#FF9F0A" aria-hidden="true"><path d="M14.24 10.56C13.93 11.8 12 11.17 11.4 11l.55-2.18c.62.16 2.62.48 2.29 1.74zm-1.16 4.68c-.34 1.32-2.68.6-3.43.41l.61-2.42c.75.19 3.17.57 2.82 2.01z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.73 14.65c-.28 1.13-1.04 1.38-2.07 1.43l-.2.8h-.98l.2-.78c-.26.07-.52.13-.79.19l-.2.79h-.98l.2-.8-1.96-.49.38-1.04.6.15c.32.08.45-.08.5-.26l.75-2.96c.03-.29-.08-.48-.43-.56l-.6-.15.27-1.04 1.97.49.2-.79h.98l-.2.79c.26-.06.52-.12.79-.18l.2-.79h.98l-.2.8c1.08.31 1.82.9 1.59 1.97z"/></svg>

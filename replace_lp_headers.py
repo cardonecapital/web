@@ -2,15 +2,15 @@ import os, re
 
 root = os.path.dirname(os.path.abspath(__file__))
 
-# Minimal centered-logo header for LP / thank-you pages
-# Logo 15% bigger than standard 40px → 46px
-MINIMAL_HEADER = '''\
-<header style="position:fixed;top:0;left:0;right:0;height:72px;z-index:100;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(7,45,81,.88) 0%,rgba(0,21,42,.82) 50%,rgba(28,58,67,.78) 100%);border-bottom:1px solid rgba(255,159,10,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)">
-  <a href="/web/" aria-label="Cardone Capital home">
-    <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:46px;width:auto;display:block;">
-  </a>
-</header>
-<!-- /nav -->'''
+# Logo to embed inside the hero — 10% bigger than standard 40px → 44px
+LOGO_HTML = (
+    '<div style="text-align:center;padding-top:36px;padding-bottom:28px">\n'
+    '      <a href="/web/" aria-label="Cardone Capital home">\n'
+    '        <img src="/web/assets/images/logocc.png" alt="Cardone Capital"'
+    ' style="height:44px;width:auto;display:inline-block;">\n'
+    '      </a>\n'
+    '    </div>\n\n    '
+)
 
 LP_PAGES = [
     'lp/fund29-bitcoin/index.html',
@@ -22,37 +22,62 @@ LP_PAGES = [
 
 THANKYOU_PAGE = 'lp/thank-you-call/index.html'
 
+# ── 1. Fix the 5 LP pages ────────────────────────────────────────────────────
 for rel in LP_PAGES:
     fpath = os.path.join(root, rel)
     with open(fpath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Replace full header (including any extra <!-- /nav --> duplicates)
-    new_content, n = re.subn(
-        r'<header[\s\S]*?</header>(\s*<!-- /nav -->)+',
-        MINIMAL_HEADER,
+    # a) Remove the fixed <header> bar (including any duplicate <!-- /nav -->)
+    content, n1 = re.subn(
+        r'<header style="position:fixed[\s\S]*?</header>\s*(\n<!-- /nav -->)+',
+        '', content, count=1
+    )
+
+    # b) Strip padding-top from the hero section (was 90px or 96px to clear fixed nav)
+    content, n2 = re.subn(
+        r'(style="[^"]*?)padding-top:\s*\d+px;',
+        r'\1padding-top:0;',
+        content, count=1   # only first section (the hero)
+    )
+
+    # c) Insert the logo as the first child of the hero content wrapper
+    #    The wrapper is always: <div class="relative z-10 max-w-5xl mx-auto px-5 ...
+    content, n3 = re.subn(
+        r'(<div class="relative z-10 max-w-5xl mx-auto[^"]*text-center">\s*\n)',
+        r'\1    ' + LOGO_HTML,
         content, count=1
     )
-    if n:
-        with open(fpath, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        print(f"  replaced header: {rel}")
-    else:
-        print(f"  WARNING – no header found: {rel}")
 
-# thank-you-call has no header – insert one after <body>
+    with open(fpath, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f"  {rel}: header_removed={n1} padding_fixed={n2} logo_inserted={n3}")
+
+# ── 2. Fix thank-you-call ────────────────────────────────────────────────────
 fpath = os.path.join(root, THANKYOU_PAGE)
 with open(fpath, 'r', encoding='utf-8') as f:
     content = f.read()
 
-if '<header' not in content:
-    new_content = content.replace(
-        '<body>',
-        '<body>\n' + MINIMAL_HEADER,
-        1
-    )
-    with open(fpath, 'w', encoding='utf-8') as f:
-        f.write(new_content)
-    print(f"  inserted header: {THANKYOU_PAGE}")
-else:
-    print(f"  already has header: {THANKYOU_PAGE}")
+# a) Remove the fixed <header> bar
+content, n1 = re.subn(
+    r'<header style="position:fixed[\s\S]*?</header>\s*\n<!-- /nav -->\n?',
+    '', content, count=1
+)
+
+# b) Replace the existing "TOP BRAND BAR" div with a simple centered logo
+content, n2 = re.subn(
+    r'<!-- ── TOP BRAND BAR[\s\S]*?</div>\s*\n',
+    (
+        '<div style="text-align:center;padding-top:36px;padding-bottom:24px" class="z1">\n'
+        '  <a href="/web/" aria-label="Cardone Capital home">\n'
+        '    <img src="/web/assets/images/logocc.png" alt="Cardone Capital"'
+        ' style="height:44px;width:auto;display:inline-block;">\n'
+        '  </a>\n'
+        '</div>\n\n'
+    ),
+    content, count=1
+)
+
+with open(fpath, 'w', encoding='utf-8') as f:
+    f.write(content)
+print(f"  {THANKYOU_PAGE}: header_removed={n1} brand_bar_replaced={n2}")
