@@ -207,6 +207,12 @@
     }
     .btn-ghost:hover { background: rgba(255,159,10,.13); border-color: rgba(255,159,10,.6); }
 
+    /* ── Nav button overrides ── */
+    .cc-nav .btn,.mob-overlay .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fb);font-weight:800;border-radius:7px;cursor:pointer;white-space:nowrap;text-decoration:none;border:none;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden;letter-spacing:.01em}
+    .cc-nav .btn-primary,.mob-overlay .btn-primary{background:linear-gradient(135deg,#FFD06B 0%,#FF9F0A 45%,#FF8000 100%);color:#000e1c;padding:12px 28px;box-shadow:0 2px 16px rgba(255,159,10,.28);font-size:13px}
+    .cc-nav .btn-secondary,.mob-overlay .btn-secondary{background:rgba(255,159,10,.06);color:#FF9F0A;border:1px solid rgba(255,159,10,.4);padding:11px 24px;font-size:13px}
+    .cc-nav .btn-sm,.mob-overlay .btn-sm{font-size:11px;padding:8px 16px;border-radius:5px}
+
     /* ── Top bar ── */
     .top-bar {
       background: linear-gradient(135deg,
