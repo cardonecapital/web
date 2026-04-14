@@ -564,89 +564,14 @@ a{text-decoration:none;color:inherit}
 </section>
 
 <!-- Footer -->
-<footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
-  <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
-
-    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
-      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
-
-      <!-- Col 1: Brand -->
-      <div class="lg:col-span-1" style="grid-column:1">
-        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
-        </a>
-        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
-        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
-        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
-        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
-        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
-        <!-- Socials -->
-        <nav class="flex gap-2" aria-label="Social media">
-          <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://instagram.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Instagram">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="https://linkedin.com/company/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="LinkedIn">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@cardone_capital" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="YouTube">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#000e1c"/></svg>
-          </a>
-        </nav>
-      </div>
-
-      <!-- Col 2: Invest -->
-      <nav aria-labelledby="ft-invest">
-        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
-        <ul class="flex flex-col gap-1">
-          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
-          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
-          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
-          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
-        </ul>
-      </nav>
-
-      <!-- Col 3: Company -->
-      <nav aria-labelledby="ft-company">
-        <h3 class="footer-col-label" id="ft-company">Company</h3>
-        <ul class="flex flex-col gap-1">
-          <li><a href="/web/portfolio/"          class="footer-link py-1 block">Portfolio</a></li>
-          <li><a href="/web/company/#overview"   class="footer-link py-1 block">Overview</a></li>
-          <li><a href="/web/team/"               class="footer-link py-1 block">Team</a></li>
-          <li><a href="/web/company/#careers"    class="footer-link py-1 block">Careers</a></li>
-          <li><a href="/web/academy/faq/"        class="footer-link py-1 block">FAQ</a></li>
-        </ul>
-      </nav>
-
-    </div>
-
-    <!-- Legal disclaimer -->
-    <div class="py-7" style="border-bottom:1px solid rgba(28,58,67,.38)">
-      <p style="font-family:var(--fb);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.15);text-align:center;margin-bottom:14px">Important Disclosures</p>
-      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);text-align:justify">
-        Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a>
-      </p>
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6">
-      <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2)">© 2026 Cardone Capital, LLC. All rights reserved.</p>
-      <nav class="flex flex-wrap items-center gap-0" aria-label="Legal pages">
-        <a href="/web/privacy-policy/"       style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a>
-        <span style="color:rgba(28,58,67,.8)">|</span>
-        <a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a>
-        <span style="color:rgba(28,58,67,.8)">|</span>
-        <a href="/web/disclosures/"          style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a>
-      </nav>
-    </div>
-
+<div style="background:#00152a;border-top:1px solid #1c3a43;padding:32px 20px;text-align:center" role="contentinfo">
+  <div class="max-w-3xl mx-auto">
+    <a href="/web/" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:31px;width:auto;display:inline-block;margin-bottom:20px"></a>
+      <p style="font-family:var(--fb);font-size:10px;line-height:1.4;color:rgba(255,255,255,.18);margin:0 0 8px;text-align:justify">Investing involves risk, including loss of principal. Past performance does not guarantee or indicate future results. Any historical returns, expected returns, or probability projections may not reflect actual future performance. While the data we use from third parties is believed to be reliable, we cannot ensure the accuracy or completeness of data provided by investors or other third parties. Neither Cardone Capital nor any of its affiliates provide tax advice and do not represent in any manner that the outcomes described herein will result in any particular tax consequence. Offers to sell, or solicitations of offers to buy, any security can only be made through official offering documents that contain important information about investment objectives, risks, fees and expenses. Bitcoin is highly speculative and its actual performance may not match investor expectation. Prospective investors should consult with a tax, legal and/or financial adviser before making any investment decision. For additional important risks, disclosures, and information, please visit <a href="https://cardonecapital.com/disclosures/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">https://cardonecapital.com/disclosures/</a></p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0;margin-bottom:8px"><a href="/web/privacy-policy/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;text-decoration:none" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Privacy Policy</a><span style="color:rgba(28,58,67,.8)">|</span><a href="/web/terms-and-conditions/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;text-decoration:none" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Terms &amp; Conditions</a><span style="color:rgba(28,58,67,.8)">|</span><a href="/web/disclosures/" style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.22);padding:3px 14px;text-decoration:none" onmouseover="this.style.color='rgba(255,255,255,.55)'" onmouseout="this.style.color='rgba(255,255,255,.22)'">Disclosures</a></div>
+    <p style="font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.2);margin:0">© 2026 Cardone Capital, LLC. All rights reserved.</p>
   </div>
-</footer>
+</div>
 <!-- /footer -->
 
 </div><!-- /app -->
