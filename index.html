@@ -1387,7 +1387,7 @@ Invest
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 pb-10" style="border-bottom:1px solid rgba(28,58,67,.45)">
 
       <!-- Card 1: Logo + Invest Now -->
-      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px">
+      <div class="ft-card-1" style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px">
         <a href="/web/" aria-label="Cardone Capital home">
           <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="max-height:40px;width:auto;max-width:100%;display:block;">
         </a>
@@ -1395,7 +1395,7 @@ Invest
       </div>
 
       <!-- Card 2: Address + Socials -->
-      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px">
+      <div class="ft-card-2" style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px">
         <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25)">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
         <a href="tel:+13054070276" style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
         <a href="mailto:invest@cardonecapital.com" style="font-family:var(--fb);font-size:clamp(9px,2.8vw,12px);color:rgba(255,255,255,.32);transition:color var(--t-fast);word-break:break-all" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
@@ -1416,7 +1416,7 @@ Invest
       </div>
 
       <!-- Card 3: Invest links -->
-      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
+      <div class="ft-card-3" style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
         <nav aria-labelledby="ft-invest">
           <h3 class="footer-col-label" id="ft-invest">Invest</h3>
           <ul class="flex flex-col gap-1">
@@ -1429,7 +1429,7 @@ Invest
       </div>
 
       <!-- Card 4: Company links -->
-      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
+      <div class="ft-card-4" style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
         <nav aria-labelledby="ft-company">
           <h3 class="footer-col-label" id="ft-company">Company</h3>
           <ul class="flex flex-col gap-1">
@@ -1479,6 +1479,12 @@ Invest
   @keyframes nowOpenBlink {
     0%,50%,65%,85%,100%{opacity:1}
     55%,75%{opacity:.08}
+  }
+  @media(max-width:767px){
+    .ft-card-1{grid-column:1;grid-row:1}
+    .ft-card-2{grid-column:1;grid-row:2}
+    .ft-card-3{grid-column:2;grid-row:1}
+    .ft-card-4{grid-column:2;grid-row:2}
   }
   @media(max-width:1023px){
     .two-col-grid{grid-template-columns:1fr!important}
