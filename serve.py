@@ -10,5 +10,5 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
         pass  # suppress log noise
 
-print("Server running at http://localhost:8080/web/")
-http.server.HTTPServer(('', 8080), Handler).serve_forever()
+print("Server running at http://localhost:8081/web/")
+http.server.HTTPServer(('', 8081), Handler).serve_forever()
