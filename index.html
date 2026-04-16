@@ -386,7 +386,7 @@
     .footer-link{font-family:var(--fb);font-size:13px;font-weight:500;
       color:rgba(255,255,255,.42);transition:color var(--t-fast)}
     .footer-link:hover{color:rgba(255,255,255,.85)}
-    .footer-col-label{font-family:var(--fb);font-weight:700;font-size:9px;
+    .footer-col-label{font-family:var(--fb);font-weight:700;font-size:12px;
       text-transform:uppercase;letter-spacing:.14em;color:var(--tm);
       margin-bottom:16px;display:flex;align-items:center;gap:8px}
     .footer-col-label::before{content:'';display:inline-block;width:18px;height:1.5px;
@@ -1383,24 +1383,23 @@ Invest
 <footer class="cc-footer-bg" role="contentinfo" aria-label="Cardone Capital site footer">
   <div class="max-w-screen-2xl mx-auto px-6 lg:px-16 pt-4 pb-8 lg:pt-5 lg:pb-10">
 
-    <!-- 4-column grid: 2fr 1fr 1fr 1fr desktop, 2col tablet, 1col mobile -->
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 40px" class="footer-grid pb-7">
-      <!-- This inline grid needs responsive overrides — using Tailwind classes below -->
-    </div>
+    <!-- 4-card footer grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 pb-10" style="border-bottom:1px solid rgba(28,58,67,.45)">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-14" style="border-bottom:1px solid rgba(28,58,67,.45)">
-
-      <!-- Col 1: Brand -->
-      <div class="lg:col-span-1" style="grid-column:1">
-        <a href="/web/" class="inline-flex items-center gap-2.5 mb-5" aria-label="Cardone Capital home"><img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
+      <!-- Card 1: Logo + Invest Now -->
+      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px">
+        <a href="/web/" aria-label="Cardone Capital home">
+          <img src="/web/assets/images/logocc.png" alt="Cardone Capital" style="height:40px;width:auto;display:block;">
         </a>
-        <a href="/web/invest/" class="btn btn-primary btn-sm mb-6" style="display:block;width:fit-content">Invest Now →</a>
-        <div style="height:1px;background:rgba(28,58,67,.65);margin-bottom:18px"></div>
-        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25);margin-bottom:12px">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
-        <a href="tel:+13054070276" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:4px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
-        <a href="mailto:invest@cardonecapital.com" style="display:block;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);margin-bottom:16px;transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
-        <!-- Socials -->
-        <nav class="flex gap-2" aria-label="Social media">
+        <a href="/web/invest/" class="btn btn-primary btn-sm" style="display:inline-block;width:fit-content">Invest Now →</a>
+      </div>
+
+      <!-- Card 2: Address + Socials -->
+      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px">
+        <address style="font-style:normal;font-family:var(--fb);font-size:11px;line-height:1.8;color:rgba(255,255,255,.25)">18851 NE 29th Ave, Suite 1000<br>Aventura, FL 33180</address>
+        <a href="tel:+13054070276" style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Call +1 305 407 0276">+1 305 407 0276</a>
+        <a href="mailto:invest@cardonecapital.com" style="font-family:var(--fb);font-size:12px;color:rgba(255,255,255,.32);transition:color var(--t-fast)" onmouseover="this.style.color='rgba(255,159,10,.75)'" onmouseout="this.style.color='rgba(255,255,255,.32)'" aria-label="Email invest@cardonecapital.com">invest@cardonecapital.com</a>
+        <nav class="flex gap-2" aria-label="Social media" style="margin-top:4px">
           <a href="https://facebook.com/cardonecapital/" target="_blank" rel="noopener noreferrer" class="cc-social-ico" aria-label="Facebook">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
@@ -1416,28 +1415,32 @@ Invest
         </nav>
       </div>
 
-      <!-- Col 2: Invest -->
-      <nav aria-labelledby="ft-invest">
-        <h3 class="footer-col-label" id="ft-invest">Invest</h3>
-        <ul class="flex flex-col gap-1">
-          <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
-          <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
-          <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
-          <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
-        </ul>
-      </nav>
+      <!-- Card 3: Invest links -->
+      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
+        <nav aria-labelledby="ft-invest">
+          <h3 class="footer-col-label" id="ft-invest">Invest</h3>
+          <ul class="flex flex-col gap-1">
+            <li><a href="/web/fund29/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-a" style="width:5px;height:5px"></span>Fund 29</a></li>
+            <li><a href="/web/fund30/"   class="footer-link flex items-center gap-2 py-1"><span class="fund-dot dot-i" style="width:5px;height:5px"></span>Fund 30</a></li>
+            <li><a href="/web/ira-401k/" class="footer-link py-1 block">IRA / 401k</a></li>
+            <li style="margin-top:6px"><a href="/web/schedule/" class="footer-link py-1 block" style="color:rgba(255,159,10,.55)">Book a Call</a></li>
+          </ul>
+        </nav>
+      </div>
 
-      <!-- Col 3: Company — Grant Cardone ABOVE Team (LOCKED) -->
-      <nav aria-labelledby="ft-company">
-        <h3 class="footer-col-label" id="ft-company">Company</h3>
-        <ul class="flex flex-col gap-1">
-          <li><a href="/web/portfolio/"             class="footer-link py-1 block">Portfolio</a></li>
-          <li><a href="/web/company/#overview"     class="footer-link py-1 block">Overview</a></li>
-          <li><a href="/web/team/"                 class="footer-link py-1 block">Team</a></li>
-          <li><a href="/web/company/#careers"      class="footer-link py-1 block">Careers</a></li>
-          <li><a href="/web/academy/faq/"          class="footer-link py-1 block">FAQ</a></li>
-        </ul>
-      </nav>
+      <!-- Card 4: Company links -->
+      <div style="background:rgba(28,58,67,.28);border:1px solid rgba(28,58,67,.6);border-radius:12px;padding:24px">
+        <nav aria-labelledby="ft-company">
+          <h3 class="footer-col-label" id="ft-company">Company</h3>
+          <ul class="flex flex-col gap-1">
+            <li><a href="/web/portfolio/"         class="footer-link py-1 block">Portfolio</a></li>
+            <li><a href="/web/company/#overview"  class="footer-link py-1 block">Overview</a></li>
+            <li><a href="/web/team/"              class="footer-link py-1 block">Team</a></li>
+            <li><a href="/web/company/#careers"   class="footer-link py-1 block">Careers</a></li>
+            <li><a href="/web/academy/faq/"       class="footer-link py-1 block">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
 
     </div>
 
